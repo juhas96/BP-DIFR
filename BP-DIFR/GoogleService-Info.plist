@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>793911126488-es1uur9e0c8liqa2uutgjnpgsfui6ocu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.793911126488-es1uur9e0c8liqa2uutgjnpgsfui6ocu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA7XA-gq8SQC5mWK5R8uh_WxiGuczLy1LA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>793911126488</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.juhas.BP-DIFR</string>
+	<key>PROJECT_ID</key>
+	<string>bakalarsky-projekt</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bakalarsky-projekt.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:793911126488:ios:6f0857ff4b5a5896</string>
+	<key>DATABASE_URL</key>
+	<string>https://bakalarsky-projekt.firebaseio.com</string>
+</dict>
+</plist>
