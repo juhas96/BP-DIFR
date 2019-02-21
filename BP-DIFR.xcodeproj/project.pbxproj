@@ -21,6 +21,8 @@
 		9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE758221F2F8900557FCD /* TabBarViewController.swift */; };
 		9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */; };
 		9C85FD12221B457C00EDCAFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C85FD11221B457C00EDCAFC /* GoogleService-Info.plist */; };
+		9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */; };
+		9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF6221F4E0100DA9B2B /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		9C7FE758221F2F8900557FCD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
 		9C85FD11221B457C00EDCAFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
+		9CCA3AF6221F4E0100DA9B2B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 				9C7FE746221F0E8100557FCD /* Workout.swift */,
 				9C7FE748221F0E8A00557FCD /* Exercise.swift */,
 				9C7FE750221F158700557FCD /* WorkoutExercise.swift */,
+				9CCA3AF6221F4E0100DA9B2B /* Image.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,8 +126,8 @@
 		9C7FE74A221F122600557FCD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9C7FE758221F2F8900557FCD /* TabBarViewController.swift */,
-				9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */,
+				9CCA3AF3221F4CFF00DA9B2B /* Cells */,
+				9CCA3AF2221F4CF100DA9B2B /* Views */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -134,6 +139,23 @@
 				9C7FE74D221F140000557FCD /* BodyPart.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		9CCA3AF2221F4CF100DA9B2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C7FE758221F2F8900557FCD /* TabBarViewController.swift */,
+				9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9CCA3AF3221F4CFF00DA9B2B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		D0760407DA001B6D880B66D7 /* Frameworks */ = {
@@ -272,6 +294,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -282,6 +305,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,11 +323,13 @@
 				9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */,
 				9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */,
 				9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */,
+				9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */,
 				9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */,
 				9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */,
 				9C7FE751221F158700557FCD /* WorkoutExercise.swift in Sources */,
 				9C7FE747221F0E8100557FCD /* Workout.swift in Sources */,
 				9C7FE74E221F140000557FCD /* BodyPart.swift in Sources */,
+				9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */,
 				9C7FE74C221F139C00557FCD /* ExerciseCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
