@@ -142,6 +142,68 @@
             </objects>
             <point key="canvasLocation" x="3056.521739130435" y="393.75"/>
         </scene>
+        <!--Exercise Detail View Controller-->
+        <scene sceneID="9Qq-0X-yfO">
+            <objects>
+                <viewController storyboardIdentifier="ExerciseDetailViewController" id="mTB-42-XMh" customClass="ExerciseDetailViewController" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zYC-h9-DHl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUd-yq-shQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="KIg-n2-f7s">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="reply" id="Yc7-Mf-NNq"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-xK-sh1">
+                                <rect key="frame" x="0.0" y="88" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="ma2-Va-vqa"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcr-ch-hZr">
+                                <rect key="frame" x="8" y="296" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gui-xk-Qqw">
+                                <rect key="frame" x="8" y="325" width="398" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xUd-yq-shQ" firstAttribute="top" secondItem="Nno-ZP-X37" secondAttribute="top" id="9bn-Ba-hUA"/>
+                            <constraint firstItem="hcr-ch-hZr" firstAttribute="top" secondItem="Ica-xK-sh1" secondAttribute="bottom" constant="8" id="AAZ-fn-NiO"/>
+                            <constraint firstItem="Ica-xK-sh1" firstAttribute="trailing" secondItem="Nno-ZP-X37" secondAttribute="trailing" id="I3D-T4-lzx"/>
+                            <constraint firstItem="gui-xk-Qqw" firstAttribute="leading" secondItem="Nno-ZP-X37" secondAttribute="leading" constant="8" id="QrK-7f-mRP"/>
+                            <constraint firstItem="xUd-yq-shQ" firstAttribute="trailing" secondItem="Nno-ZP-X37" secondAttribute="trailing" id="W5z-Ma-jjN"/>
+                            <constraint firstItem="gui-xk-Qqw" firstAttribute="top" secondItem="hcr-ch-hZr" secondAttribute="bottom" constant="8" id="XFL-kp-wbt"/>
+                            <constraint firstItem="Nno-ZP-X37" firstAttribute="trailing" secondItem="gui-xk-Qqw" secondAttribute="trailing" constant="8" id="XkL-zY-ytV"/>
+                            <constraint firstItem="Nno-ZP-X37" firstAttribute="trailing" secondItem="hcr-ch-hZr" secondAttribute="trailing" constant="8" id="gaU-at-7E8"/>
+                            <constraint firstItem="Ica-xK-sh1" firstAttribute="leading" secondItem="Nno-ZP-X37" secondAttribute="leading" id="jzo-YT-dvD"/>
+                            <constraint firstItem="Ica-xK-sh1" firstAttribute="top" secondItem="xUd-yq-shQ" secondAttribute="bottom" id="kUh-Bg-ozP"/>
+                            <constraint firstItem="hcr-ch-hZr" firstAttribute="leading" secondItem="Nno-ZP-X37" secondAttribute="leading" constant="8" id="syo-Ky-6te"/>
+                            <constraint firstItem="xUd-yq-shQ" firstAttribute="leading" secondItem="Nno-ZP-X37" secondAttribute="leading" id="za4-aG-mHO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nno-ZP-X37"/>
+                    </view>
+                    <connections>
+                        <outlet property="exerciseImageView" destination="Ica-xK-sh1" id="5Xw-lx-2jG"/>
+                        <outlet property="exerciseTitle" destination="xUd-yq-shQ" id="ixy-XY-5EJ"/>
+                        <outlet property="instructionsLabel" destination="gui-xk-Qqw" id="BII-j3-8bK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yed-hi-oRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3056.521739130435" y="1053.3482142857142"/>
+        </scene>
         <!--News Feed-->
         <scene sceneID="Cg8-4I-5hA">
             <objects>
@@ -170,7 +232,7 @@
         <!--Profile-->
         <scene sceneID="2Qt-AT-gEr">
             <objects>
-                <viewController id="q94-uu-sKC" sceneMemberID="viewController">
+                <viewController id="q94-uu-sKC" customClass="ProfileViewController" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v3V-uc-iXm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,7 +248,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kSM-3l-fQC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="2vx-9o-eGu"/>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="ge" id="2vx-9o-eGu"/>
+                    <connections>
+                        <outlet property="ProfileTabBarIcon" destination="2vx-9o-eGu" id="47h-9M-bPk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pZ-h2-oQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -355,4 +420,7 @@
             <point key="canvasLocation" x="3766.666666666667" y="393.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ge" width="16" height="16"/>
+    </resources>
 </document>
