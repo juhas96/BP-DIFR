@@ -12,10 +12,14 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .automatic
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .automatic
+        } else {
+            // Fallback on earlier versions
+        }
         setupNavBar()
         
-        
+        // MARK: - JSON
         // Test na stiahnutie JSONa Treningov
         let url = URL(string: "https://wger.de/api/v2/exercise/?language=2&page=18")
         
@@ -40,11 +44,23 @@ class TabBarViewController: UITabBarController {
     
 
     func setupNavBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        } else {
+            // Fallback on earlier versions
+        }
         
         let searchController = UISearchController(searchResultsController: nil)
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 11.0, *) {
+            navigationItem.hidesSearchBarWhenScrolling = true
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     /*

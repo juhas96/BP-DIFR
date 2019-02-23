@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class MyView: UIView {
 
     override func draw(_ rect: CGRect) {

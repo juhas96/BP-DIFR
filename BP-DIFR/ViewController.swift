@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     
@@ -29,6 +30,14 @@ class ViewController: UIViewController {
         backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         backgroundImageView.image = UIImage(named: "Background")
         view.sendSubviewToBack(backgroundImageView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if let user = Auth.auth().currentUser {
+            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
+        }
     }
 
 

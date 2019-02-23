@@ -16,6 +16,12 @@
 		9C4CB655221B43F5008C4A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4CB653221B43F5008C4A8B /* Main.storyboard */; };
 		9C4CB657221B43F6008C4A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C4CB656221B43F6008C4A8B /* Assets.xcassets */; };
 		9C4CB65A221B43F6008C4A8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4CB658221B43F6008C4A8B /* LaunchScreen.storyboard */; };
+		9C4D68F52221428400E93122 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D68F42221428400E93122 /* WorkoutCell.swift */; };
+		9C4D68F722214B8700E93122 /* MyDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D68F622214B8700E93122 /* MyDayViewController.swift */; };
+		9C4D68F922214D9000E93122 /* StartWorkoutNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D68F822214D9000E93122 /* StartWorkoutNavigationViewController.swift */; };
+		9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */; };
+		9C4D68FF22217E0700E93122 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D68FE22217E0700E93122 /* SignUpViewController.swift */; };
+		9C4D690122217E3200E93122 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D690022217E3200E93122 /* LogInViewController.swift */; };
 		9C6E86E222203DD300D2D91B /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6E86E122203DD300D2D91B /* ExerciseDetailViewController.swift */; };
 		9C7FE747221F0E8100557FCD /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE746221F0E8100557FCD /* Workout.swift */; };
 		9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE748221F0E8A00557FCD /* Exercise.swift */; };
@@ -43,6 +49,12 @@
 		9C4CB656221B43F6008C4A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C4CB659221B43F6008C4A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C4CB65B221B43F6008C4A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C4D68F42221428400E93122 /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
+		9C4D68F622214B8700E93122 /* MyDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDayViewController.swift; sourceTree = "<group>"; };
+		9C4D68F822214D9000E93122 /* StartWorkoutNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutNavigationViewController.swift; sourceTree = "<group>"; };
+		9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewModel.swift; sourceTree = "<group>"; };
+		9C4D68FE22217E0700E93122 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9C4D690022217E3200E93122 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		9C6E86E122203DD300D2D91B /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		9C7FE746221F0E8100557FCD /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		9C7FE748221F0E8A00557FCD /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -100,6 +112,7 @@
 		9C413A24221DEB7F005A5A7A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -166,6 +179,10 @@
 				9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */,
 				9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */,
 				9C6E86E122203DD300D2D91B /* ExerciseDetailViewController.swift */,
+				9C4D68F622214B8700E93122 /* MyDayViewController.swift */,
+				9C4D68F822214D9000E93122 /* StartWorkoutNavigationViewController.swift */,
+				9C4D68FE22217E0700E93122 /* SignUpViewController.swift */,
+				9C4D690022217E3200E93122 /* LogInViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */,
+				9C4D68F42221428400E93122 /* WorkoutCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -341,17 +359,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */,
+				9C4D68F922214D9000E93122 /* StartWorkoutNavigationViewController.swift in Sources */,
+				9C4D68F722214B8700E93122 /* MyDayViewController.swift in Sources */,
 				9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */,
 				9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */,
 				9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */,
 				9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */,
+				9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */,
 				9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */,
 				9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */,
+				9C4D68F52221428400E93122 /* WorkoutCell.swift in Sources */,
 				9C1D5D90221FFBA400EEC081 /* StyleKit.swift in Sources */,
 				9C6E86E222203DD300D2D91B /* ExerciseDetailViewController.swift in Sources */,
 				9C7FE751221F158700557FCD /* WorkoutExercise.swift in Sources */,
+				9C4D68FF22217E0700E93122 /* SignUpViewController.swift in Sources */,
 				9C7FE747221F0E8100557FCD /* Workout.swift in Sources */,
 				9C7FE74E221F140000557FCD /* BodyPart.swift in Sources */,
+				9C4D690122217E3200E93122 /* LogInViewController.swift in Sources */,
 				9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */,
 				9C7FE74C221F139C00557FCD /* ExerciseCategory.swift in Sources */,
 				9C1D5D92221FFBD600EEC081 /* MyView.swift in Sources */,
@@ -504,6 +528,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34V4L3C2GB;
 				INFOPLIST_FILE = "BP-DIFR/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,6 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34V4L3C2GB;
 				INFOPLIST_FILE = "BP-DIFR/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

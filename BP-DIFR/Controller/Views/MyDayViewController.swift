@@ -1,22 +1,16 @@
 //
-//  ProfileViewController.swift
+//  MyDayViewController.swift
 //  BP-DIFR
 //
-//  Created by jkbjhs on 22/02/2019.
+//  Created by jkbjhs on 23/02/2019.
 //  Copyright © 2019 jkbjhs. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController {
-
+class MyDayViewController: UINavigationController {
     
-    
-    @IBAction func logOutButtonTapped(_ sender: Any) {
-        try! Auth.auth().signOut()
-        self.dismiss(animated: true, completion: nil)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
     

@@ -1,25 +1,18 @@
 //
-//  ProfileViewController.swift
+//  WorkoutsViewModel.swift
 //  BP-DIFR
 //
-//  Created by jkbjhs on 22/02/2019.
+//  Created by jkbjhs on 23/02/2019.
 //  Copyright © 2019 jkbjhs. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-class ProfileViewController: UIViewController {
+class WorkoutsViewModel: UIViewController {
 
-    
-    
-    @IBAction func logOutButtonTapped(_ sender: Any) {
-        try! Auth.auth().signOut()
-        self.dismiss(animated: true, completion: nil)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         // Do any additional setup after loading the view.
     }
     
@@ -35,3 +28,17 @@ class ProfileViewController: UIViewController {
     */
 
 }
+
+//extension WorkoutsViewModel: UITableViewDelegate, UITableViewDataSource {
+//    
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 0
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        return indexPath.row
+//    }
+//    
+//    
+//}

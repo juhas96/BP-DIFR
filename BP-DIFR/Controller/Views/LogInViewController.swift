@@ -1,25 +1,25 @@
 //
-//  ProfileViewController.swift
+//  LogInViewController.swift
 //  BP-DIFR
 //
-//  Created by jkbjhs on 22/02/2019.
+//  Created by jkbjhs on 23/02/2019.
 //  Copyright © 2019 jkbjhs. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-class ProfileViewController: UIViewController {
+class LogInViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
-    
-    @IBAction func logOutButtonTapped(_ sender: Any) {
-        try! Auth.auth().signOut()
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func logInButtonTapped(_ sender: UIButton) {
+        handleSignIn()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         // Do any additional setup after loading the view.
     }
     
@@ -34,4 +34,7 @@ class ProfileViewController: UIViewController {
     }
     */
 
+    func handleSignIn() {
+        
+    }
 }
