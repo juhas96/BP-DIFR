@@ -15,7 +15,9 @@ class ProfileViewController: UIViewController {
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
         try! Auth.auth().signOut()
+        print("User signet out")
         self.dismiss(animated: true, completion: nil)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

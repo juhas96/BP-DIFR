@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		69CE3FED1C94CD9E78565229 /* Pods_BP_DIFR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242BA8119F178D198A2D1677 /* Pods_BP_DIFR.framework */; };
+		9C109D5622233D6F00F71D50 /* ExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C109D5522233D6F00F71D50 /* ExercisesViewModel.swift */; };
+		9C109D5822233E8B00F71D50 /* ExerciseApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C109D5722233E8B00F71D50 /* ExerciseApiModel.swift */; };
 		9C1D5D90221FFBA400EEC081 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D8F221FFBA400EEC081 /* StyleKit.swift */; };
 		9C1D5D92221FFBD600EEC081 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D91221FFBD600EEC081 /* MyView.swift */; };
 		9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */; };
@@ -39,6 +41,8 @@
 		242BA8119F178D198A2D1677 /* Pods_BP_DIFR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BP_DIFR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51CE0C27D25D48482507C589 /* Pods-BP-DIFR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BP-DIFR.release.xcconfig"; path = "Pods/Target Support Files/Pods-BP-DIFR/Pods-BP-DIFR.release.xcconfig"; sourceTree = "<group>"; };
 		52A377FCF831CE1CA5F02B45 /* Pods-BP-DIFR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BP-DIFR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BP-DIFR/Pods-BP-DIFR.debug.xcconfig"; sourceTree = "<group>"; };
+		9C109D5522233D6F00F71D50 /* ExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModel.swift; sourceTree = "<group>"; };
+		9C109D5722233E8B00F71D50 /* ExerciseApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseApiModel.swift; sourceTree = "<group>"; };
 		9C1D5D8F221FFBA400EEC081 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		9C1D5D91221FFBD600EEC081 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				9C7FE748221F0E8A00557FCD /* Exercise.swift */,
 				9C7FE750221F158700557FCD /* WorkoutExercise.swift */,
 				9CCA3AF6221F4E0100DA9B2B /* Image.swift */,
+				9C109D5722233E8B00F71D50 /* ExerciseApiModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */,
+				9C109D5522233D6F00F71D50 /* ExercisesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 			files = (
 				9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */,
 				9C4D68F922214D9000E93122 /* StartWorkoutNavigationViewController.swift in Sources */,
+				9C109D5622233D6F00F71D50 /* ExercisesViewModel.swift in Sources */,
 				9C4D68F722214B8700E93122 /* MyDayViewController.swift in Sources */,
 				9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */,
 				9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */,
@@ -373,6 +380,7 @@
 				9C6E86E222203DD300D2D91B /* ExerciseDetailViewController.swift in Sources */,
 				9C7FE751221F158700557FCD /* WorkoutExercise.swift in Sources */,
 				9C4D68FF22217E0700E93122 /* SignUpViewController.swift in Sources */,
+				9C109D5822233E8B00F71D50 /* ExerciseApiModel.swift in Sources */,
 				9C7FE747221F0E8100557FCD /* Workout.swift in Sources */,
 				9C7FE74E221F140000557FCD /* BodyPart.swift in Sources */,
 				9C4D690122217E3200E93122 /* LogInViewController.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInViewController: UIViewController {
 
@@ -35,6 +36,15 @@ class LogInViewController: UIViewController {
     */
 
     func handleSignIn() {
+        guard let email = emailTextField.text else { return }
+        guard let pass = passwordTextField.text else { return }
         
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { user, error in
+            if error == nil && user != nil {
+                self.dismiss(animated: false, completion: nil)
+            } else {
+                print("Error logging in: \(error!.localizedDescription)")
+            }
+        }
     }
 }

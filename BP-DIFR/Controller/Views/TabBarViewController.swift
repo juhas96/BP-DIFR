@@ -18,28 +18,6 @@ class TabBarViewController: UITabBarController {
             // Fallback on earlier versions
         }
         setupNavBar()
-        
-        // MARK: - JSON
-        // Test na stiahnutie JSONa Treningov
-        let url = URL(string: "https://wger.de/api/v2/exercise/?language=2&page=18")
-        
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            if error != nil {
-                print(error)
-            } else {
-                if let urlContent = data {
-                    do {
-                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers)
-                        
-                        print(jsonResult)
-                    } catch {
-                        print("JSON FAILED")
-                    }
-                }
-            }
-        }
-        task.resume()
-        
     }
     
 

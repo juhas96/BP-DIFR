@@ -199,7 +199,7 @@
                                         <rect key="frame" x="0.0" y="20.5" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTG-q9-hGL">
                                         <rect key="frame" x="0.0" y="50.5" width="374" height="20.5"/>
@@ -211,7 +211,7 @@
                                         <rect key="frame" x="0.0" y="71" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-KX-KdF">
                                         <rect key="frame" x="0.0" y="101" width="374" height="30"/>
@@ -254,7 +254,7 @@
         <!--Exercises-->
         <scene sceneID="dw6-Xv-rfp">
             <objects>
-                <viewController id="0j8-H1-WiL" customClass="ExercisesTableViewController" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0j8-H1-WiL" customClass="ExercisesViewModel" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hnm-30-lVJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,6 +323,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0j8-H1-WiL" id="6fd-Aq-4DM"/>
+                                    <outlet property="delegate" destination="0j8-H1-WiL" id="mXr-qY-gaj"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -342,8 +346,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="exercisesTableView" destination="XP9-Uq-bqV" id="ZnW-cA-jy9"/>
                         <outlet property="searchDisplayController" destination="56y-yK-rsG" id="7Mt-Bj-ItD"/>
-                        <outlet property="tableView" destination="XP9-Uq-bqV" id="9Iw-ZZ-hB9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aka-da-Fsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -462,7 +466,6 @@
         <!--My Day-->
         <scene sceneID="ilb-sh-KWw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4kL-vy-nnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ecE-cD-klx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EW8-8A-E2z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -472,6 +475,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Day" id="kFs-i3-T0W"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kL-vy-nnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3966.666666666667" y="-265.17857142857144"/>
         </scene>
@@ -636,7 +640,6 @@
         <!--My Day-->
         <scene sceneID="FGW-Rz-O1A">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SkO-fR-rug" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gUS-4m-9l6" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Day" id="6VC-zD-NL0" userLabel="MyDay"/>
                     <toolbarItems/>
@@ -649,6 +652,7 @@
                         <segue destination="ecE-cD-klx" kind="relationship" relationship="rootViewController" id="EkC-qi-GhN"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SkO-fR-rug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3056.521739130435" y="-265.17857142857144"/>
         </scene>

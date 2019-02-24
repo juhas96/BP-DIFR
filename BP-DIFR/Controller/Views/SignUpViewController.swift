@@ -56,6 +56,13 @@ class SignUpViewController: UIViewController {
                     }
                 })
                 
+                var loggedUser = Auth.auth().currentUser
+                loggedUser?.sendEmailVerification(completion: { (error) in
+                    if error != nil {
+                        print ("Error when sending verification email: \(error?.localizedDescription)")
+                    }
+                })
+                
             } else {
                 print("Error creating user: \(error!.localizedDescription)")
             }
