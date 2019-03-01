@@ -7,61 +7,95 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 // Struktura pre JSON Api ktore dotiahnem
 // Ja pracuje muz len s results kde sa nachadzaju cviky
-struct WholeJsonModel: Decodable {
-    let count: Int?
-    let next: String?
-    let previous: String?
-    let results: [ExerciseApiModel]
-}
+//struct WholeJsonModel: Decodable {
+//    let count: Int?
+//    let next: String?
+//    let previous: String?
+//    let results: [ExerciseApiModel]
+//}
 
 class ExercisesViewModel: UIViewController {
     
     @IBOutlet weak var exercisesTableView: UITableView!
     
-    var nameArray: [String] = []
-    var categorayArray: [String] = []
-    var imgURLArray: [String] = []
+    var db: Firestore = Firestore.firestore()
+    
+    var exerciseArray = [Exercise]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        loadData()
+    
         
-        // vytvorim URL zo stringu
-        let jsonUrlString = "https://wger.de/api/v2/exercise/?language=2&page=18"
-        guard let url = URL(string: jsonUrlString) else { return }
-        
-        // vyparsujem JSON
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else { return }
-            
-            do {
-                let exercises = try JSONDecoder().decode(WholeJsonModel.self, from: data)
-                print(exercises.results)
-            } catch let jsonErr {
-                print("Error serializing json:", jsonErr)
-            }
-        }.resume()
+//        addDataToFirestore()
     }
+    
+    
+    func loadData() {
+        db.collection("exercises").getDocuments { (snapshot, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                self.exerciseArray = snapshot!.documents.compactMap({Exercise(dictionary: $0.data())})
+                DispatchQueue.main.async {
+                    self.exercisesTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    
+//    func addDataToFirestore() {
+//
+//        let str = """
+//            [
+//
+//    ]
+//    """
+//        var id = 328
+//        do {
+//            let json = try JSONSerialization.jsonObject(with:str.data(using:.utf8)!, options: []) as! [[String: Any]]
+//            for var i in 0...json.count - 1
+//            {
+//                db.collection("exercises").document(String(id)).setData(json[i])
+//                print("ID JE: \(id)")
+//                id = id + 1
+//            }
+//        } catch  {
+//            print("Pridavanie dat " + error.localizedDescription)
+//        }
+//
+//    }
 }
+
 
 
 extension ExercisesViewModel: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return exerciseArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell") as! ExerciseCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath) as! ExerciseCell
+        let exercise = exerciseArray[indexPath.row]
+        
+        cell.setLabel(label: exercise.name)
         
         return cell
     }
+    
 //    
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseDetailViewController") as? ExerciseDetailViewController

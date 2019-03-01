@@ -13,6 +13,8 @@
 		9C1D5D90221FFBA400EEC081 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D8F221FFBA400EEC081 /* StyleKit.swift */; };
 		9C1D5D92221FFBD600EEC081 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D91221FFBD600EEC081 /* MyView.swift */; };
 		9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */; };
+		9C42541722290DCC0042288A /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42541622290DCC0042288A /* Routine.swift */; };
+		9C425419222921E80042288A /* AddRoutineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C425418222921E80042288A /* AddRoutineViewModel.swift */; };
 		9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CB64F221B43F5008C4A8B /* AppDelegate.swift */; };
 		9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CB651221B43F5008C4A8B /* ViewController.swift */; };
 		9C4CB655221B43F5008C4A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4CB653221B43F5008C4A8B /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 		9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */; };
 		9C4D68FF22217E0700E93122 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D68FE22217E0700E93122 /* SignUpViewController.swift */; };
 		9C4D690122217E3200E93122 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D690022217E3200E93122 /* LogInViewController.swift */; };
+		9C5FFE922226EB3D00FC577A /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5FFE912226EB3D00FC577A /* LNPopupController.framework */; };
+		9C5FFE932226EB3E00FC577A /* LNPopupController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5FFE912226EB3D00FC577A /* LNPopupController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C6E86E222203DD300D2D91B /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6E86E122203DD300D2D91B /* ExerciseDetailViewController.swift */; };
 		9C7FE747221F0E8100557FCD /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE746221F0E8100557FCD /* Workout.swift */; };
 		9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE748221F0E8A00557FCD /* Exercise.swift */; };
@@ -33,9 +37,24 @@
 		9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE758221F2F8900557FCD /* TabBarViewController.swift */; };
 		9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */; };
 		9C85FD12221B457C00EDCAFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C85FD11221B457C00EDCAFC /* GoogleService-Info.plist */; };
+		9C95E27D2224843800F25D47 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E27C2224843800F25D47 /* Equipment.swift */; };
 		9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */; };
 		9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF6221F4E0100DA9B2B /* Image.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C5FFE942226EB3E00FC577A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9C5FFE932226EB3E00FC577A /* LNPopupController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		242BA8119F178D198A2D1677 /* Pods_BP_DIFR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BP_DIFR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +65,8 @@
 		9C1D5D8F221FFBA400EEC081 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		9C1D5D91221FFBD600EEC081 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9C42541622290DCC0042288A /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
+		9C425418222921E80042288A /* AddRoutineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineViewModel.swift; sourceTree = "<group>"; };
 		9C4CB64C221B43F5008C4A8B /* BP-DIFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BP-DIFR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4CB64F221B43F5008C4A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C4CB651221B43F5008C4A8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +80,7 @@
 		9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewModel.swift; sourceTree = "<group>"; };
 		9C4D68FE22217E0700E93122 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9C4D690022217E3200E93122 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		9C5FFE912226EB3D00FC577A /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LNPopupController.framework; path = Carthage/Build/iOS/LNPopupController.framework; sourceTree = "<group>"; };
 		9C6E86E122203DD300D2D91B /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		9C7FE746221F0E8100557FCD /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		9C7FE748221F0E8A00557FCD /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -68,6 +90,7 @@
 		9C7FE758221F2F8900557FCD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
 		9C85FD11221B457C00EDCAFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9C95E27C2224843800F25D47 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		9CCA3AF6221F4E0100DA9B2B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69CE3FED1C94CD9E78565229 /* Pods_BP_DIFR.framework in Frameworks */,
+				9C5FFE922226EB3D00FC577A /* LNPopupController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +134,7 @@
 				9C7FE750221F158700557FCD /* WorkoutExercise.swift */,
 				9CCA3AF6221F4E0100DA9B2B /* Image.swift */,
 				9C109D5722233E8B00F71D50 /* ExerciseApiModel.swift */,
+				9C42541622290DCC0042288A /* Routine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,6 +144,7 @@
 			children = (
 				9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */,
 				9C109D5522233D6F00F71D50 /* ExercisesViewModel.swift */,
+				9C425418222921E80042288A /* AddRoutineViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -126,6 +152,7 @@
 		9C4CB643221B43F5008C4A8B = {
 			isa = PBXGroup;
 			children = (
+				9C5FFE912226EB3D00FC577A /* LNPopupController.framework */,
 				9C4CB64E221B43F5008C4A8B /* BP-DIFR */,
 				9C4CB64D221B43F5008C4A8B /* Products */,
 				753AF7BEAEDE96F8210DB3B6 /* Pods */,
@@ -174,6 +201,7 @@
 			children = (
 				9C7FE74B221F139C00557FCD /* ExerciseCategory.swift */,
 				9C7FE74D221F140000557FCD /* BodyPart.swift */,
+				9C95E27C2224843800F25D47 /* Equipment.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -182,8 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				9C7FE758221F2F8900557FCD /* TabBarViewController.swift */,
-				9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */,
 				9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */,
+				9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */,
 				9C6E86E122203DD300D2D91B /* ExerciseDetailViewController.swift */,
 				9C4D68F622214B8700E93122 /* MyDayViewController.swift */,
 				9C4D68F822214D9000E93122 /* StartWorkoutNavigationViewController.swift */,
@@ -223,6 +251,7 @@
 				9C4CB64A221B43F5008C4A8B /* Resources */,
 				AB713E788E8F06482D29F7B5 /* [CP] Embed Pods Frameworks */,
 				5EF978E65AF684A704E963FB /* [CP] Copy Pods Resources */,
+				9C5FFE942226EB3E00FC577A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,22 +363,34 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BP-DIFR/Pods-BP-DIFR-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +407,7 @@
 			files = (
 				9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */,
 				9C4D68F922214D9000E93122 /* StartWorkoutNavigationViewController.swift in Sources */,
+				9C95E27D2224843800F25D47 /* Equipment.swift in Sources */,
 				9C109D5622233D6F00F71D50 /* ExercisesViewModel.swift in Sources */,
 				9C4D68F722214B8700E93122 /* MyDayViewController.swift in Sources */,
 				9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */,
@@ -373,6 +415,7 @@
 				9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */,
 				9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */,
 				9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */,
+				9C42541722290DCC0042288A /* Routine.swift in Sources */,
 				9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */,
 				9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */,
 				9C4D68F52221428400E93122 /* WorkoutCell.swift in Sources */,
@@ -385,6 +428,7 @@
 				9C7FE74E221F140000557FCD /* BodyPart.swift in Sources */,
 				9C4D690122217E3200E93122 /* LogInViewController.swift in Sources */,
 				9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */,
+				9C425419222921E80042288A /* AddRoutineViewModel.swift in Sources */,
 				9C7FE74C221F139C00557FCD /* ExerciseCategory.swift in Sources */,
 				9C1D5D92221FFBD600EEC081 /* MyView.swift in Sources */,
 			);
@@ -535,8 +579,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34V4L3C2GB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "BP-DIFR/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -555,8 +603,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34V4L3C2GB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "BP-DIFR/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

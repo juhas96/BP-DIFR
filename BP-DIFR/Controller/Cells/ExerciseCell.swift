@@ -11,13 +11,11 @@ import UIKit
 class ExerciseCell: UITableViewCell {
 
     // MARK: - OUTLETS
-    @IBOutlet weak var ExerciseCategoryLabel: UILabel!
-    @IBOutlet weak var ExerciseNameLabel: UILabel!
-    @IBOutlet weak var ExerciseImageView: UIImageView!
+    @IBOutlet weak var exerciseCategoryLabel: UILabel!
+    @IBOutlet weak var exerciseNameLabel: UILabel!
+    @IBOutlet weak var exerciseImageView: UIImageView!
     
-    func setImage(image: Image) {
-        ExerciseImageView.image = image.image
-        ExerciseNameLabel.text = image.title
-        ExerciseCategoryLabel.text = image.category
+    func setLabel(label: String) {
+        self.exerciseNameLabel.text = label
     }
 }

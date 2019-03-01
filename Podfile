@@ -9,7 +9,6 @@ target 'BP-DIFR' do
 
  pod 'Firebase/Core'
  pod 'FirebaseUI/Auth'
- pod 'RAMAnimatedTabBarController'
- pod 'FoldingCell'
+ pod 'Firebase/Firestore'
  pod 'SwiftyJSON', '~>4.0'
 end

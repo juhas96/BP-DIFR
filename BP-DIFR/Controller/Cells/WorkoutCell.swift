@@ -11,5 +11,15 @@ import UIKit
 class WorkoutCell: UITableViewCell {
 
     
+    @IBOutlet weak var routineName: UILabel!
+    @IBOutlet weak var exercisesLabel: UILabel!
+    
+    func setRoutineName(routineName: String) {
+        self.routineName.text = routineName
+    }
+    
+    func setExercisesLabel(exercises: String){
+        self.exercisesLabel.text = exercises
+    }
     
 }

@@ -7,38 +7,68 @@
 //
 
 import UIKit
+import LNPopupController
 
 class WorkoutsViewModel: UIViewController {
 
+    
+    var routines: [Routine] = []
+    var exercises: [Exercise] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        routines = createArray()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
-//extension WorkoutsViewModel: UITableViewDelegate, UITableViewDataSource {
-//
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 0
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return indexPath.row
-//    }
-//
-//
-//}
+var dictionary:[String:Any] {
+    return [
+        "id": 5,
+        //            "author": author,
+        //            "category": category,
+        //            "description": description,
+        "name": "Bench"
+    ]
+}
+
+func createArray() -> [Routine] {
+    var tempArrayForRoutines: [Routine] = []
+    var tempArrayForExercises: [Exercise] = []
+    
+    let exercise = Exercise(dictionary: dictionary)
+    tempArrayForExercises.append(exercise!)
+    
+    let routine1 = Routine(id: 1, name: "Morning routine", exercises: tempArrayForExercises)
+    tempArrayForRoutines.append(routine1)
+    
+    
+    
+    
+    
+    return tempArrayForRoutines
+}
+
+
+
+extension WorkoutsViewModel: UITableViewDelegate, UITableViewDataSource {
+
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return routines.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as! WorkoutCell
+        let exercise = routines[indexPath.row]
+        
+        cell.setRoutineName(routineName: exercise.name)
+//        cell.setExercisesLabel(exercises: exercise.exercises.description)
+        
+        return cell
+    }
+
+
+}
