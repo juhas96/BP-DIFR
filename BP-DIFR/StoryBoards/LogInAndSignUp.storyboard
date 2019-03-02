@@ -69,6 +69,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G9I-V4-9rH"/>
                     </view>
+                    <connections>
+                        <segue destination="2Cu-qR-a9H" kind="presentation" identifier="toHomeScreen" id="v4w-qy-tWs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tch-Rx-NW9" sceneMemberID="firstResponder"/>
             </objects>
@@ -248,6 +251,14 @@
             </objects>
             <point key="canvasLocation" x="1410.144927536232" y="1401.5625"/>
         </scene>
+        <!--GoToTabBarStoryboard-->
+        <scene sceneID="6aa-sR-Hey">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="TabBarStartStoryboard" storyboardName="Main" referencedIdentifier="TabBarStartStoryboard" id="2Cu-qR-a9H" userLabel="GoToTabBarStoryboard" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1In-pa-SJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2412" y="1066"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qHZ-jX-m0n">
             <objects>
@@ -287,7 +298,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="y7X-eW-oPW"/>
         <segue reference="4pQ-Mn-faG"/>
     </inferredMetricsTieBreakers>
 </document>

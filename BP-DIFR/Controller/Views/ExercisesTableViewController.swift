@@ -8,17 +8,18 @@
 
 import UIKit
 import FirebaseFirestore
+import Firebase
 
 class ExercisesTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     var images: [Image] = []
-    var database = Firestore.firestore()
+    var database: Firestore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        FirebaseApp.configure()
         images = createArray()
         database = Firestore.firestore()
     }

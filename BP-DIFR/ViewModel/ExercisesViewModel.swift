@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import Firebase
 
 // Struktura pre JSON Api ktore dotiahnem
 // Ja pracuje muz len s results kde sa nachadzaju cviky
@@ -22,14 +23,14 @@ class ExercisesViewModel: UIViewController {
     
     @IBOutlet weak var exercisesTableView: UITableView!
     
-    var db: Firestore = Firestore.firestore()
+    var db: Firestore!
     
     var exerciseArray = [Exercise]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        FirebaseApp.configure()
         db = Firestore.firestore()
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
