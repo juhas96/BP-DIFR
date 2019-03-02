@@ -518,7 +518,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExerciseCollectionCell" id="WHF-zQ-xN2">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExerciseCollectionCell" id="WHF-zQ-xN2" customClass="WorkoutCollectionCell" customModule="BP_DIFR" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="0.0" width="350" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -598,7 +598,7 @@
                                                                         </constraints>
                                                                     </tableViewCellContentView>
                                                                 </tableViewCell>
-                                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="30" id="VU1-kB-qO6">
+                                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseOneSetCell" rowHeight="30" id="VU1-kB-qO6">
                                                                     <rect key="frame" x="0.0" y="53" width="324" height="30"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VU1-kB-qO6" id="bWe-UH-bLs">
@@ -679,6 +679,10 @@
                                                 </constraints>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="V6F-WQ-Eae" id="CzE-2b-Wty"/>
+                                            <outlet property="delegate" destination="V6F-WQ-Eae" id="eIj-1X-kz3"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                             </stackView>
@@ -706,6 +710,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="wId-fp-lKX"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="lcz-yS-Ugq" id="er0-Ma-0PH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1t4-0X-N7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

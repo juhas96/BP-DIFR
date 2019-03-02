@@ -10,6 +10,10 @@ import UIKit
 
 class AddRoutineViewModel: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var collectionData: [Exercise] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,11 +41,15 @@ class AddRoutineViewModel: UIViewController {
 extension AddRoutineViewModel: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return collectionData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExerciseCollectionCell", for: indexPath)
+        
+        
+        
+        return cell
     }
     
     

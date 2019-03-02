@@ -15,6 +15,8 @@
 		9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */; };
 		9C42541722290DCC0042288A /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42541622290DCC0042288A /* Routine.swift */; };
 		9C425419222921E80042288A /* AddRoutineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C425418222921E80042288A /* AddRoutineViewModel.swift */; };
+		9C42541B22296A820042288A /* WorkoutCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42541A22296A820042288A /* WorkoutCollectionCell.swift */; };
+		9C4A6A24222A6A57007CCD8C /* LogInAndSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4A6A23222A6A57007CCD8C /* LogInAndSignUp.storyboard */; };
 		9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CB64F221B43F5008C4A8B /* AppDelegate.swift */; };
 		9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CB651221B43F5008C4A8B /* ViewController.swift */; };
 		9C4CB655221B43F5008C4A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4CB653221B43F5008C4A8B /* Main.storyboard */; };
@@ -67,6 +69,8 @@
 		9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9C42541622290DCC0042288A /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
 		9C425418222921E80042288A /* AddRoutineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineViewModel.swift; sourceTree = "<group>"; };
+		9C42541A22296A820042288A /* WorkoutCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionCell.swift; sourceTree = "<group>"; };
+		9C4A6A23222A6A57007CCD8C /* LogInAndSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndSignUp.storyboard; sourceTree = "<group>"; };
 		9C4CB64C221B43F5008C4A8B /* BP-DIFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BP-DIFR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4CB64F221B43F5008C4A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C4CB651221B43F5008C4A8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		9C4A6A22222A6A0E007CCD8C /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				9C4CB653221B43F5008C4A8B /* Main.storyboard */,
+				9C4A6A23222A6A57007CCD8C /* LogInAndSignUp.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		9C4CB643221B43F5008C4A8B = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +184,7 @@
 		9C4CB64E221B43F5008C4A8B /* BP-DIFR */ = {
 			isa = PBXGroup;
 			children = (
+				9C4A6A22222A6A0E007CCD8C /* StoryBoards */,
 				9C1D5D8E221FFB8900EEC081 /* Sketch Graphic */,
 				9C7FE74F221F140500557FCD /* Enum */,
 				9C7FE74A221F122600557FCD /* Controller */,
@@ -178,7 +192,6 @@
 				9C413A23221DEB79005A5A7A /* Model */,
 				9C4CB64F221B43F5008C4A8B /* AppDelegate.swift */,
 				9C4CB651221B43F5008C4A8B /* ViewController.swift */,
-				9C4CB653221B43F5008C4A8B /* Main.storyboard */,
 				9C4CB656221B43F6008C4A8B /* Assets.xcassets */,
 				9C85FD11221B457C00EDCAFC /* GoogleService-Info.plist */,
 				9C4CB658221B43F6008C4A8B /* LaunchScreen.storyboard */,
@@ -226,6 +239,7 @@
 			children = (
 				9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */,
 				9C4D68F42221428400E93122 /* WorkoutCell.swift */,
+				9C42541A22296A820042288A /* WorkoutCollectionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -302,6 +316,7 @@
 			files = (
 				9C4CB65A221B43F6008C4A8B /* LaunchScreen.storyboard in Resources */,
 				9C85FD12221B457C00EDCAFC /* GoogleService-Info.plist in Resources */,
+				9C4A6A24222A6A57007CCD8C /* LogInAndSignUp.storyboard in Resources */,
 				9C4CB657221B43F6008C4A8B /* Assets.xcassets in Resources */,
 				9C4CB655221B43F5008C4A8B /* Main.storyboard in Resources */,
 			);
@@ -419,6 +434,7 @@
 				9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */,
 				9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */,
 				9C4D68F52221428400E93122 /* WorkoutCell.swift in Sources */,
+				9C42541B22296A820042288A /* WorkoutCollectionCell.swift in Sources */,
 				9C1D5D90221FFBA400EEC081 /* StyleKit.swift in Sources */,
 				9C6E86E222203DD300D2D91B /* ExerciseDetailViewController.swift in Sources */,
 				9C7FE751221F158700557FCD /* WorkoutExercise.swift in Sources */,
