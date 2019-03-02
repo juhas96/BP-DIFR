@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.15" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5dh-B0-v6L">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.9"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="Bl7-vH-UW8">
+            <objects>
+                <viewController id="ZZE-Fr-lPC" customClass="ProfileViewModel" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7DJ-eM-QhG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="anj-0Q-V9m">
+                                <rect key="frame" x="20" y="118" width="94" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="pYS-gF-TDC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcT-Qq-BIV">
+                                <rect key="frame" x="134" y="153" width="260" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WtI-5M-g2e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lq0-Ni-Mes">
+                                <rect key="frame" x="20" y="218" width="94" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SsI-so-fET"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Tap to change"/>
+                                <connections>
+                                    <action selector="changeImageIconTapped:" destination="ZZE-Fr-lPC" eventType="touchUpInside" id="a4J-Oz-ZEU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="anj-0Q-V9m" firstAttribute="top" secondItem="mwx-uM-O0Y" secondAttribute="top" constant="30" id="2m6-Ez-iVZ"/>
+                            <constraint firstItem="anj-0Q-V9m" firstAttribute="leading" secondItem="mwx-uM-O0Y" secondAttribute="leading" constant="20" id="IbD-7b-QwJ"/>
+                            <constraint firstItem="mwx-uM-O0Y" firstAttribute="trailing" secondItem="KcT-Qq-BIV" secondAttribute="trailing" constant="20" id="JJu-wj-uEG"/>
+                            <constraint firstItem="KcT-Qq-BIV" firstAttribute="top" secondItem="mwx-uM-O0Y" secondAttribute="top" constant="65" id="SdO-s0-trh"/>
+                            <constraint firstItem="mwx-uM-O0Y" firstAttribute="trailing" secondItem="Lq0-Ni-Mes" secondAttribute="trailing" constant="300" id="Y9r-wT-8Nu"/>
+                            <constraint firstItem="Lq0-Ni-Mes" firstAttribute="leading" secondItem="mwx-uM-O0Y" secondAttribute="leading" constant="20" id="dJ7-Wk-Dpw"/>
+                            <constraint firstItem="Lq0-Ni-Mes" firstAttribute="top" secondItem="anj-0Q-V9m" secondAttribute="bottom" constant="10" id="rEI-D5-mn1"/>
+                            <constraint firstItem="KcT-Qq-BIV" firstAttribute="leading" secondItem="anj-0Q-V9m" secondAttribute="trailing" constant="20" id="w9W-Hb-Fh2"/>
+                            <constraint firstItem="mwx-uM-O0Y" firstAttribute="trailing" secondItem="anj-0Q-V9m" secondAttribute="trailing" constant="300" id="yId-vq-GIW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mwx-uM-O0Y"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="wup-oJ-ypW">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="sMc-lt-fof">
+                            <connections>
+                                <action selector="logOutTapped:" destination="ZZE-Fr-lPC" id="3NA-yq-NSw"/>
+                                <segue destination="77Q-aD-yaC" kind="presentation" id="zUl-p2-9h1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="sWW-qw-kOJ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="profileImageView" destination="anj-0Q-V9m" id="Jp4-vi-Sn4"/>
+                        <outlet property="tapToChangeProfileButton" destination="Lq0-Ni-Mes" id="79P-P9-Ny5"/>
+                        <outlet property="userNameLabel" destination="KcT-Qq-BIV" id="3dp-Sc-gnQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XJf-MB-t8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3966.666666666667" y="-1047.3214285714284"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="qK1-nH-E4p">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="5dh-B0-v6L" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="bFh-8I-lbO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KuQ-rM-Lap">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZZE-Fr-lPC" kind="relationship" relationship="rootViewController" id="g1X-gx-XtQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zPR-us-0dA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3057" y="-1047"/>
+        </scene>
+        <!--LogInAndSignUpStoryboard-->
+        <scene sceneID="Coi-N4-Wh2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LogInAndSignUp" referencedIdentifier="LogInAndSignUpStoryboard" id="77Q-aD-yaC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IJi-lv-6Sx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3486" y="-1430"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Background" width="375" height="812"/>
+    </resources>
+</document>

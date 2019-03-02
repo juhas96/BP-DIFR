@@ -10,5 +10,6 @@ target 'BP-DIFR' do
  pod 'Firebase/Core'
  pod 'FirebaseUI/Auth'
  pod 'Firebase/Firestore'
+ pod 'Firebase/Storage'
  pod 'SwiftyJSON', '~>4.0'
 end

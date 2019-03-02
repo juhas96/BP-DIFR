@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		69CE3FED1C94CD9E78565229 /* Pods_BP_DIFR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242BA8119F178D198A2D1677 /* Pods_BP_DIFR.framework */; };
+		9C0564B0222A8DDF00B6DF07 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0564AF222A8DDF00B6DF07 /* ProfileViewModel.swift */; };
 		9C109D5622233D6F00F71D50 /* ExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C109D5522233D6F00F71D50 /* ExercisesViewModel.swift */; };
 		9C109D5822233E8B00F71D50 /* ExerciseApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C109D5722233E8B00F71D50 /* ExerciseApiModel.swift */; };
 		9C1D5D90221FFBA400EEC081 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D8F221FFBA400EEC081 /* StyleKit.swift */; };
@@ -41,6 +42,7 @@
 		9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */; };
 		9C85FD12221B457C00EDCAFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C85FD11221B457C00EDCAFC /* GoogleService-Info.plist */; };
 		9C8BF40C222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF40B222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard */; };
+		9C8BF40E222A8B610061F48A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF40D222A8B610061F48A /* Profile.storyboard */; };
 		9C95E27D2224843800F25D47 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E27C2224843800F25D47 /* Equipment.swift */; };
 		9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */; };
 		9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF6221F4E0100DA9B2B /* Image.swift */; };
@@ -64,6 +66,7 @@
 		242BA8119F178D198A2D1677 /* Pods_BP_DIFR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BP_DIFR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51CE0C27D25D48482507C589 /* Pods-BP-DIFR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BP-DIFR.release.xcconfig"; path = "Pods/Target Support Files/Pods-BP-DIFR/Pods-BP-DIFR.release.xcconfig"; sourceTree = "<group>"; };
 		52A377FCF831CE1CA5F02B45 /* Pods-BP-DIFR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BP-DIFR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BP-DIFR/Pods-BP-DIFR.debug.xcconfig"; sourceTree = "<group>"; };
+		9C0564AF222A8DDF00B6DF07 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		9C109D5522233D6F00F71D50 /* ExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModel.swift; sourceTree = "<group>"; };
 		9C109D5722233E8B00F71D50 /* ExerciseApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseApiModel.swift; sourceTree = "<group>"; };
 		9C1D5D8F221FFBA400EEC081 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
 		9C85FD11221B457C00EDCAFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C8BF40B222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartWorkoutOrAddWorkout.storyboard; sourceTree = "<group>"; };
+		9C8BF40D222A8B610061F48A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		9C95E27C2224843800F25D47 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		9CCA3AF6221F4E0100DA9B2B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */,
 				9C109D5522233D6F00F71D50 /* ExercisesViewModel.swift */,
 				9C425418222921E80042288A /* AddRoutineViewModel.swift */,
+				9C0564AF222A8DDF00B6DF07 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				9C4A6A23222A6A57007CCD8C /* LogInAndSignUp.storyboard */,
 				9C7723CC222A6F57001B823E /* Exercises.storyboard */,
 				9C8BF40B222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard */,
+				9C8BF40D222A8B610061F48A /* Profile.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 			files = (
 				9C4CB65A221B43F6008C4A8B /* LaunchScreen.storyboard in Resources */,
 				9C85FD12221B457C00EDCAFC /* GoogleService-Info.plist in Resources */,
+				9C8BF40E222A8B610061F48A /* Profile.storyboard in Resources */,
 				9C4A6A24222A6A57007CCD8C /* LogInAndSignUp.storyboard in Resources */,
 				9C4CB657221B43F6008C4A8B /* Assets.xcassets in Resources */,
 				9C7723CD222A6F57001B823E /* Exercises.storyboard in Resources */,
@@ -434,6 +441,7 @@
 				9C109D5622233D6F00F71D50 /* ExercisesViewModel.swift in Sources */,
 				9C4D68F722214B8700E93122 /* MyDayViewController.swift in Sources */,
 				9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */,
+				9C0564B0222A8DDF00B6DF07 /* ProfileViewModel.swift in Sources */,
 				9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */,
 				9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */,
 				9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */,

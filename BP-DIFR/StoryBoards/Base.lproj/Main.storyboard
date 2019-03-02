@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kL-vy-nnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3967" y="-265"/>
+            <point key="canvasLocation" x="3967" y="-1014"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="yB0-dB-pfh">
@@ -56,12 +56,22 @@
                         <segue destination="AXz-Oe-cT2" kind="relationship" relationship="viewControllers" id="zM4-hP-v8p"/>
                         <segue destination="3uO-Y6-w45" kind="relationship" relationship="viewControllers" id="T1u-V0-lwS"/>
                         <segue destination="e3p-zf-FJ6" kind="relationship" relationship="viewControllers" id="Ydv-XE-eSZ"/>
-                        <segue destination="6PK-DV-yYz" kind="relationship" relationship="viewControllers" id="XT4-zT-rPp"/>
+                        <segue destination="hGc-G5-bS7" kind="relationship" relationship="viewControllers" id="4y0-8J-dIv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUD-CU-xHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1231" y="66"/>
+        </scene>
+        <!--ProfileStoryboard-->
+        <scene sceneID="2BH-f5-ody">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileStoryboard" id="hGc-G5-bS7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="pba-U5-6LP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOY-0c-OXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3097" y="-402"/>
         </scene>
         <!--ExercisesStoryBoard-->
         <scene sceneID="zkL-ld-oVE">
@@ -72,7 +82,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IF5-TV-cL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3057" y="214"/>
+            <point key="canvasLocation" x="3083" y="-342"/>
         </scene>
         <!--My Day-->
         <scene sceneID="FGW-Rz-O1A">
@@ -91,7 +101,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkO-fR-rug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3056.521739130435" y="-265.17857142857144"/>
+            <point key="canvasLocation" x="3057" y="-1014"/>
         </scene>
         <!--News Feed-->
         <scene sceneID="mCD-uE-6kF">
@@ -112,28 +122,6 @@
             </objects>
             <point key="canvasLocation" x="3057" y="-1821"/>
         </scene>
-        <!--Profile-->
-        <scene sceneID="HbU-OK-FGx">
-            <objects>
-                <viewController id="fEF-Zg-Usm" customClass="ProfileViewController" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bMj-u8-wqs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="ekw-P7-xX0"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Profile" id="5W3-8c-1uZ">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="315-oO-8yM">
-                            <connections>
-                                <action selector="logOutButtonTapped:" destination="fEF-Zg-Usm" id="JEk-XG-VcT"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VPN-L9-NvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3967" y="-1047"/>
-        </scene>
         <!--StartWorkoutOrAddWorkout-->
         <scene sceneID="W13-Rc-ZoZ">
             <objects>
@@ -143,26 +131,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydH-fw-zY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3057" y="283"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="FBN-9K-y6u">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6PK-DV-yYz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="09G-te-v90"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gyS-rR-z9T">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fEF-Zg-Usm" kind="relationship" relationship="rootViewController" id="lzs-7z-r2K"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GRS-Px-Ei8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3057" y="-1047"/>
+            <point key="canvasLocation" x="3083" y="-273"/>
         </scene>
     </scenes>
 </document>
