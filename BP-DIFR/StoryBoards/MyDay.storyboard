@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.15" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="COG-pH-6ew">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.9"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Day-->
+        <scene sceneID="UJu-ap-ipU">
+            <objects>
+                <viewController id="pbQ-Ts-cCF" customClass="MyDayViewController" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N4T-bK-jyi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIg-Vp-gsd">
+                                <rect key="frame" x="20" y="108" width="374" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="zL5-Sf-hTB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9o-Vv-IQ5" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="151" width="374" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="9r7-zh-kL8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IIg-Vp-gsd" firstAttribute="leading" secondItem="QEo-xU-8m5" secondAttribute="leading" constant="20" id="6xY-kO-Qbi"/>
+                            <constraint firstItem="QEo-xU-8m5" firstAttribute="trailing" secondItem="IIg-Vp-gsd" secondAttribute="trailing" constant="20" id="D3D-22-P5a"/>
+                            <constraint firstItem="IIg-Vp-gsd" firstAttribute="top" secondItem="QEo-xU-8m5" secondAttribute="top" constant="20" id="ba2-2X-UsD"/>
+                            <constraint firstItem="QEo-xU-8m5" firstAttribute="trailing" secondItem="a9o-Vv-IQ5" secondAttribute="trailing" constant="20" id="hL5-1x-7HL"/>
+                            <constraint firstItem="a9o-Vv-IQ5" firstAttribute="top" secondItem="IIg-Vp-gsd" secondAttribute="bottom" constant="8" id="kiZ-KF-rWl"/>
+                            <constraint firstItem="a9o-Vv-IQ5" firstAttribute="leading" secondItem="QEo-xU-8m5" secondAttribute="leading" constant="20" id="vJx-5g-nC1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QEo-xU-8m5"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Day" id="dYr-d9-HMK"/>
+                    <connections>
+                        <outlet property="chartView" destination="a9o-Vv-IQ5" id="gUl-xU-Y5Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pWC-xr-8qC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3531.884057971015" y="-725.22321428571422"/>
+        </scene>
+        <!--My Day-->
+        <scene sceneID="Wfp-vY-DKL">
+            <objects>
+                <navigationController storyboardIdentifier="MyDayStoryboard" title="My Day" automaticallyAdjustsScrollViewInsets="NO" id="COG-pH-6ew" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jVd-xe-qaP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pbQ-Ts-cCF" kind="relationship" relationship="rootViewController" id="UcI-Gf-Kwl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="syH-zl-w4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2621.739130434783" y="-725.22321428571422"/>
+        </scene>
+    </scenes>
+</document>

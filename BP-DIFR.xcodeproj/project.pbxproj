@@ -14,9 +14,10 @@
 		9C1D5D90221FFBA400EEC081 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D8F221FFBA400EEC081 /* StyleKit.swift */; };
 		9C1D5D92221FFBD600EEC081 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D91221FFBD600EEC081 /* MyView.swift */; };
 		9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */; };
+		9C375282222DA10500D4548A /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C375281222DA10500D4548A /* MyDay.storyboard */; };
+		9C375284222DA1AD00D4548A /* NewsFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C375283222DA1AD00D4548A /* NewsFeed.storyboard */; };
 		9C42541722290DCC0042288A /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42541622290DCC0042288A /* Routine.swift */; };
 		9C425419222921E80042288A /* AddRoutineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C425418222921E80042288A /* AddRoutineViewModel.swift */; };
-		9C42541B22296A820042288A /* WorkoutCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42541A22296A820042288A /* WorkoutCollectionCell.swift */; };
 		9C4A6A24222A6A57007CCD8C /* LogInAndSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4A6A23222A6A57007CCD8C /* LogInAndSignUp.storyboard */; };
 		9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CB64F221B43F5008C4A8B /* AppDelegate.swift */; };
 		9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CB651221B43F5008C4A8B /* ViewController.swift */; };
@@ -41,6 +42,8 @@
 		9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE758221F2F8900557FCD /* TabBarViewController.swift */; };
 		9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */; };
 		9C85FD12221B457C00EDCAFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C85FD11221B457C00EDCAFC /* GoogleService-Info.plist */; };
+		9C8A4316222C777D006A6883 /* ExerciseCellInNewRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A4315222C777D006A6883 /* ExerciseCellInNewRoutine.swift */; };
+		9C8A4318222C7AD5006A6883 /* OneSetInExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A4317222C7AD5006A6883 /* OneSetInExerciseCell.swift */; };
 		9C8BF40C222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF40B222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard */; };
 		9C8BF40E222A8B610061F48A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF40D222A8B610061F48A /* Profile.storyboard */; };
 		9C95E27D2224843800F25D47 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E27C2224843800F25D47 /* Equipment.swift */; };
@@ -72,9 +75,10 @@
 		9C1D5D8F221FFBA400EEC081 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		9C1D5D91221FFBD600EEC081 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9C375281222DA10500D4548A /* MyDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyDay.storyboard; sourceTree = "<group>"; };
+		9C375283222DA1AD00D4548A /* NewsFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsFeed.storyboard; sourceTree = "<group>"; };
 		9C42541622290DCC0042288A /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
 		9C425418222921E80042288A /* AddRoutineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineViewModel.swift; sourceTree = "<group>"; };
-		9C42541A22296A820042288A /* WorkoutCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionCell.swift; sourceTree = "<group>"; };
 		9C4A6A23222A6A57007CCD8C /* LogInAndSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndSignUp.storyboard; sourceTree = "<group>"; };
 		9C4CB64C221B43F5008C4A8B /* BP-DIFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BP-DIFR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4CB64F221B43F5008C4A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 		9C7FE758221F2F8900557FCD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9C7FE75C221F350C00557FCD /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
 		9C85FD11221B457C00EDCAFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9C8A4315222C777D006A6883 /* ExerciseCellInNewRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCellInNewRoutine.swift; sourceTree = "<group>"; };
+		9C8A4317222C7AD5006A6883 /* OneSetInExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSetInExerciseCell.swift; sourceTree = "<group>"; };
 		9C8BF40B222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartWorkoutOrAddWorkout.storyboard; sourceTree = "<group>"; };
 		9C8BF40D222A8B610061F48A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		9C95E27C2224843800F25D47 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
@@ -170,6 +176,8 @@
 				9C7723CC222A6F57001B823E /* Exercises.storyboard */,
 				9C8BF40B222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard */,
 				9C8BF40D222A8B610061F48A /* Profile.storyboard */,
+				9C375281222DA10500D4548A /* MyDay.storyboard */,
+				9C375283222DA1AD00D4548A /* NewsFeed.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -251,7 +259,8 @@
 			children = (
 				9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */,
 				9C4D68F42221428400E93122 /* WorkoutCell.swift */,
-				9C42541A22296A820042288A /* WorkoutCollectionCell.swift */,
+				9C8A4315222C777D006A6883 /* ExerciseCellInNewRoutine.swift */,
+				9C8A4317222C7AD5006A6883 /* OneSetInExerciseCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -326,6 +335,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C375282222DA10500D4548A /* MyDay.storyboard in Resources */,
+				9C375284222DA1AD00D4548A /* NewsFeed.storyboard in Resources */,
 				9C4CB65A221B43F6008C4A8B /* LaunchScreen.storyboard in Resources */,
 				9C85FD12221B457C00EDCAFC /* GoogleService-Info.plist in Resources */,
 				9C8BF40E222A8B610061F48A /* Profile.storyboard in Resources */,
@@ -394,6 +405,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BP-DIFR/Pods-BP-DIFR-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -411,6 +423,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -435,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C8A4316222C777D006A6883 /* ExerciseCellInNewRoutine.swift in Sources */,
 				9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */,
 				9C4D68F922214D9000E93122 /* StartWorkoutNavigationViewController.swift in Sources */,
 				9C95E27D2224843800F25D47 /* Equipment.swift in Sources */,
@@ -445,12 +459,12 @@
 				9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */,
 				9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */,
 				9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */,
+				9C8A4318222C7AD5006A6883 /* OneSetInExerciseCell.swift in Sources */,
 				9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */,
 				9C42541722290DCC0042288A /* Routine.swift in Sources */,
 				9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */,
 				9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */,
 				9C4D68F52221428400E93122 /* WorkoutCell.swift in Sources */,
-				9C42541B22296A820042288A /* WorkoutCollectionCell.swift in Sources */,
 				9C1D5D90221FFBA400EEC081 /* StyleKit.swift in Sources */,
 				9C6E86E222203DD300D2D91B /* ExerciseDetailViewController.swift in Sources */,
 				9C7FE751221F158700557FCD /* WorkoutExercise.swift in Sources */,

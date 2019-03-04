@@ -6,42 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.9"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News Feed-->
-        <scene sceneID="Cg8-4I-5hA">
-            <objects>
-                <viewController id="AQw-xd-wGo" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OeI-Zs-Lzj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="f6T-U8-MSH"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="News Feed" id="cVf-hw-Xqe"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GGS-BZ-w3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3967" y="-1821"/>
-        </scene>
-        <!--My Day-->
-        <scene sceneID="ilb-sh-KWw">
-            <objects>
-                <viewController id="ecE-cD-klx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EW8-8A-E2z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="bUk-79-r0P"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="My Day" id="kFs-i3-T0W"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4kL-vy-nnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3967" y="-1014"/>
-        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="yB0-dB-pfh">
             <objects>
@@ -52,16 +19,36 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="gUS-4m-9l6" kind="relationship" relationship="viewControllers" id="yhS-ko-e2I"/>
                         <segue destination="AXz-Oe-cT2" kind="relationship" relationship="viewControllers" id="zM4-hP-v8p"/>
                         <segue destination="3uO-Y6-w45" kind="relationship" relationship="viewControllers" id="T1u-V0-lwS"/>
-                        <segue destination="e3p-zf-FJ6" kind="relationship" relationship="viewControllers" id="Ydv-XE-eSZ"/>
                         <segue destination="hGc-G5-bS7" kind="relationship" relationship="viewControllers" id="4y0-8J-dIv"/>
+                        <segue destination="aow-nf-qTU" kind="relationship" relationship="viewControllers" id="iPs-gt-K8X"/>
+                        <segue destination="AX9-iB-o3T" kind="relationship" relationship="viewControllers" id="2RI-TT-cpm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUD-CU-xHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1231" y="66"/>
+        </scene>
+        <!--NewsFeedStoryboard-->
+        <scene sceneID="8Hr-4s-WjB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewsFeed" referencedIdentifier="NewsFeedStoryboard" id="aow-nf-qTU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="GfF-YJ-6cn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVX-vO-cNp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3082" y="-516"/>
+        </scene>
+        <!--MyDayStoryboard-->
+        <scene sceneID="Ixc-k1-Pc7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyDay" referencedIdentifier="MyDayStoryboard" id="AX9-iB-o3T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="2YX-gS-Tn0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tjC-YK-e4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3062" y="-458"/>
         </scene>
         <!--ProfileStoryboard-->
         <scene sceneID="2BH-f5-ody">
@@ -83,44 +70,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IF5-TV-cL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3083" y="-342"/>
-        </scene>
-        <!--My Day-->
-        <scene sceneID="FGW-Rz-O1A">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gUS-4m-9l6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Day" id="6VC-zD-NL0" userLabel="MyDay"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HjW-g6-FI8">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ecE-cD-klx" kind="relationship" relationship="rootViewController" id="EkC-qi-GhN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SkO-fR-rug" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3057" y="-1014"/>
-        </scene>
-        <!--News Feed-->
-        <scene sceneID="mCD-uE-6kF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e3p-zf-FJ6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News Feed" id="hyt-sp-xyO"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OiK-TJ-2n8">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="AQw-xd-wGo" kind="relationship" relationship="rootViewController" id="AKG-G3-E3r"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J5r-rd-1h3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3057" y="-1821"/>
         </scene>
         <!--StartWorkoutOrAddWorkout-->
         <scene sceneID="W13-Rc-ZoZ">

@@ -38,9 +38,9 @@ class ProfileViewModel: UIViewController {
         }
         
         guard let image = profileImageView.image else { return }
-        handleImageUpload(image) { (url) in
-            <#code#>
-        }
+//        handleImageUpload(image) { (url) in
+//            <#code#>
+//        }
         
         // Tap gesture na obrazok, po kliknuti sa otvori image picker
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))

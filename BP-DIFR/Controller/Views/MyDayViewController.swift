@@ -8,24 +8,38 @@
 
 import UIKit
 import Firebase
+import Charts
 
-class MyDayViewController: UINavigationController {
+class MyDayViewController: UIViewController {
+    
+    @IBOutlet weak var chartView: BarChartView!
+    
+    var weeks: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Do any additional setup after loading the view.
+        weeks = ["11.2", "18.2", "25.2"]
+        let workouts = [1.0,2.0,5.0]
+        
+        setChart(dataPoints: weeks, values: workouts)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // nastavovanie chartu
+    func setChart(dataPoints: [String], values: [Double]) {
+        var dataEntries: [BarChartDataEntry] = []
+        var counter = 0.0
+        
+        for i in 0..<dataPoints.count {
+            counter += 1.0
+            let dataEntry = BarChartDataEntry(x: values[i], y: counter)
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Times")
+        let chartData = BarChartData()
+        chartData.addDataSet(chartDataSet)
+        chartView.data = chartData
+        
     }
-    */
-
+    
 }

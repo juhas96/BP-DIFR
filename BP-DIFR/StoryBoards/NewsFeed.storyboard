@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.15" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1s1-1i-c0X">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.9"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--News Feed-->
+        <scene sceneID="1UD-2b-vim">
+            <objects>
+                <viewController id="vXg-Zw-O9V" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gmA-kt-tlY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="MlI-GR-Ey9"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="News Feed" id="pFd-zz-abp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAt-t3-S7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3967" y="-1821"/>
+        </scene>
+        <!--News Feed-->
+        <scene sceneID="Cq1-wo-VeS">
+            <objects>
+                <navigationController storyboardIdentifier="NewsFeedStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="1s1-1i-c0X" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News Feed" id="Es0-OK-lHE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YZW-WU-ZCi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXg-Zw-O9V" kind="relationship" relationship="rootViewController" id="Kqg-tC-C42"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lWA-5h-94h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3057" y="-1821"/>
+        </scene>
+    </scenes>
+</document>

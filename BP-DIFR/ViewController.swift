@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        if let user = Auth.auth().currentUser {
+        if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "toHomeScreen", sender: self)
         }
     }
