@@ -13,4 +13,5 @@ target 'BP-DIFR' do
  pod 'Firebase/Storage'
  pod 'SwiftyJSON', '~>4.0'
  pod 'Charts'
+ pod 'Instabug'
 end

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Instabug
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        Instabug.start(withToken: "2cc19ecbf264267a8d564c2be4a773b2", invocationEvents: [.shake, .screenshot])
         return true
     }
 
