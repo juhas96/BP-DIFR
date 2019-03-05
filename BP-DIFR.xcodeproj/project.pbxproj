@@ -49,6 +49,7 @@
 		9C95E27D2224843800F25D47 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E27C2224843800F25D47 /* Equipment.swift */; };
 		9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */; };
 		9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF6221F4E0100DA9B2B /* Image.swift */; };
+		9CEA6F35222EFBB1008CD7E0 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA6F34222EFBB1008CD7E0 /* WorkoutViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +112,7 @@
 		9C95E27C2224843800F25D47 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		9CCA3AF6221F4E0100DA9B2B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		9CEA6F34222EFBB1008CD7E0 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				9C109D5522233D6F00F71D50 /* ExercisesViewModel.swift */,
 				9C425418222921E80042288A /* AddRoutineViewModel.swift */,
 				9C0564AF222A8DDF00B6DF07 /* ProfileViewModel.swift */,
+				9CEA6F34222EFBB1008CD7E0 /* WorkoutViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */,
 				9C4D68F922214D9000E93122 /* StartWorkoutNavigationViewController.swift in Sources */,
 				9C95E27D2224843800F25D47 /* Equipment.swift in Sources */,
+				9CEA6F35222EFBB1008CD7E0 /* WorkoutViewModel.swift in Sources */,
 				9C109D5622233D6F00F71D50 /* ExercisesViewModel.swift in Sources */,
 				9C4D68F722214B8700E93122 /* MyDayViewController.swift in Sources */,
 				9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */,
