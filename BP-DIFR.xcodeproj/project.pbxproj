@@ -47,6 +47,11 @@
 		9C8BF40C222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF40B222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard */; };
 		9C8BF40E222A8B610061F48A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF40D222A8B610061F48A /* Profile.storyboard */; };
 		9C95E27D2224843800F25D47 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E27C2224843800F25D47 /* Equipment.swift */; };
+		9CC6074E2231215C0091C802 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC6074D2231215C0091C802 /* EncodableExtension.swift */; };
+		9CC60750223121870091C802 /* FirestoreCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC6074F223121870091C802 /* FirestoreCollectionReference.swift */; };
+		9CC60752223121B60091C802 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC60751223121B60091C802 /* FirestoreService.swift */; };
+		9CC60754223121ED0091C802 /* SnapshotExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC60753223121ED0091C802 /* SnapshotExtension.swift */; };
+		9CC60756223122F20091C802 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC60755223122F20091C802 /* User.swift */; };
 		9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */; };
 		9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF6221F4E0100DA9B2B /* Image.swift */; };
 		9CEA6F35222EFBB1008CD7E0 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA6F34222EFBB1008CD7E0 /* WorkoutViewModel.swift */; };
@@ -110,6 +115,11 @@
 		9C8BF40B222A756C0061F48A /* StartWorkoutOrAddWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartWorkoutOrAddWorkout.storyboard; sourceTree = "<group>"; };
 		9C8BF40D222A8B610061F48A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		9C95E27C2224843800F25D47 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		9CC6074D2231215C0091C802 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		9CC6074F223121870091C802 /* FirestoreCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCollectionReference.swift; sourceTree = "<group>"; };
+		9CC60751223121B60091C802 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		9CC60753223121ED0091C802 /* SnapshotExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotExtension.swift; sourceTree = "<group>"; };
+		9CC60755223122F20091C802 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		9CCA3AF6221F4E0100DA9B2B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		9CEA6F34222EFBB1008CD7E0 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
@@ -155,6 +165,7 @@
 				9CCA3AF6221F4E0100DA9B2B /* Image.swift */,
 				9C109D5722233E8B00F71D50 /* ExerciseApiModel.swift */,
 				9C42541622290DCC0042288A /* Routine.swift */,
+				9CC60755223122F20091C802 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +218,7 @@
 		9C4CB64E221B43F5008C4A8B /* BP-DIFR */ = {
 			isa = PBXGroup;
 			children = (
+				9CC6074C223121280091C802 /* Firebase */,
 				9C4A6A22222A6A0E007CCD8C /* StoryBoards */,
 				9C1D5D8E221FFB8900EEC081 /* Sketch Graphic */,
 				9C7FE74F221F140500557FCD /* Enum */,
@@ -240,6 +252,17 @@
 				9C95E27C2224843800F25D47 /* Equipment.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		9CC6074C223121280091C802 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				9CC6074D2231215C0091C802 /* EncodableExtension.swift */,
+				9CC6074F223121870091C802 /* FirestoreCollectionReference.swift */,
+				9CC60751223121B60091C802 /* FirestoreService.swift */,
+				9CC60753223121ED0091C802 /* SnapshotExtension.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		9CCA3AF2221F4CF100DA9B2B /* Views */ = {
@@ -463,10 +486,12 @@
 				9C109D5622233D6F00F71D50 /* ExercisesViewModel.swift in Sources */,
 				9C4D68F722214B8700E93122 /* MyDayViewController.swift in Sources */,
 				9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */,
+				9CC6074E2231215C0091C802 /* EncodableExtension.swift in Sources */,
 				9C0564B0222A8DDF00B6DF07 /* ProfileViewModel.swift in Sources */,
 				9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */,
 				9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */,
 				9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */,
+				9CC60756223122F20091C802 /* User.swift in Sources */,
 				9C8A4318222C7AD5006A6883 /* OneSetInExerciseCell.swift in Sources */,
 				9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */,
 				9C42541722290DCC0042288A /* Routine.swift in Sources */,
@@ -477,10 +502,13 @@
 				9C6E86E222203DD300D2D91B /* ExerciseDetailViewController.swift in Sources */,
 				9C7FE751221F158700557FCD /* WorkoutExercise.swift in Sources */,
 				9C4D68FF22217E0700E93122 /* SignUpViewController.swift in Sources */,
+				9CC60750223121870091C802 /* FirestoreCollectionReference.swift in Sources */,
 				9C109D5822233E8B00F71D50 /* ExerciseApiModel.swift in Sources */,
+				9CC60752223121B60091C802 /* FirestoreService.swift in Sources */,
 				9C7FE747221F0E8100557FCD /* Workout.swift in Sources */,
 				9C7FE74E221F140000557FCD /* BodyPart.swift in Sources */,
 				9C4D690122217E3200E93122 /* LogInViewController.swift in Sources */,
+				9CC60754223121ED0091C802 /* SnapshotExtension.swift in Sources */,
 				9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */,
 				9C425419222921E80042288A /* AddRoutineViewModel.swift in Sources */,
 				9C7FE74C221F139C00557FCD /* ExerciseCategory.swift in Sources */,

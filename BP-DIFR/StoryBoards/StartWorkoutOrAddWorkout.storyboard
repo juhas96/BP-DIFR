@@ -181,7 +181,14 @@
                                 <action selector="cancelAddingRoutine:" destination="GNk-em-11g" id="cjO-Gp-KXM"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="uDt-CV-4Ed"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Save" id="uDt-CV-4Ed"/>
+                            <barButtonItem title="Add Exercise" id="QKM-P0-qTO">
+                                <connections>
+                                    <segue destination="RlC-gg-vwN" kind="show" id="7I3-zo-lAa"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsK-kl-tLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -457,6 +464,114 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8dn-tb-oyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5644.9275362318849" y="-960.26785714285711"/>
+        </scene>
+        <!--Exercises-->
+        <scene sceneID="HPj-tP-hx9">
+            <objects>
+                <viewController id="RlC-gg-vwN" customClass="ExercisesViewModel" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yBS-YE-SLK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-IE-V2B">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="gap-aQ-wzx">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="RlC-gg-vwN" id="b2f-q3-XAg"/>
+                                    </connections>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ExerciseCell" editingAccessoryType="checkmark" id="Tbg-I3-iiL" customClass="ExerciseCell" customModule="BP_DIFR" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="84" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tbg-I3-iiL" id="gIr-kh-Mof">
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WSK-Gk-FKm">
+                                                    <rect key="frame" x="12" y="10" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="1Xf-Ug-ivv"/>
+                                                        <constraint firstAttribute="width" secondItem="WSK-Gk-FKm" secondAttribute="height" multiplier="1:1" id="bzX-pA-dHi"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-kL-A9l">
+                                                    <rect key="frame" x="80" y="15" width="282" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="YwL-Sm-GpB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category of exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="106-Vn-FMT">
+                                                    <rect key="frame" x="80" y="42" width="282" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Mtj-bd-Flh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="106-Vn-FMT" firstAttribute="top" secondItem="tSM-kL-A9l" secondAttribute="bottom" constant="-3" id="4cW-40-oCh"/>
+                                                <constraint firstAttribute="trailing" secondItem="tSM-kL-A9l" secondAttribute="trailing" constant="8" id="FaD-M0-3Ta"/>
+                                                <constraint firstItem="106-Vn-FMT" firstAttribute="leading" secondItem="WSK-Gk-FKm" secondAttribute="trailing" constant="8" id="G1d-Cz-PGq"/>
+                                                <constraint firstItem="WSK-Gk-FKm" firstAttribute="leading" secondItem="gIr-kh-Mof" secondAttribute="leading" constant="12" id="Moc-7z-3Tz"/>
+                                                <constraint firstAttribute="trailing" secondItem="106-Vn-FMT" secondAttribute="trailing" constant="8" id="NkU-zM-btP"/>
+                                                <constraint firstAttribute="bottom" secondItem="106-Vn-FMT" secondAttribute="bottom" constant="17.5" id="Qog-tO-vKS"/>
+                                                <constraint firstItem="tSM-kL-A9l" firstAttribute="top" secondItem="gIr-kh-Mof" secondAttribute="top" constant="15" id="Z47-vE-rl7"/>
+                                                <constraint firstItem="tSM-kL-A9l" firstAttribute="leading" secondItem="WSK-Gk-FKm" secondAttribute="trailing" constant="8" id="deL-e4-2MZ"/>
+                                                <constraint firstItem="WSK-Gk-FKm" firstAttribute="centerY" secondItem="gIr-kh-Mof" secondAttribute="centerY" id="m2O-6q-hxx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ExerciseCategoryLabel" destination="106-Vn-FMT" id="c1g-VO-sbA"/>
+                                            <outlet property="ExerciseImageView" destination="WSK-Gk-FKm" id="I6z-SS-NDw"/>
+                                            <outlet property="ExerciseNameLabel" destination="tSM-kL-A9l" id="Ec5-Ql-Nyv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RlC-gg-vwN" id="RpX-uW-pyT"/>
+                                    <outlet property="delegate" destination="RlC-gg-vwN" id="RL1-0O-pn0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bo5-IE-V2B" firstAttribute="bottom" secondItem="Ctk-nL-Rj9" secondAttribute="bottom" id="9HN-54-bF4"/>
+                            <constraint firstAttribute="trailing" secondItem="Bo5-IE-V2B" secondAttribute="trailing" id="Dtj-2S-zub"/>
+                            <constraint firstItem="Bo5-IE-V2B" firstAttribute="top" secondItem="Ctk-nL-Rj9" secondAttribute="top" id="PYY-nf-R9T"/>
+                            <constraint firstItem="Bo5-IE-V2B" firstAttribute="leading" secondItem="yBS-YE-SLK" secondAttribute="leading" id="j95-hI-wL2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ctk-nL-Rj9"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Exercises" id="Y3E-xy-gFo">
+                        <barButtonItem key="rightBarButtonItem" title="Add Exercise" id="oCR-al-I9h"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="exercisesTableView" destination="Bo5-IE-V2B" id="P3f-od-Jsy"/>
+                        <outlet property="searchDisplayController" destination="q2C-je-lJk" id="YWK-ff-MYB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RKg-JT-LBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="q2C-je-lJk">
+                    <connections>
+                        <outlet property="delegate" destination="RlC-gg-vwN" id="ode-ne-u0U"/>
+                        <outlet property="searchBar" destination="gap-aQ-wzx" id="lOw-oq-1fq"/>
+                        <outlet property="searchContentsController" destination="RlC-gg-vwN" id="Qq2-66-upB"/>
+                        <outlet property="searchResultsDataSource" destination="RlC-gg-vwN" id="LTd-L8-iaz"/>
+                        <outlet property="searchResultsDelegate" destination="RlC-gg-vwN" id="9Ju-rl-pjU"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="7477" y="390"/>
         </scene>
     </scenes>
 </document>

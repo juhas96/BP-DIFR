@@ -97,11 +97,13 @@ extension ExercisesViewModel: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-//    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseDetailViewController") as? ExerciseDetailViewController
-//        vc?.image = UIImage(named: images[indexPath.row].title)
-//        self.navigationController?.pushViewController(vc!, animated: true)
-//    }
-//    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("SELECTED ROW: \(indexPath.row)")
+        let exercise = exerciseArray[indexPath.row]
+        print("Exercise name: \(exercise.name)")
+        print("Exercise id: \(exercise.id)")
+//        print("Exercise: \(exercise.dictionary[])")
+    }
+    
 }
