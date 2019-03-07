@@ -38,8 +38,8 @@ func createArray() -> [Routine] {
     var tempArrayForRoutines: [Routine] = []
     var tempArrayForExercises: [Exercise] = []
     
-    let exercise = Exercise(dictionary: dictionary)
-    tempArrayForExercises.append(exercise!)
+//    let exercise = Exercise(from: Decoder)
+//    tempArrayForExercises.append(exercise!)
     
     let routine1 = Routine(id: 1, name: "Morning routine", exercises: tempArrayForExercises)
     tempArrayForRoutines.append(routine1)

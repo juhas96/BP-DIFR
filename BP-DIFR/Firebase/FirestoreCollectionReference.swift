@@ -11,5 +11,6 @@ import Foundation
 // do ENUMU vlozim vsetky kolekcie z FIRESTORU pre lahky pristup
 enum FIRCollectionReference: String {
     case users
+    case exercises
 }
 

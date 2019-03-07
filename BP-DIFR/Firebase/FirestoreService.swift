@@ -19,6 +19,10 @@ class FIRFirestoreService {
     
     func configure() {
         FirebaseApp.configure()
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
     }
     
     private func reference(to collectionReference: FIRCollectionReference) -> CollectionReference {

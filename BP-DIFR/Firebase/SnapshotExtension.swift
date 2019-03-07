@@ -15,7 +15,7 @@ extension DocumentSnapshot {
         
         var documentJson = data()
         if includingId {
-            documentJson["id"] = documentID
+            documentJson!["id"] = documentID
         }
         
         let documentData = try JSONSerialization.data(withJSONObject: documentJson, options: [])

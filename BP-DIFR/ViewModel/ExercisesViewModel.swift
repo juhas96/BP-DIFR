@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import Firebase
 
 // Struktura pre JSON Api ktore dotiahnem
 // Ja pracuje muz len s results kde sa nachadzaju cviky
@@ -23,35 +21,21 @@ class ExercisesViewModel: UIViewController {
     
     @IBOutlet weak var exercisesTableView: UITableView!
     
-    var db: Firestore!
-    
     var exerciseArray = [Exercise]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        FirebaseApp.configure()
-        db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
+
         loadData()
     
-        
-//        addDataToFirestore()
     }
     
     
     func loadData() {
-        db.collection("exercises").getDocuments { (snapshot, error) in
-            if error != nil {
-                print(error?.localizedDescription)
-            } else {
-                self.exerciseArray = snapshot!.documents.compactMap({Exercise(dictionary: $0.data())})
-                DispatchQueue.main.async {
-                    self.exercisesTableView.reloadData()
-                }
-            }
+        FIRFirestoreService.shared.read(from: .exercises, returning: Exercise.self) { (exercises) in
+            self.exerciseArray = exercises
+            self.exercisesTableView.reloadData()
         }
     }
     
@@ -103,6 +87,8 @@ extension ExercisesViewModel: UITableViewDataSource, UITableViewDelegate {
         let exercise = exerciseArray[indexPath.row]
         print("Exercise name: \(exercise.name)")
         print("Exercise id: \(exercise.id)")
+        print("EXERCISE category: \(exercise.category)")
+        print("EXERCISE category: \(exercise.description)")
 //        print("Exercise: \(exercise.dictionary[])")
     }
     
