@@ -166,6 +166,7 @@
                         <outlet property="emailTextField" destination="IFN-Zy-Gru" id="Eon-TG-LFt"/>
                         <outlet property="passwordTextField" destination="ugZ-Em-z0i" id="sZO-kT-b5B"/>
                         <outlet property="usernameTextField" destination="XoV-67-YVe" id="qeU-W7-aNy"/>
+                        <segue destination="2Cu-qR-a9H" kind="presentation" identifier="toHomeScreen" id="tQh-2s-74x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MQ7-P5-oji" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,7 +190,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HVj-Pk-FaW">
                                 <rect key="frame" x="20" y="166" width="374" height="131"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksA-ka-RsI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksA-ka-RsI">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -243,8 +244,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="emailTextField" destination="nDD-Sf-0gH" id="XlI-Au-7v4"/>
                         <outlet property="passwordTextField" destination="JjT-n5-zwF" id="9KS-BR-Wy7"/>
+                        <outlet property="usernameTextField" destination="nDD-Sf-0gH" id="JIb-27-i4M"/>
+                        <segue destination="2Cu-qR-a9H" kind="presentation" identifier="toHomeScreen" id="cjX-oc-wXf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="332-14-TUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -298,7 +300,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="e2d-IC-s21"/>
-        <segue reference="4pQ-Mn-faG"/>
+        <segue reference="tQh-2s-74x"/>
+        <segue reference="iXB-bk-8aa"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,17 +7,16 @@
 //
 
 import UIKit
-import Firebase
+import Parse
 
 class ProfileViewController: UIViewController {
 
     
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
-        try! Auth.auth().signOut()
-        print("User signet out")
+        PFUser.logOut()
+        print("Current use: \(PFUser.current())")
         self.dismiss(animated: true, completion: nil)
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

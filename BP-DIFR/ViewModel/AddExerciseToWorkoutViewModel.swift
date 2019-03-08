@@ -1,38 +1,44 @@
 //
-//  ExercisesViewModel.swift
+//  AddExerciseToWorkoutViewModel.swift
 //  BP-DIFR
 //
-//  Created by jkbjhs on 24/02/2019.
+//  Created by jkbjhs on 08/03/2019.
 //  Copyright © 2019 jkbjhs. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-// Struktura pre JSON Api ktore dotiahnem
-// Ja pracuje muz len s results kde sa nachadzaju cviky
-//struct WholeJsonModel: Decodable {
-//    let count: Int?
-//    let next: String?
-//    let previous: String?
-//    let results: [ExerciseApiModel]
-//}
+class AddExerciseToWorkoutViewModel: UIViewController {
 
-class ExercisesViewModel: UIViewController {
-    
     @IBOutlet weak var exercisesTableView: UITableView!
+    @IBAction func addExercisesButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "addExerciseSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! AddRoutineViewModel
+        vc.exercisesId = self.idArray
+    }
+    
+    // pole IDcok do ktoreho pridam idcko cviku z DB po tapnuti na dany row v table view, nasledne pole posielam s5 do view s workoutom kde podla toho vytvorim dane cell
+    var idArray: [String] = []
+    
+    // Reloadnutie table view
+    @IBAction func reloadDataTapped(_ sender: Any) {
+        self.exercisesTableView.reloadData()
+    }
     
     var exerciseArray = [Exercise]()
     var localExercises = [PFObject]()
     
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        self.exercisesTableView.reloadData()
-    
+        
     }
     
     
@@ -47,21 +53,16 @@ class ExercisesViewModel: UIViewController {
                 }
                 PFObject.pinAll(inBackground: self.localExercises)
             } else {
-                print("ERROR WHILE QUERY: \(error?.localizedDescription)")
+                print("ERROR WHILE QUERY: \(String(describing: error?.localizedDescription))")
             }
         }
-    }
-    
-    @IBAction func refreshTapped(_ sender: Any) {
-//        self.loadData()
-        exercisesTableView.reloadData()
     }
     
 }
 
 
 
-extension ExercisesViewModel: UITableViewDataSource, UITableViewDelegate {
+extension AddExerciseToWorkoutViewModel: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exerciseArray.count
@@ -85,6 +86,7 @@ extension ExercisesViewModel: UITableViewDataSource, UITableViewDelegate {
         print("Exercise id: \(exercise.id)")
         print("EXERCISE category: \(exercise.category)")
         print("EXERCISE category: \(exercise.description)")
+        self.idArray.append(exercise.id)
     }
-    
+
 }

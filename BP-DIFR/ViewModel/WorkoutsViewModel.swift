@@ -15,6 +15,7 @@ class WorkoutsViewModel: UIViewController {
     var routines: [Routine] = []
     var exercises: [Exercise] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +24,8 @@ class WorkoutsViewModel: UIViewController {
 
 
 }
+
+
 
 var dictionary:[String:Any] {
     return [

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Routine name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-zX-zcX">
-                                <rect key="frame" x="20" y="114" width="374" height="50"/>
+                                <rect key="frame" x="20" y="70" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="g7h-M8-Qvx"/>
                                 </constraints>
@@ -28,7 +28,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes about routine" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O2g-LA-oJs">
-                                <rect key="frame" x="20" y="172" width="374" height="64"/>
+                                <rect key="frame" x="20" y="128" width="374" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="sjO-ci-kob"/>
@@ -37,10 +37,10 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kc8-YH-vtD">
-                                <rect key="frame" x="20" y="244" width="374" height="618"/>
+                                <rect key="frame" x="20" y="200" width="374" height="662"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tZq-1x-RQ2">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="618"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="662"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StaticCellWithInformation" id="L8f-kq-kM2" customClass="ExerciseCellInNewRoutine" customModule="BP_DIFR" customModuleProvider="target">
@@ -107,7 +107,7 @@
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="s1S-9V-pe3">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="49.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="49.5"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFc-Uh-Kc8">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="8" height="49.5"/>
@@ -116,19 +116,19 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXF-BA-yhN">
-                                                                                        <rect key="frame" x="88" y="0.0" width="8" height="49.5"/>
+                                                                                        <rect key="frame" x="119" y="0.0" width="8" height="49.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38E-C4-zBc">
-                                                                                        <rect key="frame" x="167" y="0.0" width="25" height="49.5"/>
+                                                                                        <rect key="frame" x="230" y="0.0" width="25" height="49.5"/>
                                                                                         <nil key="textColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <textInputTraits key="textInputTraits"/>
                                                                                     </textField>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Zm-5v-gHX">
-                                                                                        <rect key="frame" x="255" y="0.0" width="25" height="49.5"/>
+                                                                                        <rect key="frame" x="349" y="0.0" width="25" height="49.5"/>
                                                                                         <nil key="textColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <textInputTraits key="textInputTraits"/>
@@ -468,13 +468,13 @@
         <!--Exercises-->
         <scene sceneID="HPj-tP-hx9">
             <objects>
-                <viewController id="RlC-gg-vwN" customClass="ExercisesViewModel" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RlC-gg-vwN" customClass="AddExerciseToWorkoutViewModel" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yBS-YE-SLK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-IE-V2B">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="753"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="gap-aQ-wzx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -542,22 +542,37 @@
                                     <outlet property="delegate" destination="RlC-gg-vwN" id="RL1-0O-pn0"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXy-Up-Xds">
+                                <rect key="frame" x="166" y="805" width="82" height="30"/>
+                                <state key="normal" title="Reload data"/>
+                                <connections>
+                                    <action selector="reloadDataTapped:" destination="RlC-gg-vwN" eventType="touchUpInside" id="wgn-6x-uVT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Bo5-IE-V2B" firstAttribute="bottom" secondItem="Ctk-nL-Rj9" secondAttribute="bottom" id="9HN-54-bF4"/>
+                            <constraint firstItem="tXy-Up-Xds" firstAttribute="leading" secondItem="Ctk-nL-Rj9" secondAttribute="leading" constant="166" id="2N8-0x-a8p"/>
                             <constraint firstAttribute="trailing" secondItem="Bo5-IE-V2B" secondAttribute="trailing" id="Dtj-2S-zub"/>
                             <constraint firstItem="Bo5-IE-V2B" firstAttribute="top" secondItem="Ctk-nL-Rj9" secondAttribute="top" id="PYY-nf-R9T"/>
+                            <constraint firstItem="tXy-Up-Xds" firstAttribute="top" secondItem="Bo5-IE-V2B" secondAttribute="bottom" constant="8" id="Y1V-tS-8lO"/>
                             <constraint firstItem="Bo5-IE-V2B" firstAttribute="leading" secondItem="yBS-YE-SLK" secondAttribute="leading" id="j95-hI-wL2"/>
+                            <constraint firstItem="Ctk-nL-Rj9" firstAttribute="bottom" secondItem="tXy-Up-Xds" secondAttribute="bottom" constant="27" id="kqf-rf-uCV"/>
+                            <constraint firstItem="Ctk-nL-Rj9" firstAttribute="bottom" secondItem="Bo5-IE-V2B" secondAttribute="bottom" constant="65" id="och-Sc-1eL"/>
+                            <constraint firstItem="Ctk-nL-Rj9" firstAttribute="trailing" secondItem="tXy-Up-Xds" secondAttribute="trailing" constant="166" id="rjr-FA-U8b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ctk-nL-Rj9"/>
                     </view>
                     <navigationItem key="navigationItem" title="Exercises" id="Y3E-xy-gFo">
-                        <barButtonItem key="rightBarButtonItem" title="Add Exercise" id="oCR-al-I9h"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add Exercise" id="oCR-al-I9h">
+                            <connections>
+                                <action selector="addExercisesButtonTapped:" destination="RlC-gg-vwN" id="PTu-wt-pzH"/>
+                                <segue destination="GNk-em-11g" kind="show" identifier="addExerciseSegue" id="Joe-94-Z0O"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="exercisesTableView" destination="Bo5-IE-V2B" id="P3f-od-Jsy"/>
-                        <outlet property="searchDisplayController" destination="q2C-je-lJk" id="YWK-ff-MYB"/>
+                        <outlet property="exercisesTableView" destination="Bo5-IE-V2B" id="Coa-I8-UfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKg-JT-LBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -571,7 +586,10 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="7477" y="390"/>
+            <point key="canvasLocation" x="7476.811594202899" y="389.73214285714283"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Joe-94-Z0O"/>
+    </inferredMetricsTieBreakers>
 </document>

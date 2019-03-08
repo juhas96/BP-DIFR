@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseFirestore
 
 
 class ProfileViewModel: UIViewController {
@@ -21,21 +19,15 @@ class ProfileViewModel: UIViewController {
 //    }
     
     
-    var db: Firestore!
+    
     var imagePicker: UIImagePickerController!
     
     @IBAction func logOutTapped(_ sender: Any) {
-        try! Auth.auth().signOut()
-        print("User signet out")
-        self.dismiss(animated: true)
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        db = Firestore.firestore()
-        print(Auth.auth().currentUser)
-        if let user = Auth.auth().currentUser {
-            userNameLabel.text = user.email
-        }
+//        db = Firestore.firestore()
         
         guard let image = profileImageView.image else { return }
 //        handleImageUpload(image) { (url) in
@@ -63,26 +55,26 @@ class ProfileViewModel: UIViewController {
     
     func handleImageUpload(_ image: UIImage, completion: @escaping ((_ url: String?)->())) {
         // Ref na usera
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+      
         // Ref na storage
-        let storageRef = Storage.storage().reference().child("user/\(uid)")
-        
-        guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpg"
-        
-        storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
-            if error == nil, metaData != nil {
-                // success
-                storageRef.downloadURL(completion: { (url, error) in
-                    completion(url?.absoluteString)
-                })
-                
-            } else {
-                // failed
-                completion(nil)
-            }
-        }
+      
+//        
+//        guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }
+//      
+//        metaData.contentType = "image/jpg"
+//        
+//        storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+//            if error == nil, metaData != nil {
+//                // success
+//                storageRef.downloadURL(completion: { (url, error) in
+//                    completion(url?.absoluteString)
+//                })
+//                
+//            } else {
+//                // failed
+//                completion(nil)
+//            }
+//        }
     }
     
     @objc func openImagePicker(_ sender: Any) {
@@ -90,8 +82,8 @@ class ProfileViewModel: UIViewController {
     }
     
     func saveProfile(username: String, profileImageURL: URL, completion: @escaping ((_ success: Bool)->())) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let databaseRef = db.collection("users")
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        let databaseRef = db.collection("users")
     }
 }
 

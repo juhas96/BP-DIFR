@@ -12,11 +12,16 @@ class AddRoutineViewModel: UIViewController {
 
     
     var collectionData: [Exercise] = []
+    var exercisesId: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("IDS: \(exercisesId)")
         // Do any additional setup after loading the view.
+    }
+    
+    func showExercisesInWorkout() {
+        print("Exercises: \(exercisesId)")
     }
     
     @IBAction func cancelAddingRoutine(_ sender: UIBarButtonItem) {

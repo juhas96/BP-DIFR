@@ -7,11 +7,13 @@
 //
 
 import UIKit
-import Firebase
+import Parse
+
 
 class LogInViewController: UIViewController {
 
-    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
@@ -23,28 +25,26 @@ class LogInViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func handleSignIn() {
-        guard let email = emailTextField.text else { return }
-        guard let pass = passwordTextField.text else { return }
         
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { user, error in
-            if error == nil && user != nil {
-                self.dismiss(animated: false, completion: nil)
+        PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if user != nil && error == nil {
+//                self.alert(message: "Log In Successfull", title: "Success")
+                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
             } else {
-                print("Error logging in: \(error!.localizedDescription)")
+                self.alert(message: error?.localizedDescription as! NSString, title: "Error")
             }
         }
+        
+    }
+    
+    
+    // message pre usera
+    func alert(message: NSString, title: NSString) {
+        let alert = UIAlertController(title: title as String, message: message as String, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
     }
 }

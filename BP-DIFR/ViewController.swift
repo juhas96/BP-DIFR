@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import Parse
 
 class ViewController: UIViewController {
     
@@ -16,6 +16,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
+        var currentUser = PFUser.current()
+        if currentUser != nil {
+            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
+        } else {
+            // Show the signup or login screen
+        }
     }
    
     /**
@@ -34,10 +40,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
-        }
+
     }
 
 

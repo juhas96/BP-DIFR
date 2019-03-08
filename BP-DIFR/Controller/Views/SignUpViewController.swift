@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Firebase
+import Parse
+
 
 class SignUpViewController: UIViewController {
 
@@ -39,33 +40,33 @@ class SignUpViewController: UIViewController {
     */
 
     func handleSignUp() {
-        guard let username = usernameTextField.text else { return }
-        guard let email = emailTextField.text else { return }
-        guard let password = emailTextField.text else { return }
+        // Defining the user object
+        let user = PFUser()
+        user.username = usernameTextField.text!
+        user.password = passwordTextField.text!
+        user.email = emailTextField.text!
         
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if error == nil && user != nil {
-                print("User created!")
-                
-                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                changeRequest?.displayName = username
-                changeRequest?.commitChanges(completion: { (error) in
-                    if error == nil {
-                        print("User display name changed")
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                })
-                
-                var loggedUser = Auth.auth().currentUser
-                loggedUser?.sendEmailVerification(completion: { (error) in
-                    if error != nil {
-                        print ("Error when sending verification email: \(error?.localizedDescription)")
-                    }
-                })
-                
+        user.signUpInBackground { (result, error) in
+            if error == nil && result == true {
+//                self.alert(message: "Register Successfull", title: "Success")
+                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
             } else {
-                print("Error creating user: \(error!.localizedDescription)")
+                self.alert(message: error?.localizedDescription as! NSString, title: "Error")
             }
         }
+        
+        // We won't set the email for this example;
+        // Just for simplicity
+        
+        // Signing up using the Parse API
+        
+    }
+    
+    // message pre usera
+    func alert(message: NSString, title: NSString) {
+        let alert = UIAlertController(title: title as String, message: message as String, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
     }
 }

@@ -7,10 +7,7 @@ target 'BP-DIFR' do
 
   # Pods for BP-DIFR
 
- pod 'Firebase/Core'
- pod 'FirebaseUI/Auth'
- pod 'Firebase/Firestore'
- pod 'Firebase/Storage'
+ pod 'Parse'
  pod 'SwiftyJSON', '~>4.0'
  pod 'Charts'
  pod 'Instabug'
