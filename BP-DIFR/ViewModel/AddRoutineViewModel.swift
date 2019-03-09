@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import Parse
+
+struct ExampleWorkout {
+    let name: String
+    let exercises: String
+    
+}
 
 class AddRoutineViewModel: UIViewController {
-
     
-    var collectionData: [Exercise] = []
-    var exercisesId: [String]!
+    var workout = [ExampleWorkout]()
+    
+    var collectionData: [PFObject] = []
+    var exercisesId: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("IDS: \(exercisesId)")
+        loadData()
         // Do any additional setup after loading the view.
     }
     
@@ -27,6 +36,20 @@ class AddRoutineViewModel: UIViewController {
     @IBAction func cancelAddingRoutine(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
+    
+    func loadData() {
+        let query = PFQuery(className: "Exercise")
+        query.whereKey("objectId", containedIn: exercisesId)
+        query.findObjectsInBackground { (exercise, error) in
+            if error == nil && exercise != nil {
+                for i in exercise! {
+                    print("ID: \(i.objectId)")
+                }
+            }
+        }
+    }
+    
+    
     
     
 
@@ -44,7 +67,7 @@ class AddRoutineViewModel: UIViewController {
 
 //extension AddRoutineViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 0
+//        return workout.count
 //    }
 //    
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

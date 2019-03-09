@@ -32,7 +32,6 @@ class ExercisesViewModel: UIViewController {
         super.viewDidLoad()
         loadData()
         self.exercisesTableView.reloadData()
-    
     }
     
     
@@ -40,51 +39,54 @@ class ExercisesViewModel: UIViewController {
         let query = PFQuery(className: "Exercise")
         query.findObjectsInBackground { (exercise, error) in
             if error == nil {
-                if let returnedExercises = exercise {
-                    for exercise in returnedExercises {
-                        self.exerciseArray.append(Exercise(category: exercise["category"] as! Int, description: exercise["description"] as! String, name: exercise["name"] as! String, id: exercise.objectId!))
-                    }
+                if let returnedExercises = exercise{
+                    self.localExercises = returnedExercises
+                    self.exercisesTableView.reloadData()
                 }
-                PFObject.pinAll(inBackground: self.localExercises)
             } else {
-                print("ERROR WHILE QUERY: \(error?.localizedDescription)")
+                print("ERROR WHILE QUERY: \(String(describing: error?.localizedDescription))")
             }
         }
     }
     
     @IBAction func refreshTapped(_ sender: Any) {
-//        self.loadData()
         exercisesTableView.reloadData()
+        
     }
+    
+    
+    
+    
     
 }
 
 
 
 extension ExercisesViewModel: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exerciseArray.count
+        return localExercises.count
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath) as! ExerciseCell
-        if (exerciseArray.count != 0) {
-            let exercise = exerciseArray[indexPath.row]
-            cell.setLabel(label: exercise.name)
+        if (localExercises.count != 0) {
+            let exercise:PFObject = localExercises[indexPath.row]
+            cell.setLabel(label: exercise.object(forKey: "name") as! String)
         }
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("SELECTED ROW: \(indexPath.row)")
-        let exercise = exerciseArray[indexPath.row]
-        print("Exercise name: \(exercise.name)")
-        print("Exercise id: \(exercise.id)")
-        print("EXERCISE category: \(exercise.category)")
-        print("EXERCISE category: \(exercise.description)")
+//        print("SELECTED ROW: \(indexPath.row)")
+//        let exercise = exerciseArray[indexPath.row]
+//        print("Exercise name: \(exercise.name)")
+//        print("Exercise id: \(exercise.id)")
+//        print("EXERCISE category: \(exercise.category)")
+//        print("EXERCISE category: \(exercise.description)")
     }
     
 }

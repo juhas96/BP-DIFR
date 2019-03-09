@@ -12,7 +12,6 @@ import Foundation
  Model pre tréning
  */
 struct Workout {
-    let id: Int
     let exercises: [Exercise]
     let name: String
     let duration: Date?
