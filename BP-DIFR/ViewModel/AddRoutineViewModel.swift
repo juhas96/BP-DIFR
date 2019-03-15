@@ -42,12 +42,12 @@ class AddRoutineViewModel: UIViewController {
         query.whereKey("objectId", containedIn: exercisesId)
         query.findObjectsInBackground { (exercise, error) in
             if error == nil && exercise != nil {
-                for i in exercise! {
-                    print("ID: \(i.objectId)")
-                }
+                self.collectionData = exercise!
             }
         }
     }
+    
+    
     
     
     

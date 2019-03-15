@@ -8,17 +8,16 @@
 
 import Foundation
 
-protocol Identifiable {
-    var id: String? {get set}
-}
 
-struct User: Codable, Identifiable {
+struct User: Codable {
     var id: String? = nil
-    let name: String
-    var age: Int
-    
-    init(name: String, age: Int){
-        self.name = name
-        self.age = age
+    let first_name: String
+    var last_name: String
+    var number_of_workouts: Int
+
+    init(first_name: String, last_name: String, number_of_workouts: Int){
+        self.first_name = first_name
+        self.last_name = last_name
+        self.number_of_workouts = number_of_workouts
     }
 }

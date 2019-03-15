@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         setBackground()
         var currentUser = PFUser.current()
         if currentUser != nil {
+            print(currentUser?.email)
             self.performSegue(withIdentifier: "toHomeScreen", sender: self)
         } else {
             // Show the signup or login screen
