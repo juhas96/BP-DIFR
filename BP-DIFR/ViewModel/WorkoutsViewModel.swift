@@ -21,6 +21,34 @@ class WorkoutsViewModel: UIViewController {
         super.viewDidLoad()
     }
 
+<<<<<<< HEAD
+=======
+
+}
+
+var dictionary:[String:Any] {
+    return [
+        "id": 5,
+        //            "author": author,
+        //            "category": category,
+        //            "description": description,
+        "name": "Bench"
+    ]
+}
+
+func createArray() -> [Routine] {
+    var tempArrayForRoutines: [Routine] = []
+    var tempArrayForExercises: [Exercise] = []
+    
+    let exercise = Exercise(dictionary: dictionary)
+    tempArrayForExercises.append(exercise!)
+    
+    let routine1 = Routine(id: 1, name: "Morning routine", exercises: tempArrayForExercises)
+    tempArrayForRoutines.append(routine1)
+    
+    
+    
+>>>>>>> parent of d6e5e6a... oprava IDcok pri Exercises
     
     // funkcia mi prida do pola Routines vsetky workouty ktore su priradene danemu userovi
     func loadUserRoutines(completion: @escaping () -> Void) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import Instabug
 import Parse
 
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+<<<<<<< HEAD
             let parseConfig = ParseClientConfiguration {
                 $0.isLocalDatastoreEnabled = true
                 $0.applicationId = "qDSH6yB1AbeLQc7HDMKPO96dlk5NGlw3WCBoFcVT"
@@ -25,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 $0.server = "https://parseapi.back4app.com"
             }
             Parse.initialize(with: parseConfig)
+=======
+        FirebaseApp.configure()
+        FIRFirestoreService.shared.configure()
+>>>>>>> parent of d6e5e6a... oprava IDcok pri Exercises
         Instabug.start(withToken: "2cc19ecbf264267a8d564c2be4a773b2", invocationEvents: [.shake, .screenshot])
         return true
     }
