@@ -9,19 +9,38 @@
 import UIKit
 import Parse
 
-struct ExampleWorkout {
-    let name: String
-    let exercises: String
-    
-}
-
 class AddRoutineViewModel: UIViewController {
     
-    var workout = [ExampleWorkout]()
-    
+    @IBOutlet weak var routineNotes: UITextView!
+    @IBOutlet weak var routineNameTextField: UITextField!
     var collectionData: [PFObject] = []
     var exercisesId: [String] = []
+    var workout: PFObject!
+    var exercise: PFObject!
     
+    @IBAction func onCancelTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // uzivatel klikol na save -> vytvorim Workout a pridam ho do db
+    @IBAction func onSaveButtonTapped(_ sender: Any) {
+        workout = PFObject(className: "Workout")
+        exercise = PFObject(className: "Exercise")
+        
+        workout["name"] = routineNameTextField.text
+        workout["user_id"] = PFUser.current()
+        
+        
+        workout.saveInBackground { (success, error) in
+            if error == nil && success {
+                print(success)
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("IDS: \(exercisesId)")
@@ -55,7 +74,6 @@ class AddRoutineViewModel: UIViewController {
 
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

@@ -10,13 +10,33 @@ import UIKit
 import Foundation
 import Parse
 
+struct cellData {
+    var opened = Bool()
+    var title = String()
+    var sectionData = [String]()
+}
+
 class WorkoutViewModel: UIViewController {
 
+    
+    
+    @IBOutlet weak var tableView: UITableView!
     // Break Timer
     @IBOutlet weak var breakTimerLabel: UILabel!
     
     // Label Workout Name
     @IBOutlet weak var workoutName: UILabel!
+    
+    var workouts = [Workout]()
+    var tableViewData = [cellData(opened: false, title: "Prvy trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
+                         cellData(opened: false, title: "Druhy trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
+                         cellData(opened: false, title: "Tretia trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
+                         cellData(opened: false, title: "Stvrtok trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"])]
+//
+//    tableViewData = [cellData(opened: false, title: "Prvy trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
+//    cellData(opened: false, title: "Druhy trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
+//    cellData(opened: false, title: "Tretia trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
+//    cellData(opened: false, title: "Stvrtok trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"])]
     
     // FINISH
     @IBAction func finishButtonTapped(_ sender: Any) {
@@ -157,4 +177,57 @@ class WorkoutViewModel: UIViewController {
     
     
 
+}
+
+extension WorkoutViewModel: UITableViewDataSource, UITableViewDelegate {
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableViewData[section].opened == true {
+            return tableViewData[section].sectionData.count + 1
+        } else {
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "testCell") else { return UITableViewCell() }
+            cell.textLabel?.text = tableViewData[indexPath.section].title
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "testCell") else { return UITableViewCell() }
+            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
+            return cell
+        }
+        
+        
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableViewData.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            if tableViewData[indexPath.section].opened == true {
+                tableViewData[indexPath.section].opened = false
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none )
+            } else {
+                tableViewData[indexPath.section].opened = true
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none )
+            }
+        }
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

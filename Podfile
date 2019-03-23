@@ -11,4 +11,5 @@ target 'BP-DIFR' do
  pod 'SwiftyJSON', '~>4.0'
  pod 'Charts'
  pod 'Instabug'
+ pod 'Alamofire'
 end

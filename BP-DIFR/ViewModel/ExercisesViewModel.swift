@@ -7,86 +7,137 @@
 //
 
 import UIKit
-import Parse
-
-// Struktura pre JSON Api ktore dotiahnem
-// Ja pracuje muz len s results kde sa nachadzaju cviky
-//struct WholeJsonModel: Decodable {
-//    let count: Int?
-//    let next: String?
-//    let previous: String?
-//    let results: [ExerciseApiModel]
-//}
+import Alamofire
+import SwiftyJSON
 
 class ExercisesViewModel: UIViewController {
     
     @IBOutlet weak var exercisesTableView: UITableView!
     
-    var exerciseArray = [Exercise]()
-    var localExercises = [PFObject]()
+    // Pole vsetkych cvikov
+    var exercisesArray = [Exercise]()
+    
+    // service
+    var exerciseService: ExercisesNetworkService!
+    
+    // Filtrovane pole cvikov
+    var exerciseSearchArray = [Exercise]()
+    var searchController: UISearchController!
     
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        setupNavBar()
         self.exercisesTableView.reloadData()
-    }
-    
-    
-    func loadData() {
-        let query = PFQuery(className: "Exercise")
-        query.findObjectsInBackground { (exercise, error) in
-            if error == nil {
-                if let returnedExercises = exercise{
-                    self.localExercises = returnedExercises
+        exerciseService = ExercisesNetworkService()
+        exerciseService.getAllExercises { (exercises) in
+            DispatchQueue.main.async {
+                if let exercises = exercises {
+                    self.exercisesArray = exercises
+                    self.exerciseSearchArray = self.exercisesArray
                     self.exercisesTableView.reloadData()
                 }
-            } else {
-                print("ERROR WHILE QUERY: \(String(describing: error?.localizedDescription))")
             }
+            self.exercisesTableView.reloadData()
         }
+        
+        
+    }
+    
+    func setupNavBar() {
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            searchController = UISearchController(searchResultsController: nil)
+            searchController.searchResultsUpdater = self
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.searchBar.placeholder = "Hľadať cviky"
+            navigationItem.searchController = searchController
+            definesPresentationContext = true
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    // zistim si ci je search bar prazdny
+    func searchBarIsEmpty() -> Bool {
+        // vraciam TRUE ak je prazdny alebo je nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        exerciseSearchArray = exercisesArray.filter({(exercise : Exercise) -> Bool in
+            return exercise.name.lowercased().contains(searchText.lowercased())
+        })
+        exercisesTableView.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
     
     @IBAction func refreshTapped(_ sender: Any) {
         exercisesTableView.reloadData()
-        
     }
-    
-    
-    
-    
-    
 }
 
-
-
 extension ExercisesViewModel: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return localExercises.count
+        if isFiltering() {
+            return exerciseSearchArray.count
+        }
+        return exercisesArray.count
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath) as! ExerciseCell
-        if (localExercises.count != 0) {
-            let exercise:PFObject = localExercises[indexPath.row]
-            cell.setLabel(label: exercise.object(forKey: "name") as! String)
+        
+        let exercise: Exercise
+        
+        if (exerciseSearchArray.count != 0) {
+            if isFiltering() {
+                exercise = exerciseSearchArray[indexPath.row]
+            } else {
+                exercise = exercisesArray[indexPath.row]
+            }
+            cell.setLabel(label: (exercise.name))
         }
+        
         return cell
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("SELECTED ROW: \(indexPath.row)")
-//        let exercise = exerciseArray[indexPath.row]
-//        print("Exercise name: \(exercise.name)")
-//        print("Exercise id: \(exercise.id)")
-//        print("EXERCISE category: \(exercise.category)")
-//        print("EXERCISE category: \(exercise.description)")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showExerciseSegue" {
+            let vc = segue.destination as! ExerciseDetailViewController
+            vc.exercise = sender as? Exercise
+        }
+        
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let exercise = exerciseSearchArray[indexPath.row]
+        performSegue(withIdentifier: "showExerciseSegue", sender: exercise)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let id = exercisesArray[indexPath.row].id
+            exerciseService.removeExercise(exerciseId: id)
+            exercisesArray.remove(at: indexPath.item)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+}
+
+extension ExercisesViewModel: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
 }

@@ -10,6 +10,7 @@ import UIKit
 import Instabug
 import Parse
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             Parse.initialize(with: parseConfig)
         Instabug.start(withToken: "2cc19ecbf264267a8d564c2be4a773b2", invocationEvents: [.shake, .screenshot])
+        
         return true
     }
 

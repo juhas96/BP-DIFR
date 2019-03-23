@@ -7,10 +7,11 @@
 //
 
 import UIKit
-import LNPopupController
 import Parse
 
 class WorkoutsViewModel: UIViewController {    
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var routines = [PFObject]()
     var exercises = [PFObject]()
@@ -20,49 +21,6 @@ class WorkoutsViewModel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    
-    // funkcia mi prida do pola Routines vsetky workouty ktore su priradene danemu userovi
-    func loadUserRoutines(completion: @escaping () -> Void) {
-        user = PFUser.current()
-        if user != nil {
-            // ziskam tabulku Workout
-            let allWorkoutsForCurrentUserQuery = PFQuery(className:"Workout")
-            
-            // ziskam vsetky workouty ktore patria prihlasenemu userovi
-            allWorkoutsForCurrentUserQuery.whereKey("user_id", equalTo: user!)
-            allWorkoutsForCurrentUserQuery.findObjectsInBackground { (workouts, error) in
-                if error == nil {
-                    guard let returnedWorkouts = workouts else { return }
-                        for workout in returnedWorkouts {
-                            self.routines.append(workout)
-                        }
-                } else {
-                    print(error?.localizedDescription)
-                }
-                completion()
-            }
-        } else {
-            // Tu netreba pravdepodobne nic riesit, nakolko nemam anonymneho usera
-        }
-    }
-    
-    func loadExercisesInWorkout(routines: [PFObject], completion: () -> Void) -> String {
-        let allExercisesInWorkout = PFQuery(className: "Exercise")
-        allExercisesInWorkout.whereKey("workout", containedIn: routines)
-        allExercisesInWorkout.findObjectsInBackground { (exercises, error) in
-            if error == nil {
-                guard let returnedExercises = exercises else { return }
-                print(returnedExercises)
-                for exercise in returnedExercises {
-                    self.exercises.append(exercise)
-                }
-            } else {
-                print(error?.localizedDescription)
-            }
-        }
-        return ""
-    }
 }
 
 
@@ -70,6 +28,12 @@ class WorkoutsViewModel: UIViewController {
 
 
 extension WorkoutsViewModel: UITableViewDelegate, UITableViewDataSource {
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
+    }
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,19 +43,59 @@ extension WorkoutsViewModel: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as! WorkoutCell
-        loadUserRoutines {
-            self.loadExercisesInWorkout(routines: self.routines,completion: {
-                for routine in self.routines {
-                    print(routine["name"])
+        
+        if(routines.count != 0) {
+            let routine:PFObject = routines[indexPath.row]
+            cell.setRoutineName(routineName: routine.object(forKey: "name") as! String)
+            var exerciseString = ""
+            for exercise in exercises {
+                if let singleExercise:PFObject = exercise {
+                    exerciseString.append(singleExercise.object(forKey: "name") as! String)
+                    exerciseString.append(", ")
                 }
-            })
+            }
+            cell.setExercisesLabel(exercises: exerciseString)
         }
-        
-        
-//        cell.setRoutineName(routineName: exercise.name)
-//        cell.setExercisesLabel(exercises: exercise.exercises.description)
+
         
         return cell
+    }
+    
+    func loadData() {
+        user = PFUser.current()
+        if user != nil {
+            // ziskam tabulku Workout
+            let allWorkoutsForCurrentUserQuery = PFQuery(className: "Workout")
+            
+            // vyfiltrujem si workouty podla usera
+            allWorkoutsForCurrentUserQuery.whereKey("user_id", equalTo: user!)
+            allWorkoutsForCurrentUserQuery.findObjectsInBackground { (workouts, error) in
+                if error == nil {
+                    // ak existuju workouty vlozim si ich ku sebe, inak skonci funkcia
+                    guard let returnedWorkouts = workouts else { return }
+                    self.routines = returnedWorkouts
+                    
+                    // ziskam tabulku Exercise
+                    let allExercisesInWorkoutQuery = PFQuery(className: "Exercise")
+                    
+                    // vyfiltrujem cviky ktore patria workoutu
+                    allExercisesInWorkoutQuery.whereKey("workout", containedIn: returnedWorkouts)
+                    allExercisesInWorkoutQuery.findObjectsInBackground(block: { (exercises, error) in
+                        if error == nil {
+                            // ak existuju vlozim si ich ku sebe
+                            guard let returnedExercises = exercises else { return }
+                            self.exercises = returnedExercises
+                            // reloadnem tableView aby sa zobrazili data
+                            self.tableView.reloadData()
+                        } else {
+                            print(error?.localizedDescription ?? "Error while loading exercises")
+                        }
+                    })
+                } else {
+                    print(error?.localizedDescription ?? "Error while loading workouts")
+                }
+            }
+        }
     }
     
    

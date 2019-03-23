@@ -12,7 +12,7 @@ import Foundation
  Model pre tréning
  */
 struct Workout {
-    let id: String? = nil
+    let id: String
     var duration: Int
     var start_date: Date
     var end_date: Date
@@ -21,7 +21,8 @@ struct Workout {
     var user_id: String
     var kg_lifted_overall: Int
     
-    init(duration: Int, start_date: Date, end_date: Date, name: String, notes: String, user_id: String, kg_lifted_overall: Int) {
+    init(id: String,duration: Int, start_date: Date, end_date: Date, name: String, notes: String, user_id: String, kg_lifted_overall: Int) {
+        self.id = id
         self.duration = duration
         self.start_date = start_date
         self.end_date = end_date
@@ -30,4 +31,6 @@ struct Workout {
         self.user_id = user_id
         self.kg_lifted_overall = kg_lifted_overall
     }
+    
+    
 }

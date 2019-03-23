@@ -8,21 +8,22 @@
 
 import Foundation
 
+
 /**
  Model pre cvik ktorý sa ukladá do DB
  */
-struct Exercise: Codable {
-    var id: String
-    let category: Int
-    let description: String
-//    let imgPath: String
-//    let muscles: [String]
-    let name: String
+struct Exercise{
+    let id:             String
+    let category:       Int
+    let description:    String
+    let img_url:        String
+    let name:           String
     
-    init(category: Int, description: String, name: String, id: String) {
-        self.category = category
-        self.description = description
-        self.name = name
-        self.id = id
+    init(id: String, category: Int, description: String, name: String, img_url: String) {
+        self.id =           id
+        self.category =     category
+        self.description =  description
+        self.name =         name
+        self.img_url =      img_url
     }
 }

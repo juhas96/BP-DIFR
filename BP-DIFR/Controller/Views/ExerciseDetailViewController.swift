@@ -10,21 +10,23 @@ import UIKit
 
 class ExerciseDetailViewController: UIViewController {
 
-    @IBOutlet weak var exerciseTitle: UINavigationBar!
-    @IBOutlet weak var exerciseImageView: UIImageView!
-    @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var exerciseName: UINavigationItem!
+    @IBOutlet weak var exerciseImage: UIImageView!
+    @IBOutlet weak var exerciseDescription: UILabel!
     
-    var instructions: String = ""
-    var image: UIImage?
+    var exercise: Exercise?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        instructionsLabel.text = "This is simple instructions"
-        exerciseImageView.image = image
-        
-        // Do any additional setup after loading the view.
+        exerciseDescription.sizeToFit()
+        setUI()
+    }
+    
+    func setUI() {
+        exerciseDescription.text = exercise?.description
+        exerciseName.title = exercise?.name
+//        exerciseImage.image = exercise?.img_url
     }
     
 }

@@ -178,11 +178,15 @@
                     <navigationItem key="navigationItem" title="Add routine" id="tVc-ab-Ebh">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="zh2-I6-MtT">
                             <connections>
-                                <action selector="cancelAddingRoutine:" destination="GNk-em-11g" id="cjO-Gp-KXM"/>
+                                <action selector="onCancelTapped:" destination="GNk-em-11g" id="sDf-Ig-b51"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Save" id="uDt-CV-4Ed"/>
+                            <barButtonItem title="Save" id="uDt-CV-4Ed">
+                                <connections>
+                                    <action selector="onSaveButtonTapped:" destination="GNk-em-11g" id="btS-Ue-wf9"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Add Exercise" id="QKM-P0-qTO">
                                 <connections>
                                     <segue destination="RlC-gg-vwN" kind="show" id="7I3-zo-lAa"/>
@@ -190,6 +194,10 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="routineNameTextField" destination="3uN-zX-zcX" id="fDT-9j-9Ul"/>
+                        <outlet property="routineNotes" destination="O2g-LA-oJs" id="hs4-tX-V6n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsK-kl-tLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -288,6 +296,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="kOp-4w-XDF" id="mgB-Bx-wXI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lcp-6H-AZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -414,6 +425,29 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FcU-lj-Jks">
                                 <rect key="frame" x="20" y="182" width="374" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="testCell" textLabel="fZI-Lg-klR" style="IBUITableViewCellStyleDefault" id="Zuh-Va-Ufz">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zuh-Va-Ufz" id="VJh-5Q-fYf">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fZI-Lg-klR">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="oec-eF-q1B" id="GJz-Uf-Z5b"/>
+                                    <outlet property="delegate" destination="oec-eF-q1B" id="cMT-0y-3vN"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -457,6 +491,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="breakTimerLabel" destination="rL9-gh-RPg" id="SCM-rp-UGR"/>
+                        <outlet property="tableView" destination="FcU-lj-Jks" id="8mM-Mf-Jke"/>
                         <outlet property="timerLabel" destination="3Mz-nK-wk6" id="UfM-hl-fCa"/>
                         <outlet property="workoutName" destination="QNa-sy-3mJ" id="hlK-9x-IZY"/>
                     </connections>

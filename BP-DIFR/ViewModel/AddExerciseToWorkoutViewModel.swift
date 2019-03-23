@@ -37,26 +37,26 @@ class AddExerciseToWorkoutViewModel: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loadData()
+        loadData()
         
     }
     
     
-//    func loadData() {
-//        let query = PFQuery(className: "Exercise")
-//        query.findObjectsInBackground { (exercise, error) in
-//            if error == nil {
-//                if let returnedExercises = exercise {
-//                    for exercise in returnedExercises {
+    func loadData() {
+        let query = PFQuery(className: "Exercise")
+        query.findObjectsInBackground { (exercise, error) in
+            if error == nil {
+                if let returnedExercises = exercise {
+                    for exercise in returnedExercises {
 //                        self.exerciseArray.append(Exercise(category: exercise["category"] as! Int, description: exercise["description"] as! String, name: exercise["name"] as! String, id: exercise.objectId!))
-//                    }
-//                }
-//                PFObject.pinAll(inBackground: self.localExercises)
-//            } else {
-//                print("ERROR WHILE QUERY: \(String(describing: error?.localizedDescription))")
-//            }
-//        }
-//    }
+                    }
+                }
+                PFObject.pinAll(inBackground: self.localExercises)
+            } else {
+                print("ERROR WHILE QUERY: \(String(describing: error?.localizedDescription))")
+            }
+        }
+    }
     
 }
 
@@ -80,12 +80,12 @@ extension AddExerciseToWorkoutViewModel: UITableViewDataSource, UITableViewDeleg
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("SELECTED ROW: \(indexPath.row)")
-//        let exercise = exerciseArray[indexPath.row]
-//        print("Exercise name: \(exercise.name)")
+        print("SELECTED ROW: \(indexPath.row)")
+        let exercise = exerciseArray[indexPath.row]
+        print("Exercise name: \(exercise.name)")
 //        print("Exercise id: \(exercise.id)")
-//        print("EXERCISE category: \(exercise.category)")
-//        print("EXERCISE category: \(exercise.description)")
+        print("EXERCISE category: \(exercise.category)")
+        print("EXERCISE category: \(exercise.description)")
 //        self.idArray.append(exercise.id)
     }
 
