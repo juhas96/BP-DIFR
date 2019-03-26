@@ -8,13 +8,9 @@
 
 import Foundation
 
-struct ExerciseSet {
-    let id: String? = nil
-    var kg: Int
-    var reps: Int
+struct ExercisesSet : Codable {
     
-    init(kg: Int, reps: Int) {
-        self.kg = kg
-        self.reps = reps
-    }
+    let id, kg, reps: Int?
+    let exercise: Exercise?
+    
 }

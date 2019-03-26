@@ -11,26 +11,24 @@ import Foundation
 /**
  Model pre tréning
  */
-struct Workout {
-    let id: String
-    var duration: Int
-    var start_date: Date
-    var end_date: Date
-    var name: String
-    var notes: String
-    var user_id: String
-    var kg_lifted_overall: Int
+struct Workout: Codable {
     
-    init(id: String,duration: Int, start_date: Date, end_date: Date, name: String, notes: String, user_id: String, kg_lifted_overall: Int) {
-        self.id = id
-        self.duration = duration
-        self.start_date = start_date
-        self.end_date = end_date
-        self.name = name
-        self.notes = notes
-        self.user_id = user_id
-        self.kg_lifted_overall = kg_lifted_overall
+    let id, duration: Int
+    let startDate, endDate, name, notes: String
+    let kgLiftedOverall: Int
+    let user: User
+    let exercisesSets: [ExercisesSet]
+    
+    enum CodingKeys: String, CodingKey {
+        case id, duration
+        case startDate = "start_date"
+        case endDate = "end_date"
+        case name, notes
+        case kgLiftedOverall = "kg_lifted_overall"
+        case user
+        case exercisesSets = "exercises_sets"
     }
+
     
     
 }

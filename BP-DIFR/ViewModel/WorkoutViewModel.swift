@@ -8,13 +8,6 @@
 
 import UIKit
 import Foundation
-import Parse
-
-struct cellData {
-    var opened = Bool()
-    var title = String()
-    var sectionData = [String]()
-}
 
 class WorkoutViewModel: UIViewController {
 
@@ -27,16 +20,10 @@ class WorkoutViewModel: UIViewController {
     // Label Workout Name
     @IBOutlet weak var workoutName: UILabel!
     
-    var workouts = [Workout]()
-    var tableViewData = [cellData(opened: false, title: "Prvy trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
-                         cellData(opened: false, title: "Druhy trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
-                         cellData(opened: false, title: "Tretia trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
-                         cellData(opened: false, title: "Stvrtok trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"])]
-//
-//    tableViewData = [cellData(opened: false, title: "Prvy trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
-//    cellData(opened: false, title: "Druhy trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
-//    cellData(opened: false, title: "Tretia trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"]),
-//    cellData(opened: false, title: "Stvrtok trening", sectionData: ["Cvik1","Cvik2","Cvik3","Cvik4"])]
+    var workoutNetworkService: WorkoutsNetworkService!
+    
+    var workoutsArray = [Workout]()
+    
     
     // FINISH
     @IBAction func finishButtonTapped(_ sender: Any) {
@@ -55,18 +42,7 @@ class WorkoutViewModel: UIViewController {
     
     // Button addExercise
     @IBAction func addExerciseTapped(_ sender: Any) {
-        // ak timer este nebol zapnuty tak ho zapnem, cize ak nebol vytvoreny objekt tak sa este nezapol, preto optional - nemusi byt vytvoreny na zaciatku
-        if breakTimer == nil {
-            // zapnem timer s intervalom 1 sekunda
-            breakTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tickTimer), userInfo: nil, repeats: true)
-            
-            // nastavim koniec timera podla seconds left
-            // TODO: TOTO POJDE DO BREAK TIMERA
-            endDate = Date().addingTimeInterval(secondsLeft)
-            
-            // updatnem UI
-            updateBreakTimerLabel()
-        }
+        
     }
     
     // Button cancelWorkout
@@ -88,9 +64,53 @@ class WorkoutViewModel: UIViewController {
     
     
     
+    var exercisesSetsArray = [ExercisesSet]()
+    var setsArray = [[ExercisesSet]]()
+    
+    var groupedDict = [String? : [ExercisesSet]]()
+    var groupedSets = [[ExercisesSet]]()
+    var keys: Dictionary<String?, [ExercisesSet]>.Keys!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        workoutNetworkService = WorkoutsNetworkService()
+        workoutNetworkService.getAllWorkouts { (workouts) in
+            DispatchQueue.main.async {
+                if let workouts = workouts {
+                    // Ziskam vsetky workouty
+                    self.workoutsArray = workouts
+                    self.tableView.reloadData()
+                    
+                    // Ziskam vsetky Sety z Workoutu
+                    self.exercisesSetsArray = self.workoutsArray[0].exercisesSets
+                    
+                    // Vyfiltrujem ich podla Exercise ktore obsahuju, tym padom dostanem Key : Value kde Key je Exercise a Value je Exercise_Set
+                    self.groupedDict = Dictionary(grouping: self.exercisesSetsArray, by: { (exerciseSet) -> String? in
+                        return exerciseSet.exercise?.name
+                    })
+                    
+                    // Zoberiem kluce z dictionary
+                    self.keys = self.groupedDict.keys
+                    
+                    // Unikatne naplnim 2d pole s exerciseSets
+                    // tym padom viem vytvorit sekcie s Exercise a ExerciseSet ktore su spolu groupnute
+                    self.keys.forEach({ (key) in
+                        self.groupedSets.append(self.groupedDict[key]!)
+                    })
+                    
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
+        self.tableView.reloadData()
+        
+        
+        
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runWorkoutDurationTimer), userInfo: nil, repeats: true)
         }
@@ -180,54 +200,51 @@ class WorkoutViewModel: UIViewController {
 }
 
 extension WorkoutViewModel: UITableViewDataSource, UITableViewDelegate {
-    
-    
+
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableViewData[section].opened == true {
-            return tableViewData[section].sectionData.count + 1
-        } else {
-            return 1
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "testCell") else { return UITableViewCell() }
-            cell.textLabel?.text = tableViewData[indexPath.section].title
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "testCell") else { return UITableViewCell() }
-            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
-            return cell
-        }
-        
-        
+        return groupedSets[section].count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewData.count
+        return groupedSets.count
+    }
+
+    // TODO: Dorobit Cell unikatnu, REPS,KG,Fajka, PREV
+    // TODO: Skusit tahat PREV Z DB
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
+        let name = groupedSets[indexPath.section][indexPath.row].reps
+        return cell
+
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            if tableViewData[indexPath.section].opened == true {
-                tableViewData[indexPath.section].opened = false
-                let sections = IndexSet.init(integer: indexPath.section)
-                tableView.reloadSections(sections, with: .none )
-            } else {
-                tableViewData[indexPath.section].opened = true
-                let sections = IndexSet.init(integer: indexPath.section)
-                tableView.reloadSections(sections, with: .none )
-            }
-        }
+    // Nastavujem header pre sekciu
+    // TODO: nastavit header podla nazvu cviku
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Exercise"
+        label.backgroundColor = UIColor.blue
+        return label
+    }
+
+
+
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
+
+//
+//timer
+//
+//// ak timer este nebol zapnuty tak ho zapnem, cize ak nebol vytvoreny objekt tak sa este nezapol, preto optional - nemusi byt vytvoreny na zaciatku
+//if breakTimer == nil {
+//    // zapnem timer s intervalom 1 sekunda
+//    breakTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tickTimer), userInfo: nil, repeats: true)
+//    
+//    // nastavim koniec timera podla seconds left
+//    // TODO: TOTO POJDE DO BREAK TIMERA
+//    endDate = Date().addingTimeInterval(secondsLeft)
+//    
+//    // updatnem UI
+//    updateBreakTimerLabel()
+//}

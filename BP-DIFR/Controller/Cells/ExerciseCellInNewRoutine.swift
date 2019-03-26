@@ -9,6 +9,8 @@
 import UIKit
 
 class ExerciseCellInNewRoutine: UITableViewCell {
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,5 +22,7 @@ class ExerciseCellInNewRoutine: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }

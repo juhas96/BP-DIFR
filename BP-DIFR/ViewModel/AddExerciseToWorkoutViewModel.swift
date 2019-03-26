@@ -73,7 +73,7 @@ extension AddExerciseToWorkoutViewModel: UITableViewDataSource, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath) as! ExerciseCell
         if (exerciseArray.count != 0) {
             let exercise = exerciseArray[indexPath.row]
-            cell.setLabel(label: exercise.name)
+            cell.setLabel(label: exercise.name!)
         }
         return cell
     }
@@ -84,8 +84,8 @@ extension AddExerciseToWorkoutViewModel: UITableViewDataSource, UITableViewDeleg
         let exercise = exerciseArray[indexPath.row]
         print("Exercise name: \(exercise.name)")
 //        print("Exercise id: \(exercise.id)")
-        print("EXERCISE category: \(exercise.category)")
-        print("EXERCISE category: \(exercise.description)")
+//        print("EXERCISE category: \(exercise.category)")
+//        print("EXERCISE category: \(exercise.description)")
 //        self.idArray.append(exercise.id)
     }
 

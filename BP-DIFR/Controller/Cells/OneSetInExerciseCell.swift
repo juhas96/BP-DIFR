@@ -10,6 +10,12 @@ import UIKit
 
 class OneSetInExerciseCell: UITableViewCell {
 
+    @IBOutlet weak var setNumber: UILabel!
+    @IBOutlet weak var previous: UILabel!
+    @IBOutlet weak var kg: UITextField!
+    @IBOutlet weak var reps: UITextField!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

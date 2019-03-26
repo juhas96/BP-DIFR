@@ -11,6 +11,24 @@ import Alamofire
 import SwiftyJSON
 
 
+extension JSON {
+    public var date: Date! {
+        get {
+            if let str = self.string {
+                return JSON.jsonDateFormatter.date(from: str)
+            }
+            return nil
+        }
+    }
+    
+    private static let jsonDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        return dateFormatter
+    }()
+}
+
 class WorkoutsNetworkService {
     
     let baseUrl: URL? = URL(string: "http://localhost:4545/")
@@ -21,31 +39,25 @@ class WorkoutsNetworkService {
     
     func getAllWorkouts(completion: @escaping ([Workout]?) -> Void) {
         self.endPoint = "workouts"
-        guard let workoutsURL = URL(string: "http://localhost:4545/workouts") else { return }
+        guard let workoutsURL = URL(string: "http://localhost:4545/workouts/user/1") else { return }
         
         Alamofire.request(workoutsURL,method: .get).validate().responseJSON { (response) in
-            switch response.result {
-            case .success(let value):
-                self.workoutArray = JSON(value)
-                let wkArray = self.workoutArray.arrayValue
-                for workout in wkArray {
-                    let id = workout["id"].stringValue
-                    let duration = workout["duration"].intValue
-                    let start_date = workout["start_date"]
-                    let end_date = workout["end_date"]
-                    let name = workout["name"].stringValue
-                    let notes = workout["notes"].stringValue
-                    let user_id = workout["user_id"].stringValue
-                    let kg_lifted_overall = workout["kg_lifted_overall"].intValue
-//                    self.workoutsArray.append(Workout(id: id,duration: duration, start_date: start_date, end_date: end_date, name: name, notes: notes, user_id: user_id, kg_lifted_overall: kg_lifted_overall))
-                }
-                completion(self.workoutsArray)
-            
-            case .failure(let error):
+            guard let data = response.data else { return }
+            do {
+                let req = try JSONDecoder().decode([Workout].self, from: data)
+                completion(req)
+            } catch let error {
                 print(error.localizedDescription)
                 completion(nil)
-        }
+            }
         
+        }
     }
-}
+    
+    func removeWorkout(workoutId: Int?) {
+        guard let workoutsURL = URL(string: "http://localhost:4545/exercises/\(workoutId)") else { return }
+        Alamofire.request(workoutsURL, method: .delete).validate().response { (response) in
+            print(response)
+        }
+    }
 }

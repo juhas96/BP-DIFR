@@ -66,7 +66,7 @@ class ExercisesViewModel: UIViewController {
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         exerciseSearchArray = exercisesArray.filter({(exercise : Exercise) -> Bool in
-            return exercise.name.lowercased().contains(searchText.lowercased())
+            return exercise.name!.lowercased().contains(searchText.lowercased())
         })
         exercisesTableView.reloadData()
     }
@@ -101,7 +101,7 @@ extension ExercisesViewModel: UITableViewDataSource, UITableViewDelegate {
             } else {
                 exercise = exercisesArray[indexPath.row]
             }
-            cell.setLabel(label: (exercise.name))
+            cell.setLabel(label: (exercise.name!))
         }
         
         return cell

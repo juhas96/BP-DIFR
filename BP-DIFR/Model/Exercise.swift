@@ -12,18 +12,14 @@ import Foundation
 /**
  Model pre cvik ktorý sa ukladá do DB
  */
-struct Exercise{
-    let id:             String
-    let category:       Int
-    let description:    String
-    let img_url:        String
-    let name:           String
+struct Exercise: Codable, Hashable{
+    let id: Int?
+    let description, name: String?
+    let category: Int?
+    let imgURL: String?
     
-    init(id: String, category: Int, description: String, name: String, img_url: String) {
-        self.id =           id
-        self.category =     category
-        self.description =  description
-        self.name =         name
-        self.img_url =      img_url
+    enum CodingKeys: String, CodingKey {
+        case id, description, name, category
+        case imgURL = "img_url"
     }
 }
