@@ -12,6 +12,7 @@ import Foundation
 class WorkoutViewModel: UIViewController {
 
     
+    // TODO: Upratat triedu
     
     @IBOutlet weak var tableView: UITableView!
     // Break Timer
@@ -20,9 +21,18 @@ class WorkoutViewModel: UIViewController {
     // Label Workout Name
     @IBOutlet weak var workoutName: UILabel!
     
+    // Kliknutie na checkButton - zapnem break timer
+    @IBAction func checkButtonClicked(_ sender: Any) {
+        createBreakTimer()
+    }
+    
     var workoutNetworkService: WorkoutsNetworkService!
     
     var workoutsArray = [Workout]()
+    
+    var currentWorkout: Workout!
+    
+    var numberOfRowsInSection: Int!
     
     
     // FINISH
@@ -37,6 +47,7 @@ class WorkoutViewModel: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
+    
     // Label Timera
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -58,7 +69,7 @@ class WorkoutViewModel: UIViewController {
     // Timer - break between sets Timer 
     var breakTimer: Timer?
     
-    var secondsLeft: TimeInterval = 100
+    var secondsLeft: TimeInterval = 10
     
     var counter = 0.0
     
@@ -72,6 +83,18 @@ class WorkoutViewModel: UIViewController {
     var keys: Dictionary<String?, [ExercisesSet]>.Keys!
     
     
+    func addSetToArrayAndToTableView() {
+        var exerciseSet = ExercisesSet()
+        exerciseSet.exercise = groupedSets[0][0].exercise
+        exerciseSet.kg = 0
+        exerciseSet.reps = 0
+        groupedSets[0].append(exerciseSet)
+        print(groupedSets.count)
+    }
+    
+    @IBAction func addSetButtonTapped(_ sender: UIButton) {
+        addSetToArrayAndToTableView()
+    }
     
     
     override func viewDidLoad() {
@@ -111,46 +134,74 @@ class WorkoutViewModel: UIViewController {
         
         
         
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runWorkoutDurationTimer), userInfo: nil, repeats: true)
-        }
+        createTimer()
         
-        updateBreakTimerLabel()
-        // Do any additional setup after loading the view.
+        // pridam observer na prijatie + - sekund z ineho View
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTimer(notification:)), name: .timerUpdated, object: nil)
     }
-    
-    // MARK: - FUNKCIE UI
-    
-    // funkcia pre update hlavneho duration Timera
-    func updateBreakTimerLabel() {
-        breakTimerLabel.text = String(round(secondsLeft))
-    }
-    
+}
 
-    // MARK: - FUNKCIE TIMERU
+// MARK: TableView
+extension WorkoutViewModel: UITableViewDataSource, UITableViewDelegate {
+
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return groupedSets[section].count + 2
+    }
     
-    // zapnutie timeru
-    @objc func startTimer() {
-        
-//        // ak timer este nebol zapnuty tak ho zapnem, cize ak nebol vytvoreny objekt tak sa este nezapol, preto optional - nemusi byt vytvoreny na zaciatku
-//        if timer == nil {
-//            // zapnem timer s intervalom 1 sekunda
-//            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tickTimer), userInfo: nil, repeats: true)
-//
-//            // nastavim koniec timera podla seconds left
-//            // TODO: TOTO POJDE DO BREAK TIMERA
-//            endDate = Date().addingTimeInterval(secondsLeft)
-//
-//            // updatnem UI
-//            updateTimerLabel()
-//        }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return groupedSets.count
+    }
+
+    // TODO: Dorobit Cell unikatnu, REPS,KG,Fajka, PREV
+    // TODO: Skusit tahat PREV Z DB
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
+        let totalRows = tableView.numberOfRows(inSection: indexPath.section)
         
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "staticExerciseCell") else { return UITableViewCell() }
+            return cell
+        } else if indexPath.row == totalRows - 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "addSetCell") else { return UITableViewCell() }
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "oneSetCell") as? OneSetInExerciseCell else { return UITableViewCell() }
+            cell.setNumber.text = String(indexPath.row)
+            return cell
+        }
+    }
+    
+    // Nastavujem header pre sekciu
+    // TODO: nastavit header podla nazvu cviku
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Exercise"
+        label.backgroundColor = UIColor.blue
+        return label
+    }
+}
+
+// MARK: Timer
+extension WorkoutViewModel {
+    
+    func createTimer() {
+        if timer == nil {
+            // Nastavim timer na sekundovy interval
+            timer = Timer(timeInterval: 1.0, target: self, selector: #selector(runWorkoutDurationTimer), userInfo: nil, repeats: true)
+            
+            // zabranuje stopovaniu timera pri pouzivani UI
+            RunLoop.current.add(timer!, forMode: .common)
+            
+            // Energy efficience
+            timer!.tolerance = 0.1
+        }
     }
     
     @objc func runWorkoutDurationTimer() {
-        counter += 0.1
+        counter += 1
         
         // FORMAT HH:MM:SS
         // Prekonvertujem si label na user friendly zobrazenie casu
@@ -170,81 +221,73 @@ class WorkoutViewModel: UIViewController {
             secondString = "0\(second)"
         }
         
-        let decisecond = String(format: "%.1f", counter).components(separatedBy: ".").last!
-        
-        timerLabel.text = "\(hour):\(minuteString):\(secondString).\(decisecond)"
+        timerLabel.text = "\(hour):\(minuteString):\(secondString)"
+    }
+}
 
+
+// MARK: BreakTimer
+extension WorkoutViewModel {
+    
+    // MARK: - FUNKCIE UI
+    
+    // funkcia pre update hlavneho duration Timera
+    func updateBreakTimerLabel() {
+        breakTimerLabel.text = String("\(round(secondsLeft))s")
     }
     
-    // vypnutie timeru
-    func stopTimer() {
-        
-    
+    // vypnutie break timeru
+    func stopBreakTimer() {
+        if breakTimer != nil {
+            print("som vynuloval")
+            breakTimer?.invalidate()
+            breakTimer = nil
+        }
     }
     
-    @objc func tickTimer() {
+    @objc func breakTimerTick() {
         // uberiem seconds left za kazdy tick
-        secondsLeft -= 1
+        if secondsLeft > 0 {
+            secondsLeft -= 1
+        }
+        
+        print("Som sa zavolal")
+        NotificationCenter.default.post(name: .timer, object: secondsLeft)
         
         // updatnem UI
         updateBreakTimerLabel()
         
         // skontrolujem ci timer uz neskoncil
         if secondsLeft <= 0 {
-            stopTimer()
+            stopBreakTimer()
         }
     }
     
-    
+    func createBreakTimer() {
+        secondsLeft = 10
+        updateBreakTimerLabel()
+        if breakTimer == nil {
+            // zapnem timer s intervalom 1 sekunda
+            breakTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(breakTimerTick), userInfo: nil, repeats: true)
 
+            
+            // nastavim koniec timera podla seconds left
+            // TODO: TOTO POJDE DO BREAK TIMERA
+            endDate = Date().addingTimeInterval(secondsLeft)
+            
+            // updatnem UI
+            updateBreakTimerLabel()
+        }
+    }
+    
+    // Nastavi zbyvajuci cas na break ak som v druhom View pridal / ubral sekundy
+    @objc func updateTimer(notification: Notification) {
+        self.secondsLeft = notification.object as! TimeInterval
+    }
 }
 
-extension WorkoutViewModel: UITableViewDataSource, UITableViewDelegate {
 
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groupedSets[section].count
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return groupedSets.count
-    }
-
-    // TODO: Dorobit Cell unikatnu, REPS,KG,Fajka, PREV
-    // TODO: Skusit tahat PREV Z DB
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
-        let name = groupedSets[indexPath.section][indexPath.row].reps
-        return cell
-
-    }
-    
-    // Nastavujem header pre sekciu
-    // TODO: nastavit header podla nazvu cviku
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.text = "Exercise"
-        label.backgroundColor = UIColor.blue
-        return label
-    }
-
-
-
+// MARK: Notifikacia pre observer
+extension Notification.Name {
+    static let timer = Notification.Name(rawValue: "Timer")
 }
-
-//
-//timer
-//
-//// ak timer este nebol zapnuty tak ho zapnem, cize ak nebol vytvoreny objekt tak sa este nezapol, preto optional - nemusi byt vytvoreny na zaciatku
-//if breakTimer == nil {
-//    // zapnem timer s intervalom 1 sekunda
-//    breakTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tickTimer), userInfo: nil, repeats: true)
-//    
-//    // nastavim koniec timera podla seconds left
-//    // TODO: TOTO POJDE DO BREAK TIMERA
-//    endDate = Date().addingTimeInterval(secondsLeft)
-//    
-//    // updatnem UI
-//    updateBreakTimerLabel()
-//}

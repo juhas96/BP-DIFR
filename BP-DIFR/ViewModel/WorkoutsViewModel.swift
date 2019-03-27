@@ -32,6 +32,10 @@ class WorkoutsViewModel: UIViewController {
             }
         }
     }
+    
+    func startWorkout() {
+        
+    }
 }
 
 
@@ -57,6 +61,10 @@ extension WorkoutsViewModel: UITableViewDelegate, UITableViewDataSource {
             workoutsArray.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

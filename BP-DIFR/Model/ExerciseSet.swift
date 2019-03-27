@@ -9,8 +9,6 @@
 import Foundation
 
 struct ExercisesSet : Codable {
-    
-    let id, kg, reps: Int?
-    let exercise: Exercise?
-    
-}
+    var id, kg, reps: Int?
+    var exercise: Exercise?
+}   

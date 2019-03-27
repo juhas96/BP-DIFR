@@ -28,6 +28,8 @@ struct Workout: Codable {
         case user
         case exercisesSets = "exercises_sets"
     }
+    
+    
 
     
     
