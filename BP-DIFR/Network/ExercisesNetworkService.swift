@@ -41,7 +41,7 @@ class ExercisesNetworkService {
     }
     
     func removeExercise(exerciseId: Int?) {
-        guard let exercisesURL = URL(string: "http://localhost:4545/exercises/\(exerciseId)") else { return }
+        guard let exercisesURL = URL(string: "http://localhost:4545/exercises/\(String(describing: exerciseId))") else { return }
         Alamofire.request(exercisesURL, method: .delete).validate().response { (response) in
             print(response)
         }

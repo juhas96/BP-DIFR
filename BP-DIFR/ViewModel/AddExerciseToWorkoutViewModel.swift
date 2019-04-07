@@ -7,61 +7,73 @@
 //
 
 import UIKit
-import Parse
+
 
 class AddExerciseToWorkoutViewModel: UIViewController {
 
+    
     @IBOutlet weak var exercisesTableView: UITableView!
-    @IBAction func addExercisesButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "addExerciseSegue", sender: self)
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! AddRoutineViewModel
-        vc.exercisesId = self.idArray
-    }
-    
-    // pole IDcok do ktoreho pridam idcko cviku z DB po tapnuti na dany row v table view, nasledne pole posielam s5 do view s workoutom kde podla toho vytvorim dane cell
-    var idArray: [String] = []
-    
-    // Reloadnutie table view
-    @IBAction func reloadDataTapped(_ sender: Any) {
-        self.exercisesTableView.reloadData()
-    }
-    
     var exerciseArray = [Exercise]()
-    var localExercises = [PFObject]()
-    
-    
-    
+    var exerciseSearchArray = [Exercise]()
+    var exerciseSetsArray = [ExercisesSet]()
+    var exerciseService: ExercisesNetworkService!
+    var searchController: UISearchController!
+    var exerciseSet: ExercisesSet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
-        
-    }
-    
-    
-    func loadData() {
-        let query = PFQuery(className: "Exercise")
-        query.findObjectsInBackground { (exercise, error) in
-            if error == nil {
-                if let returnedExercises = exercise {
-                    for exercise in returnedExercises {
-//                        self.exerciseArray.append(Exercise(category: exercise["category"] as! Int, description: exercise["description"] as! String, name: exercise["name"] as! String, id: exercise.objectId!))
-                    }
+        setupNavBar()
+        exerciseService = ExercisesNetworkService()
+        exerciseService.getAllExercises { (exercises) in
+            DispatchQueue.main.async {
+                if let exercises = exercises {
+                    self.exerciseArray = exercises
+                    self.exerciseSearchArray = self.exerciseArray
+                    self.exercisesTableView.reloadData()
                 }
-                PFObject.pinAll(inBackground: self.localExercises)
-            } else {
-                print("ERROR WHILE QUERY: \(String(describing: error?.localizedDescription))")
             }
         }
+        self.exercisesTableView.reloadData()
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        exerciseSearchArray = exerciseArray.filter({(exercise : Exercise) -> Bool in
+            return exercise.name!.lowercased().contains(searchText.lowercased())
+        })
+        exercisesTableView.reloadData()
+    }
+    
+    func setupNavBar() {
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            searchController = UISearchController(searchResultsController: nil)
+            searchController.searchResultsUpdater = self
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.searchBar.placeholder = "Hľadať cviky"
+            navigationItem.searchController = searchController
+            definesPresentationContext = true
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    func createSetsFromExercise(indexPath: Int) {
+        let exercise = exerciseArray[indexPath]
+        exerciseSet = ExercisesSet()
+        exerciseSet.exercise = exercise
+        exerciseSet.kg = 0
+        exerciseSet.reps = 0
+//        exerciseSet.id = 0
     }
     
 }
 
 
-
+// MARK: TableView
 extension AddExerciseToWorkoutViewModel: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,13 +92,25 @@ extension AddExerciseToWorkoutViewModel: UITableViewDataSource, UITableViewDeleg
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("SELECTED ROW: \(indexPath.row)")
-        let exercise = exerciseArray[indexPath.row]
-        print("Exercise name: \(exercise.name)")
-//        print("Exercise id: \(exercise.id)")
-//        print("EXERCISE category: \(exercise.category)")
-//        print("EXERCISE category: \(exercise.description)")
-//        self.idArray.append(exercise.id)
+        createSetsFromExercise(indexPath: indexPath.row)
+        NotificationCenter.default.post(name: .addExerciseToWorkout, object: exerciseSet)
+        let alert = UIAlertController(title: "Exercises Added", message: "New exercise added to current workout!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
 }
+
+// MARK: SEARCH BAR
+extension AddExerciseToWorkoutViewModel: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
+
+// MARK: Notifikacia na poslanie Exercisu do aktualneho workoutu
+// MARK: Notifikacia pre observer
+extension Notification.Name {
+    static let addExerciseToWorkout = Notification.Name(rawValue: "AddExerciseToWorkout")
+}
+

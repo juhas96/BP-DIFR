@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol OneSetInExerciseCellDelegate {
+    func didTapCheckButton(kg: String, reps: String, index: IndexPath)
+}
+
 class OneSetInExerciseCell: UITableViewCell {
 
     @IBOutlet weak var setNumber: UILabel!
@@ -16,13 +20,22 @@ class OneSetInExerciseCell: UITableViewCell {
     @IBOutlet weak var reps: UITextField!
     @IBOutlet weak var checkButtonOutlet: UIButton!
     
+    var exerciseSet: ExercisesSet!
+    var delegate: OneSetInExerciseCellDelegate?
+    
+    var indexPath: IndexPath!
+    
+    func setExerciseSet(exerciseSet: ExercisesSet) {
+        self.exerciseSet = exerciseSet
+    }
     
     let checkboxUnchecked = #imageLiteral(resourceName: "Checkmarkempty")
     let checkboxChecked = #imageLiteral(resourceName: "Checkmark")
     var buttonIsChecked = false
     
     @IBAction func checkButtonClicked(_ sender: Any) {
-        print("CheckButton Clicked")
+        delegate?.didTapCheckButton(kg: kg.text!, reps: reps.text!, index: indexPath)
+        
         if !buttonIsChecked {
             checkButtonOutlet.setImage(checkboxChecked, for: .normal)
             buttonIsChecked = true
@@ -30,6 +43,8 @@ class OneSetInExerciseCell: UITableViewCell {
             checkButtonOutlet.setImage(checkboxUnchecked, for: .normal)
             buttonIsChecked = false
         }
+        
+        
         
     }
     

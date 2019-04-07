@@ -37,7 +37,7 @@ class TimerViewModel: UIViewController {
     
     // Prijme notifikaciu z NotificationCenter a nastavi secondsLeft v tomto view
     @objc func updateTimer(notification: Notification) {
-        self.secondsLeft = notification.object as! TimeInterval
+        self.secondsLeft = notification.object as? TimeInterval
         timerLabel.text = String(secondsLeft)
         
         // Ak dojdem na 0 zmizne view pretoze timer skoncil

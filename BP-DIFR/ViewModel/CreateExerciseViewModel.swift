@@ -30,7 +30,7 @@ class CreateExerciseViewModel: UIViewController {
             "description":      exerciseDescriptionTextField.text!
         
         ]
-        print(exercise)
+        print("TUSOM \(exercise)")
         exerciseNetworkService.createExercise(exercise: exercise)
     }
     

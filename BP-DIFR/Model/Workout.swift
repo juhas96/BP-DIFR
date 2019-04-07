@@ -13,11 +13,12 @@ import Foundation
  */
 struct Workout: Codable {
     
-    let id, duration: Int
-    let startDate, endDate, name, notes: String
-    let kgLiftedOverall: Int
-    let user: User
-    let exercisesSets: [ExercisesSet]
+    let id : Int
+    var duration: Int
+    var startDate, endDate, name, notes: String
+    var kgLiftedOverall: Int
+    let user: AppUser
+    var exercisesSets: [ExercisesSet]
     
     enum CodingKeys: String, CodingKey {
         case id, duration
@@ -29,8 +30,15 @@ struct Workout: Codable {
         case exercisesSets = "exercises_sets"
     }
     
-    
-
-    
-    
+    init(id: Int, duration: Int, startDate: String, endDate: String, name: String, notes: String, kgLiftedOverall: Int, user: AppUser, exercisesSets: [ExercisesSet]) {
+        self.id = id
+        self.duration = duration
+        self.startDate = startDate
+        self.endDate = endDate
+        self.name = name
+        self.notes = notes
+        self.kgLiftedOverall = kgLiftedOverall
+        self.user = user
+        self.exercisesSets = exercisesSets
+    }
 }

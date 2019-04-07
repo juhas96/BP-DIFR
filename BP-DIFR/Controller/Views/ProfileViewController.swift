@@ -7,15 +7,18 @@
 //
 
 import UIKit
-import Parse
+//import Parse
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
     
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
-        PFUser.logOut()
-        print("Current use: \(PFUser.current())")
+        try! Auth.auth().signOut()
+
+//        PFUser.logOut()
+//        print("Current use: \(PFUser.current())")
         self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {

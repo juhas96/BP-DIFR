@@ -7,27 +7,18 @@
 //
 
 import UIKit
-import Instabug
-import Parse
+//import Instabug
+import Firebase
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?   
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-            let parseConfig = ParseClientConfiguration {
-                $0.isLocalDatastoreEnabled = true
-                $0.applicationId = "qDSH6yB1AbeLQc7HDMKPO96dlk5NGlw3WCBoFcVT"
-                $0.clientKey = "YlRwkzAlAywUR8HQjKUUB6gbIxKC6kQOaTFut12C"
-                $0.server = "https://parseapi.back4app.com"
-            }
-            Parse.initialize(with: parseConfig)
-        Instabug.start(withToken: "2cc19ecbf264267a8d564c2be4a773b2", invocationEvents: [.shake, .screenshot])
-        
+//        Instabug.start(withToken: "2cc19ecbf264267a8d564c2be4a773b2", invocationEvents: [.shake, .screenshot])
+        FirebaseApp.configure() 
         return true
     }
 

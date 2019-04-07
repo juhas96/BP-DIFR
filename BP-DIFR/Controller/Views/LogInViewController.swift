@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+
 
 
 class LogInViewController: UIViewController {
@@ -17,7 +17,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
-        handleSignIn()
+
     }
     
     override func viewDidLoad() {
@@ -26,19 +26,6 @@ class LogInViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    func handleSignIn() {
-        
-        PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if user != nil && error == nil {
-//                self.alert(message: "Log In Successfull", title: "Success")
-                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
-            } else {
-                self.alert(message: error?.localizedDescription as! NSString, title: "Error")
-            }
-        }
-        
-    }
-    
     
     // message pre usera
     func alert(message: NSString, title: NSString) {

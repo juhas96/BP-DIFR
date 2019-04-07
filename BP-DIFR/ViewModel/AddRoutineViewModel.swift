@@ -7,101 +7,96 @@
 //
 
 import UIKit
-import Parse
+import Firebase
+import Alamofire
 
 class AddRoutineViewModel: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var routineName: UITextField!
     @IBOutlet weak var routineNotes: UITextView!
-    @IBOutlet weak var routineNameTextField: UITextField!
-    var collectionData: [PFObject] = []
-    var exercisesId: [String] = []
-    var workout: PFObject!
-    var exercise: PFObject!
     
-    @IBAction func onCancelTapped(_ sender: Any) {
+    var exerciseSets = [ExercisesSet]()
+    var user: AppUser!
+    var routineNetworkService: RoutineNetworkService!
+    
+    var routine: Routine!
+    
+    var routineDb = String()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if Auth.auth().currentUser != nil {
+            self.user = assigneFirUserToUser(user: Auth.auth().currentUser!)
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addExerciseToRoutine(notification:)), name: .addExerciseToWorkout, object: nil)
+    }
+    
+    
+    
+    func assigneFirUserToUser(user: User) -> AppUser {
+        return AppUser(id: 999, username: user.displayName ?? "", email: user.email!, uid: user.uid)
+    }
+        
+    @objc func addExerciseToRoutine(notification: Notification) {
+        var exerciseSet: ExercisesSet
+        exerciseSet = notification.object as! ExercisesSet
+        self.exerciseSets.append(exerciseSet)
+        print(self.exerciseSets)
+        self.tableView.reloadData()
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        createRoutine()
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    // uzivatel klikol na save -> vytvorim Workout a pridam ho do db
-    @IBAction func onSaveButtonTapped(_ sender: Any) {
-        workout = PFObject(className: "Workout")
-        exercise = PFObject(className: "Exercise")
-        
-        workout["name"] = routineNameTextField.text
-        workout["user_id"] = PFUser.current()
-        
-        
-        workout.saveInBackground { (success, error) in
-            if error == nil && success {
-                print(success)
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                print(error?.localizedDescription)
+    func createRoutine() {
+        if(routineName.text != nil) {
+            self.routine  = Routine(id: 0, name: routineName.text!, notes: routineNotes.text, user: self.user, exercisesSets: exerciseSets)
+            self.routineDb = convertRoutineToParameters(routine: self.routine)
+            DispatchQueue.main.async {
+                self.addRoutineToDatabase()
             }
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("IDS: \(exercisesId)")
-        loadData()
-        // Do any additional setup after loading the view.
-    }
-    
-    func showExercisesInWorkout() {
-        print("Exercises: \(exercisesId)")
-    }
-    
-    @IBAction func cancelAddingRoutine(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true)
-    }
-    
-    func loadData() {
-        let query = PFQuery(className: "Exercise")
-        query.whereKey("objectId", containedIn: exercisesId)
-        query.findObjectsInBackground { (exercise, error) in
-            if error == nil && exercise != nil {
-                self.collectionData = exercise!
-            }
-        }
-    }
-    
-    
-    
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-//extension AddRoutineViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return workout.count
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//    
-//    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return collectionData.count
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExerciseCollectionCell", for: indexPath)
-//        
-//        
-//        
-//        return cell
-//    }
-//}
+extension AddRoutineViewModel: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exerciseSets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DynamicOneSetCell") as? ExerciseCellInNewRoutine else { return UITableViewCell() }
+        cell.setExerciseName(exerciseName: (exerciseSets[indexPath.row].exercise?.name)!)
+        return cell
+    }
+    
+    
+}
+
+// MARK: NETWORK FUNC
+extension AddRoutineViewModel {
+    func convertRoutineToParameters(routine: Routine) -> String {
+        var jsonString = String()
+        let jsonEncoder = JSONEncoder()
+        do {
+            let jsonData = try jsonEncoder.encode(routine)
+            jsonString = String(data: jsonData, encoding: .utf8)!
+            
+        }
+        catch let error{
+            print(error.localizedDescription)
+        }
+    
+        return jsonString
+    }
+    
+    func addRoutineToDatabase() {
+        self.routineNetworkService = RoutineNetworkService()
+        self.routineNetworkService.saveRoutine(routine: self.routineDb)
+    }
+}

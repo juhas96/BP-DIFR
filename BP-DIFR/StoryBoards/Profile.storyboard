@@ -63,7 +63,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="sMc-lt-fof">
                             <connections>
                                 <action selector="logOutTapped:" destination="ZZE-Fr-lPC" id="3NA-yq-NSw"/>
-                                <segue destination="77Q-aD-yaC" kind="presentation" id="zUl-p2-9h1"/>
+                                <segue destination="77Q-aD-yaC" kind="presentation" id="CSQ-gk-E8J"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="sWW-qw-kOJ"/>

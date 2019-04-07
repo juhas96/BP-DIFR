@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseUI
 
 class ProfileViewModel: UIViewController {
 
@@ -23,8 +23,18 @@ class ProfileViewModel: UIViewController {
     var imagePicker: UIImagePickerController!
     
     @IBAction func logOutTapped(_ sender: Any) {
-    
+        handleSignOut()
     }
+    
+    func handleSignOut() {
+        do {
+            try! Auth.auth().signOut()
+            
+        } catch let err {
+            print(err.localizedDescription)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        db = Firestore.firestore()

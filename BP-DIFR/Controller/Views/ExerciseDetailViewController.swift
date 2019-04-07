@@ -14,6 +14,9 @@ class ExerciseDetailViewController: UIViewController {
     @IBOutlet weak var exerciseImage: UIImageView!
     @IBOutlet weak var exerciseDescription: UILabel!
     
+    @IBAction func toProgressView(_ sender: Any) {
+        performSegue(withIdentifier: "toProgress", sender: self)
+    }
     var exercise: Exercise?
     
     

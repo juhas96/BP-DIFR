@@ -22,4 +22,12 @@ struct Exercise: Codable, Hashable{
         case id, description, name, category
         case imgURL = "img_url"
     }
+    
+    init(id: Int, description: String, name: String, category: Int, imgURL: String) {
+        self.id = id
+        self.description = description
+        self.name = name
+        self.category = category
+        self.imgURL = imgURL
+    }
 }

@@ -11,7 +11,12 @@ import UIKit
 class ExerciseCellInNewRoutine: UITableViewCell {
     
     
-
+    @IBOutlet weak var exerciseName: UILabel!
+    
+    func setExerciseName(exerciseName: String) {
+        self.exerciseName.text = exerciseName
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

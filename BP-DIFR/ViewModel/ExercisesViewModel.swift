@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import FirebaseAuth
 
 class ExercisesViewModel: UIViewController {
     
@@ -28,6 +29,7 @@ class ExercisesViewModel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        
         self.exercisesTableView.reloadData()
         exerciseService = ExercisesNetworkService()
         exerciseService.getAllExercises { (exercises) in

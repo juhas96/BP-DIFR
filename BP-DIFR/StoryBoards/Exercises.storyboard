@@ -150,16 +150,54 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xxu-vx-xwH"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Exercise Name" id="kDA-J5-P1G"/>
+                    <navigationItem key="navigationItem" title="Exercise Name" id="kDA-J5-P1G">
+                        <barButtonItem key="rightBarButtonItem" title="Progress" id="VHM-mi-4U2">
+                            <connections>
+                                <action selector="toProgressView:" destination="6YZ-JD-EB1" id="R5s-zi-YrJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="exerciseDescription" destination="Bz3-MN-UhH" id="BTI-Rf-joY"/>
                         <outlet property="exerciseImage" destination="RGg-Qk-W2Y" id="vo9-Vz-7LB"/>
                         <outlet property="exerciseName" destination="kDA-J5-P1G" id="jue-Lt-pzu"/>
+                        <segue destination="NEc-yK-hG2" kind="show" identifier="toProgress" id="2YE-Ie-Qhq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HV1-Q1-gNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3967" y="1130"/>
+        </scene>
+        <!--Your Progress-->
+        <scene sceneID="Nsz-sv-Daq">
+            <objects>
+                <viewController title="Your Progress" id="NEc-yK-hG2" customClass="ProgressViewController" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Bb-Ct-eLk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There You can see your progress of lifted weight for last 10 sets for this exercise" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRL-Ub-KkD">
+                                <rect key="frame" x="20" y="118" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="56J-3w-aDZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WRL-Ub-KkD" firstAttribute="top" secondItem="4CZ-O8-UXt" secondAttribute="top" constant="30" id="MS5-rS-Jdt"/>
+                            <constraint firstItem="WRL-Ub-KkD" firstAttribute="leading" secondItem="4CZ-O8-UXt" secondAttribute="leading" constant="20" id="aGi-V7-bue"/>
+                            <constraint firstAttribute="trailing" secondItem="WRL-Ub-KkD" secondAttribute="trailing" constant="20" id="eyO-Qi-muE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4CZ-O8-UXt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6R9-M1-r65" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4877" y="1130"/>
         </scene>
         <!--Exercises-->
         <scene sceneID="TWA-5J-Zih">
@@ -240,11 +278,6 @@
                         <viewLayoutGuide key="safeArea" id="r4W-fl-S56"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Exercise" id="zPz-Bl-ZYI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kpi-zS-wep">
-                            <connections>
-                                <action selector="cancelButtonTapped:" destination="zPA-rc-mjT" id="i8A-df-J26"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b0U-lJ-vTJ">
                             <connections>
                                 <action selector="addButtonTapped:" destination="zPA-rc-mjT" id="LBC-jG-Jwf"/>

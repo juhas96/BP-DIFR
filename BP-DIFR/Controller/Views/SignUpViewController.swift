@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+//import Parse
 
 
 class SignUpViewController: UIViewController {
@@ -40,25 +40,7 @@ class SignUpViewController: UIViewController {
     */
 
     func handleSignUp() {
-        // Defining the user object
-        let user = PFUser()
-        user.username = usernameTextField.text!
-        user.password = passwordTextField.text!
-        user.email = emailTextField.text!
-        
-        user.signUpInBackground { (result, error) in
-            if error == nil && result == true {
-//                self.alert(message: "Register Successfull", title: "Success")
-                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
-            } else {
-                self.alert(message: error?.localizedDescription as! NSString, title: "Error")
-            }
-        }
-        
-        // We won't set the email for this example;
-        // Just for simplicity
-        
-        // Signing up using the Parse API
+     
         
     }
     
