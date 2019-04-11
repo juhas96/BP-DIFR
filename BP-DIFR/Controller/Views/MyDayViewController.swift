@@ -29,11 +29,10 @@ class MyDayViewController: UIViewController {
                 if let workouts = workouts {
                     self.workouts = workouts
                     self.collectionView.reloadData()
-                    
-                    self.setUpChart()
                 }
             }
         }
+        self.setUpChart()
     }
     
     func setUpChart() {

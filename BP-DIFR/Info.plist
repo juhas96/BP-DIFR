@@ -58,5 +58,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>We wil share your workout data with other apps for better health accuracy</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>We will use your health information to track your workouts better</string>
 </dict>
 </plist>

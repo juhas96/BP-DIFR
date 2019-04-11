@@ -136,7 +136,23 @@ class WorkoutViewModel: UIViewController {
     
     // Button cancelWorkout
     @IBAction func cancelWorkoutTapped(_ sender: Any) {
+        createAlert(title: "Cancel Workout?", message: "Do you really want cancel your workout?")
+    }
+    
+    func createAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.cancel, handler: { (action) in
+            self.currentWorkout = nil
+            alert.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     

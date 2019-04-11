@@ -31,6 +31,14 @@
 		9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */; };
 		9C4D68FF22217E0700E93122 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D68FE22217E0700E93122 /* SignUpViewController.swift */; };
 		9C4D690122217E3200E93122 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D690022217E3200E93122 /* LogInViewController.swift */; };
+		9C592675225F289800F627A5 /* WorkoutDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C592674225F289800F627A5 /* WorkoutDataStore.swift */; };
+		9C592678225F30D800F627A5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C592677225F30D800F627A5 /* HealthKit.framework */; };
+		9C59267B225F31CF00F627A5 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C59267A225F31CF00F627A5 /* HealthKitSetupAssistant.swift */; };
+		9C59267E225F342800F627A5 /* ProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C59267D225F342800F627A5 /* ProfileDataStore.swift */; };
+		9C592680225F38BA00F627A5 /* UserHealthProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C59267F225F38BA00F627A5 /* UserHealthProfile.swift */; };
+		9C592683225F39E300F627A5 /* HKBiologicalSex+StringRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C592682225F39E300F627A5 /* HKBiologicalSex+StringRepresentation.swift */; };
+		9C592685225F3A0000F627A5 /* HKBloodType+StringRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C592684225F3A0000F627A5 /* HKBloodType+StringRepresentation.swift */; };
+		9C592687225F3D9B00F627A5 /* HealthKitWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C592686225F3D9B00F627A5 /* HealthKitWorkout.swift */; };
 		9C6E86E222203DD300D2D91B /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6E86E122203DD300D2D91B /* ExerciseDetailViewController.swift */; };
 		9C6EAA532258A08500036FAB /* HistoryWorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6EAA522258A08500036FAB /* HistoryWorkoutCollectionViewCell.swift */; };
 		9C7723CD222A6F57001B823E /* Exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7723CC222A6F57001B823E /* Exercises.storyboard */; };
@@ -105,6 +113,15 @@
 		9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewModel.swift; sourceTree = "<group>"; };
 		9C4D68FE22217E0700E93122 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9C4D690022217E3200E93122 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		9C592674225F289800F627A5 /* WorkoutDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataStore.swift; sourceTree = "<group>"; };
+		9C592676225F30D800F627A5 /* BP-DIFR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BP-DIFR.entitlements"; sourceTree = "<group>"; };
+		9C592677225F30D800F627A5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		9C59267A225F31CF00F627A5 /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
+		9C59267D225F342800F627A5 /* ProfileDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataStore.swift; sourceTree = "<group>"; };
+		9C59267F225F38BA00F627A5 /* UserHealthProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHealthProfile.swift; sourceTree = "<group>"; };
+		9C592682225F39E300F627A5 /* HKBiologicalSex+StringRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HKBiologicalSex+StringRepresentation.swift"; sourceTree = "<group>"; };
+		9C592684225F3A0000F627A5 /* HKBloodType+StringRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HKBloodType+StringRepresentation.swift"; sourceTree = "<group>"; };
+		9C592686225F3D9B00F627A5 /* HealthKitWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitWorkout.swift; sourceTree = "<group>"; };
 		9C6E86E122203DD300D2D91B /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		9C6EAA522258A08500036FAB /* HistoryWorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C7723CC222A6F57001B823E /* Exercises.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercises.storyboard; sourceTree = "<group>"; };
@@ -143,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69CE3FED1C94CD9E78565229 /* Pods_BP_DIFR.framework in Frameworks */,
+				9C592678225F30D800F627A5 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +194,8 @@
 				9CC60755223122F20091C802 /* AppUser.swift */,
 				9C9920B62234592500DC9667 /* ExerciseSet.swift */,
 				9CBA65A2224E216B00294C71 /* Routine.swift */,
+				9C59267F225F38BA00F627A5 /* UserHealthProfile.swift */,
+				9C592686225F3D9B00F627A5 /* HealthKitWorkout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,6 +250,10 @@
 		9C4CB64E221B43F5008C4A8B /* BP-DIFR */ = {
 			isa = PBXGroup;
 			children = (
+				9C592681225F39CB00F627A5 /* HealthKitExtension */,
+				9C59267C225F341C00F627A5 /* DataStore */,
+				9C592679225F31C100F627A5 /* Other */,
+				9C592676225F30D800F627A5 /* BP-DIFR.entitlements */,
 				9C238FCD223D0A44002EBDBE /* Responses */,
 				9CD13A3E223D002C009D93E6 /* Network */,
 				9C4A6A22222A6A0E007CCD8C /* StoryBoards */,
@@ -247,6 +271,32 @@
 				9C4CB65B221B43F6008C4A8B /* Info.plist */,
 			);
 			path = "BP-DIFR";
+			sourceTree = "<group>";
+		};
+		9C592679225F31C100F627A5 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				9C59267A225F31CF00F627A5 /* HealthKitSetupAssistant.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		9C59267C225F341C00F627A5 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				9C59267D225F342800F627A5 /* ProfileDataStore.swift */,
+				9C592674225F289800F627A5 /* WorkoutDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		9C592681225F39CB00F627A5 /* HealthKitExtension */ = {
+			isa = PBXGroup;
+			children = (
+				9C592682225F39E300F627A5 /* HKBiologicalSex+StringRepresentation.swift */,
+				9C592684225F3A0000F627A5 /* HKBloodType+StringRepresentation.swift */,
+			);
+			path = HealthKitExtension;
 			sourceTree = "<group>";
 		};
 		9C7FE74A221F122600557FCD /* Controller */ = {
@@ -312,6 +362,7 @@
 		D0760407DA001B6D880B66D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C592677225F30D800F627A5 /* HealthKit.framework */,
 				242BA8119F178D198A2D1677 /* Pods_BP_DIFR.framework */,
 			);
 			name = Frameworks;
@@ -353,6 +404,11 @@
 				TargetAttributes = {
 					9C4CB64B221B43F5008C4A8B = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -492,22 +548,29 @@
 				9CEA6F35222EFBB1008CD7E0 /* WorkoutViewModel.swift in Sources */,
 				9CB757E5224585CB00103768 /* WorkoutsNetworkService.swift in Sources */,
 				9C109D5622233D6F00F71D50 /* ExercisesViewModel.swift in Sources */,
+				9C592687225F3D9B00F627A5 /* HealthKitWorkout.swift in Sources */,
 				9C4D68F722214B8700E93122 /* MyDayViewController.swift in Sources */,
 				9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */,
 				9C0564B0222A8DDF00B6DF07 /* ProfileViewModel.swift in Sources */,
+				9C592685225F3A0000F627A5 /* HKBloodType+StringRepresentation.swift in Sources */,
 				9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */,
 				9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */,
+				9C592675225F289800F627A5 /* WorkoutDataStore.swift in Sources */,
 				9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */,
 				9CC60756223122F20091C802 /* AppUser.swift in Sources */,
 				9C8A4318222C7AD5006A6883 /* OneSetInExerciseCell.swift in Sources */,
 				9C40200422465FD10050DF83 /* CreateExerciseViewModel.swift in Sources */,
 				9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */,
+				9C59267E225F342800F627A5 /* ProfileDataStore.swift in Sources */,
+				9C592683225F39E300F627A5 /* HKBiologicalSex+StringRepresentation.swift in Sources */,
 				9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */,
 				9CE3A68A225A84B900D26E01 /* ExercisesSetsNetworkService.swift in Sources */,
+				9C59267B225F31CF00F627A5 /* HealthKitSetupAssistant.swift in Sources */,
 				9CE096302232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift in Sources */,
 				9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */,
 				9C4D68F52221428400E93122 /* WorkoutCell.swift in Sources */,
 				9C6E86E222203DD300D2D91B /* ExerciseDetailViewController.swift in Sources */,
+				9C592680225F38BA00F627A5 /* UserHealthProfile.swift in Sources */,
 				9C6EAA532258A08500036FAB /* HistoryWorkoutCollectionViewCell.swift in Sources */,
 				9C7FE751221F158700557FCD /* WorkoutExercise.swift in Sources */,
 				9C4D68FF22217E0700E93122 /* SignUpViewController.swift in Sources */,
@@ -671,6 +734,7 @@
 			baseConfigurationReference = 52A377FCF831CE1CA5F02B45 /* Pods-BP-DIFR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "BP-DIFR/BP-DIFR.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34V4L3C2GB;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -695,6 +759,7 @@
 			baseConfigurationReference = 51CE0C27D25D48482507C589 /* Pods-BP-DIFR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "BP-DIFR/BP-DIFR.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34V4L3C2GB;
 				FRAMEWORK_SEARCH_PATHS = (

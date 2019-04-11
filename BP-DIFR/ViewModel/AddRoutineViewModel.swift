@@ -48,6 +48,10 @@ class AddRoutineViewModel: UIViewController {
         self.tableView.reloadData()
     }
     
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         createRoutine()
         self.dismiss(animated: true, completion: nil)

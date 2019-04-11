@@ -39,6 +39,7 @@ class WorkoutsViewModel: UIViewController {
         
         if Auth.auth().currentUser != nil {
             self.user = assigneFirUserToUser(user: Auth.auth().currentUser!)
+            print(user)
         } else {
             print("Current user is nil")
         }
@@ -56,6 +57,7 @@ class WorkoutsViewModel: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print(user)
         routineService.getRoutinesByUser(userUid: user.uid, completion: { (routines) in
             DispatchQueue.main.async {
                 if let routines = routines {
@@ -64,6 +66,7 @@ class WorkoutsViewModel: UIViewController {
                 }
             }
         })
+        self.tableView.reloadData()
     }
     
     func startWorkout() {
@@ -79,7 +82,7 @@ class WorkoutsViewModel: UIViewController {
     
     func createWorkoutForSegue(routine: Routine) -> Workout {
         user = AppUser(id: 999, username: "", email: "", uid: "")
-        workout = Workout(id: 0, duration: 0, startDate: "", endDate: "", name: "", notes: "", kgLiftedOverall: 0, user: user, exercisesSets: routine.exercisesSets)
+        workout = Workout(id: 0, duration: 0, startDate: "", endDate: "", name: routine.name, notes: routine.notes, kgLiftedOverall: 0, user: user, exercisesSets: routine.exercisesSets)
         return workout
     }
 }

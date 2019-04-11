@@ -41,4 +41,11 @@ struct Workout: Codable {
         self.user = user
         self.exercisesSets = exercisesSets
     }
+    
+    var totalEnergyBurned: Double {
+        let prancerciseCaloriesPerHour: Double = 450
+        let hours: Double = Double(duration / 3600)
+        let totalCalories = prancerciseCaloriesPerHour * hours
+        return totalCalories
+    }
 }

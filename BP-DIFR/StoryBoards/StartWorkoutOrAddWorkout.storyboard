@@ -93,7 +93,11 @@
                         <viewLayoutGuide key="safeArea" id="Ze1-iQ-1Uv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add routine" id="tVc-ab-Ebh">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="zh2-I6-MtT"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="zh2-I6-MtT">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="GNk-em-11g" id="SYB-6I-CcW"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Save" id="uDt-CV-4Ed">
                                 <connections>
