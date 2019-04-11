@@ -9,9 +9,9 @@
 import Foundation
 
 struct ExercisesSet : Codable {
-    var id, kg, reps: Int?
+    var kg, reps: Int?
     var exercise: Exercise?
-    var app_user: AppUser?
+    var user: AppUser?
 //    
 //    init(id: Int, kg: Int, reps: Int, exercise: Exercise) {
 //        self.id = id

@@ -128,10 +128,10 @@ extension ExercisesViewModel: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            let id = exercisesArray[indexPath.row].id
-            exerciseService.removeExercise(exerciseId: id)
-            exercisesArray.remove(at: indexPath.item)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+//            let id = exercisesArray[indexPath.row].id
+//            exerciseService.removeExercise(exerciseId: id)
+//            exercisesArray.remove(at: indexPath.item)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     

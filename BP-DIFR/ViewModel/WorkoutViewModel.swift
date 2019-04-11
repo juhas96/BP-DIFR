@@ -145,7 +145,7 @@ class WorkoutViewModel: UIViewController {
         exerciseSet.exercise = groupedSets[section][0].exercise
         exerciseSet.kg = 0
         exerciseSet.reps = 0
-        exerciseSet.app_user = self.user
+        exerciseSet.user = self.user
 //        exerciseSet.id = 0
         groupedSets[section].append(exerciseSet)
         print(groupedSets.count)

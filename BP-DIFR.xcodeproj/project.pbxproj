@@ -59,8 +59,6 @@
 		9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF6221F4E0100DA9B2B /* Image.swift */; };
 		9CE096302232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0962F2232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift */; };
 		9CE3A68A225A84B900D26E01 /* ExercisesSetsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE3A689225A84B900D26E01 /* ExercisesSetsNetworkService.swift */; };
-		9CE3A68D225A95E900D26E01 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE3A68C225A95E900D26E01 /* StyleKit.swift */; };
-		9CE3A68F225A95F500D26E01 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE3A68E225A95F500D26E01 /* MyView.swift */; };
 		9CEA6F35222EFBB1008CD7E0 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA6F34222EFBB1008CD7E0 /* WorkoutViewModel.swift */; };
 		9CF5B7A2225A19FD004853A7 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5B7A1225A19FD004853A7 /* ProgressViewController.swift */; };
 /* End PBXBuildFile section */
@@ -135,8 +133,6 @@
 		9CCA3AF6221F4E0100DA9B2B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		9CE0962F2232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseToWorkoutViewModel.swift; sourceTree = "<group>"; };
 		9CE3A689225A84B900D26E01 /* ExercisesSetsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesSetsNetworkService.swift; sourceTree = "<group>"; };
-		9CE3A68C225A95E900D26E01 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
-		9CE3A68E225A95F500D26E01 /* MyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		9CEA6F34222EFBB1008CD7E0 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		9CF5B7A1225A19FD004853A7 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,7 +230,6 @@
 		9C4CB64E221B43F5008C4A8B /* BP-DIFR */ = {
 			isa = PBXGroup;
 			children = (
-				9CE3A68B225A95DF00D26E01 /* Sketch */,
 				9C238FCD223D0A44002EBDBE /* Responses */,
 				9CD13A3E223D002C009D93E6 /* Network */,
 				9C4A6A22222A6A0E007CCD8C /* StoryBoards */,
@@ -312,15 +307,6 @@
 				9CE3A689225A84B900D26E01 /* ExercisesSetsNetworkService.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		9CE3A68B225A95DF00D26E01 /* Sketch */ = {
-			isa = PBXGroup;
-			children = (
-				9CE3A68C225A95E900D26E01 /* StyleKit.swift */,
-				9CE3A68E225A95F500D26E01 /* MyView.swift */,
-			);
-			path = Sketch;
 			sourceTree = "<group>";
 		};
 		D0760407DA001B6D880B66D7 /* Frameworks */ = {
@@ -496,7 +482,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CE3A68D225A95E900D26E01 /* StyleKit.swift in Sources */,
 				9C9920B72234592500DC9667 /* ExerciseSet.swift in Sources */,
 				9C8A4316222C777D006A6883 /* ExerciseCellInNewRoutine.swift in Sources */,
 				9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */,
@@ -519,7 +504,6 @@
 				9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */,
 				9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */,
 				9CE3A68A225A84B900D26E01 /* ExercisesSetsNetworkService.swift in Sources */,
-				9CE3A68F225A95F500D26E01 /* MyView.swift in Sources */,
 				9CE096302232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift in Sources */,
 				9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */,
 				9C4D68F52221428400E93122 /* WorkoutCell.swift in Sources */,
