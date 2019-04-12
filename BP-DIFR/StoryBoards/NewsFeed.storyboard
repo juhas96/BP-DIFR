@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News Feed-->
+        <!--Social-->
         <scene sceneID="1UD-2b-vim">
             <objects>
                 <viewController id="vXg-Zw-O9V" customClass="FeedViewController" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
@@ -174,7 +174,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MlI-GR-Ey9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="News Feed" id="pFd-zz-abp"/>
+                    <navigationItem key="navigationItem" title="Social" id="pFd-zz-abp"/>
                     <connections>
                         <outlet property="collectionView" destination="Hgm-5f-060" id="bzQ-FE-7jt"/>
                     </connections>
