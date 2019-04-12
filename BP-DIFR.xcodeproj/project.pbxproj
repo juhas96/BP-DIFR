@@ -58,6 +58,7 @@
 		9C9199FE224AAE3F0063756D /* CheckMark.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9199FD224AAE3F0063756D /* CheckMark.xcassets */; };
 		9C919A00224AAE450063756D /* CheckMarkEnpty.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9199FF224AAE440063756D /* CheckMarkEnpty.xcassets */; };
 		9C919A02224AEA620063756D /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C919A01224AEA620063756D /* TimerViewModel.swift */; };
+		9C94B8D822609E34000A33B7 /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94B8D722609E34000A33B7 /* WorkoutSession.swift */; };
 		9C95E27D2224843800F25D47 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E27C2224843800F25D47 /* Equipment.swift */; };
 		9C9920B72234592500DC9667 /* ExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9920B62234592500DC9667 /* ExerciseSet.swift */; };
 		9CB757E5224585CB00103768 /* WorkoutsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB757E4224585CB00103768 /* WorkoutsNetworkService.swift */; };
@@ -141,6 +142,7 @@
 		9C9199FD224AAE3F0063756D /* CheckMark.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CheckMark.xcassets; sourceTree = "<group>"; };
 		9C9199FF224AAE440063756D /* CheckMarkEnpty.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CheckMarkEnpty.xcassets; sourceTree = "<group>"; };
 		9C919A01224AEA620063756D /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		9C94B8D722609E34000A33B7 /* WorkoutSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
 		9C95E27C2224843800F25D47 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		9C9920B62234592500DC9667 /* ExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSet.swift; sourceTree = "<group>"; };
 		9CB757E4224585CB00103768 /* WorkoutsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsNetworkService.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				9CBA65A2224E216B00294C71 /* Routine.swift */,
 				9C59267F225F38BA00F627A5 /* UserHealthProfile.swift */,
 				9C592686225F3D9B00F627A5 /* HealthKitWorkout.swift */,
+				9C94B8D722609E34000A33B7 /* WorkoutSession.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				9C59267E225F342800F627A5 /* ProfileDataStore.swift in Sources */,
 				9C592683225F39E300F627A5 /* HKBiologicalSex+StringRepresentation.swift in Sources */,
 				9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */,
+				9C94B8D822609E34000A33B7 /* WorkoutSession.swift in Sources */,
 				9CE3A68A225A84B900D26E01 /* ExercisesSetsNetworkService.swift in Sources */,
 				9C59267B225F31CF00F627A5 /* HealthKitSetupAssistant.swift in Sources */,
 				9CE096302232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift in Sources */,

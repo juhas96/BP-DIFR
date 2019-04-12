@@ -14,6 +14,7 @@ import FirebaseUI
 
 class WorkoutViewModel: UIViewController {
 
+    var session = WorkoutSession()
     
     // TODO: Upratat triedu
     
@@ -67,6 +68,7 @@ class WorkoutViewModel: UIViewController {
     
     
     // FINISH
+    @available(iOS 12.0, *)
     @IBAction func finishButtonTapped(_ sender: Any) {
         if timer != nil {
             timer?.invalidate()
@@ -79,7 +81,21 @@ class WorkoutViewModel: UIViewController {
         convertExerciseSetsFromDictToArrayAndAssigneToWorkout(exerciseSets: self.groupedSets)
         dbWorkout = convertWorkoutToParameters(workout: self.currentWorkout!)
         
+        self.session.end()
         
+        
+        guard let currentWorkout = session.completeWorkout else {
+            fatalError("Shouldn't be able to press the done button without a saved workout.")
+        }
+        
+        WorkoutDataStore.save(prancerciseWorkout: currentWorkout) { (success, error) in
+            if success {
+                print("Workout save to healthkit")
+            } else {
+                print("There was error while saving workout to healthkit")
+            }
+        }
+    
         addWorkoutToDatabase()
         
         self.dismiss(animated: true, completion: nil)
@@ -99,19 +115,6 @@ class WorkoutViewModel: UIViewController {
     }
     
     func convertWorkoutToParameters(workout: Workout) -> String {
-        var para = Parameters()
-        para =
-        [
-            "duration":             workout.duration,
-            "start_date":           workout.startDate,
-            "end_date":             workout.endDate,
-            "name":                 workout.name,
-            "notes":                workout.notes,
-            "kg_lifted_overall":    workout.kgLiftedOverall,
-            "user":                 workout.user,
-            "exercises_sets":       workout.exercisesSets
-        ]
-        
         var jsonString = String()
         let jsonEncoder = JSONEncoder()
         do {
@@ -121,8 +124,6 @@ class WorkoutViewModel: UIViewController {
         }
         catch {
         }
-        
-        print(para)
         return jsonString
     }
  
@@ -172,6 +173,7 @@ class WorkoutViewModel: UIViewController {
         super.viewDidLoad()
         
     
+        
         // Ziskam vsetky Sety z Workoutu
         if(self.currentWorkout != nil && self.currentWorkout?.exercisesSets.count != 0) {
             self.exercisesSetsArray = self.currentWorkout!.exercisesSets
@@ -196,6 +198,7 @@ class WorkoutViewModel: UIViewController {
         }
         
         
+        self.session.start()
         
         createTimer()
         
