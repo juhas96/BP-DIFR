@@ -15,20 +15,30 @@ class ProgressViewController: UIViewController {
     var bars = [(String, Double)]()
     var exerciseSets = [ExercisesSet]()
     var exerciseSetsNetworkService: ExercisesSetsNetworkService!
+    var user: AppUser!
+    var exerciseId: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        exerciseSetsNetworkService = ExercisesSetsNetworkService()
-        exerciseSetsNetworkService.getAllExerciseSetsByUser(userUid: "JMIrjxtcldMsbuz1mhfkEU2Gh492", exerciseId: 1) { (result) in
-            DispatchQueue.main.async {
-                if let exerciseSets = result {
-                    self.bars = self.createBarsFromExerciseSetsArray(exerciseSetsArray: exerciseSets)
-                    
-                    self.setUpChart()
+        print("EXERISE ID: \(exerciseId)")
+        let profile = ProfileHelper()
+        profile.fetchUsers { (appUser) in
+            if appUser != nil {
+                self.user = appUser
+                self.exerciseSetsNetworkService = ExercisesSetsNetworkService()
+                self.exerciseSetsNetworkService.getAllExerciseSetsByUser(userUid: self.user.uid, exerciseId: self.exerciseId) { (result) in
+                    DispatchQueue.main.async {
+                        if let exerciseSets = result {
+                            self.bars = self.createBarsFromExerciseSetsArray(exerciseSetsArray: exerciseSets)
+                            
+                            self.setUpChart()
+                        }
+                    }
                 }
             }
         }
+        
+        
     }
     
     func setUpChart() {

@@ -17,7 +17,7 @@ struct Workout: Codable {
     var duration: Int
     var startDate, endDate, name, notes: String
     var kgLiftedOverall: Int
-    let user: AppUser
+    var user: AppUser
     var exercisesSets: [ExercisesSet]
     
     enum CodingKeys: String, CodingKey {

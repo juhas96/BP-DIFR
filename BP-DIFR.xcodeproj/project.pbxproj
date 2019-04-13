@@ -64,10 +64,13 @@
 		9CB757E5224585CB00103768 /* WorkoutsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB757E4224585CB00103768 /* WorkoutsNetworkService.swift */; };
 		9CBA65A3224E216B00294C71 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBA65A2224E216B00294C71 /* Routine.swift */; };
 		9CC60756223122F20091C802 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC60755223122F20091C802 /* AppUser.swift */; };
+		9CC8B0682260D87200D7C854 /* ProfileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8B0672260D87200D7C854 /* ProfileHelper.swift */; };
+		9CC8B06A2260D8BC00D7C854 /* UsersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8B0692260D8BC00D7C854 /* UsersNetworkService.swift */; };
 		9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */; };
 		9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA3AF6221F4E0100DA9B2B /* Image.swift */; };
 		9CE096302232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0962F2232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift */; };
 		9CE3A68A225A84B900D26E01 /* ExercisesSetsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE3A689225A84B900D26E01 /* ExercisesSetsNetworkService.swift */; };
+		9CEA1EC02260B39E00799FEB /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA1EBF2260B39E00799FEB /* ImageService.swift */; };
 		9CEA6F35222EFBB1008CD7E0 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA6F34222EFBB1008CD7E0 /* WorkoutViewModel.swift */; };
 		9CF5B7A2225A19FD004853A7 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5B7A1225A19FD004853A7 /* ProgressViewController.swift */; };
 /* End PBXBuildFile section */
@@ -148,10 +151,13 @@
 		9CB757E4224585CB00103768 /* WorkoutsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsNetworkService.swift; sourceTree = "<group>"; };
 		9CBA65A2224E216B00294C71 /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
 		9CC60755223122F20091C802 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		9CC8B0672260D87200D7C854 /* ProfileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHelper.swift; sourceTree = "<group>"; };
+		9CC8B0692260D8BC00D7C854 /* UsersNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersNetworkService.swift; sourceTree = "<group>"; };
 		9CCA3AF4221F4D2300DA9B2B /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		9CCA3AF6221F4E0100DA9B2B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		9CE0962F2232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseToWorkoutViewModel.swift; sourceTree = "<group>"; };
 		9CE3A689225A84B900D26E01 /* ExercisesSetsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesSetsNetworkService.swift; sourceTree = "<group>"; };
+		9CEA1EBF2260B39E00799FEB /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		9CEA6F34222EFBB1008CD7E0 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		9CF5B7A1225A19FD004853A7 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +259,7 @@
 		9C4CB64E221B43F5008C4A8B /* BP-DIFR */ = {
 			isa = PBXGroup;
 			children = (
+				9CEA1EBE2260B39200799FEB /* Helpers */,
 				9C592681225F39CB00F627A5 /* HealthKitExtension */,
 				9C59267C225F341C00F627A5 /* DataStore */,
 				9C592679225F31C100F627A5 /* Other */,
@@ -358,8 +365,18 @@
 				9CB757E4224585CB00103768 /* WorkoutsNetworkService.swift */,
 				9C914D0F224E4563001B4B5A /* RoutineNetworkService.swift */,
 				9CE3A689225A84B900D26E01 /* ExercisesSetsNetworkService.swift */,
+				9CC8B0692260D8BC00D7C854 /* UsersNetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		9CEA1EBE2260B39200799FEB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9CEA1EBF2260B39E00799FEB /* ImageService.swift */,
+				9CC8B0672260D87200D7C854 /* ProfileHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		D0760407DA001B6D880B66D7 /* Frameworks */ = {
@@ -546,6 +563,7 @@
 				9C7FE759221F2F8900557FCD /* TabBarViewController.swift in Sources */,
 				9C4D68F922214D9000E93122 /* StartWorkoutNavigationViewController.swift in Sources */,
 				9C1C80A9224B977200DB1ACB /* FeedViewController.swift in Sources */,
+				9CC8B06A2260D8BC00D7C854 /* UsersNetworkService.swift in Sources */,
 				9C1C80AB224BB98900DB1ACB /* NewsFeedCell.swift in Sources */,
 				9C95E27D2224843800F25D47 /* Equipment.swift in Sources */,
 				9CEA6F35222EFBB1008CD7E0 /* WorkoutViewModel.swift in Sources */,
@@ -561,6 +579,7 @@
 				9C592675225F289800F627A5 /* WorkoutDataStore.swift in Sources */,
 				9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */,
 				9CC60756223122F20091C802 /* AppUser.swift in Sources */,
+				9CC8B0682260D87200D7C854 /* ProfileHelper.swift in Sources */,
 				9C8A4318222C7AD5006A6883 /* OneSetInExerciseCell.swift in Sources */,
 				9C40200422465FD10050DF83 /* CreateExerciseViewModel.swift in Sources */,
 				9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */,
@@ -586,6 +605,7 @@
 				9C919A02224AEA620063756D /* TimerViewModel.swift in Sources */,
 				9C7FE74E221F140000557FCD /* BodyPart.swift in Sources */,
 				9C4D690122217E3200E93122 /* LogInViewController.swift in Sources */,
+				9CEA1EC02260B39E00799FEB /* ImageService.swift in Sources */,
 				9CCA3AF7221F4E0100DA9B2B /* Image.swift in Sources */,
 				9C914D10224E4563001B4B5A /* RoutineNetworkService.swift in Sources */,
 				9C425419222921E80042288A /* AddRoutineViewModel.swift in Sources */,

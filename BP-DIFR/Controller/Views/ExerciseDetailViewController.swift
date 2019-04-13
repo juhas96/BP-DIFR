@@ -15,7 +15,7 @@ class ExerciseDetailViewController: UIViewController {
     @IBOutlet weak var exerciseDescription: UILabel!
     
     @IBAction func toProgressView(_ sender: Any) {
-        performSegue(withIdentifier: "toProgress", sender: self)
+        performSegue(withIdentifier: "toProgress", sender: exercise?.id)
     }
     var exercise: Exercise?
     
@@ -23,13 +23,23 @@ class ExerciseDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         exerciseDescription.sizeToFit()
+        [exerciseDescription .sizeToFit()]
         setUI()
     }
     
     func setUI() {
         exerciseDescription.text = exercise?.description
         exerciseName.title = exercise?.name
-//        exerciseImage.image = exercise?.img_url
+        ImageService.getImage(withURL: URL(string: exercise?.imgURL as! String)!) { (image) in
+            self.exerciseImage.image = image
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toProgress" {
+            let vc = segue.destination as! ProgressViewController
+            vc.exerciseId = sender as? Int
+        }
     }
     
 }

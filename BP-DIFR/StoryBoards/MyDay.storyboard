@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dnY-xf-jPv">
-                                <rect key="frame" x="20" y="364" width="374" height="508"/>
+                                <rect key="frame" x="20" y="364" width="374" height="459"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jiT-1z-tlK">
                                     <size key="itemSize" width="360" height="250"/>
@@ -154,7 +154,9 @@
         <scene sceneID="Wfp-vY-DKL">
             <objects>
                 <navigationController storyboardIdentifier="MyDayStoryboard" title="My Day" automaticallyAdjustsScrollViewInsets="NO" id="COG-pH-6ew" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Day" image="myday" selectedImage="myday" id="Z1e-sk-945"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jVd-xe-qaP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -169,4 +171,7 @@
             <point key="canvasLocation" x="2621.739130434783" y="-725.22321428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="myday" width="39.75" height="39.75"/>
+    </resources>
 </document>

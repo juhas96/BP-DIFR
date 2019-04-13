@@ -19,20 +19,30 @@ class MyDayViewController: UIViewController {
     var workouts = [Workout]()
     var workoutService: WorkoutsNetworkService!
     var bars = [(String, Double)]()
+    var user: AppUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        workoutService = WorkoutsNetworkService()
-        workoutService.getWorkoutsByUser(userUid: "JMIrjxtcldMsbuz1mhfkEU2Gh492") { (workouts) in
-            DispatchQueue.main.async {
-                if let workouts = workouts {
-                    self.workouts = workouts
-                    self.collectionView.reloadData()
+        let profile = ProfileHelper()
+        profile.fetchUsers { (appUser) in
+            if appUser != nil {
+                self.user = appUser
+                self.workoutService = WorkoutsNetworkService()
+                self.workoutService.getWorkoutsByUser(userUid: self.user.uid) { (workouts) in
+                    DispatchQueue.main.async {
+                        if let workouts = workouts {
+                            self.workouts = workouts
+                            self.collectionView.reloadData()
+                        }
+                    }
                 }
+                self.setUpChart()
             }
         }
-        self.setUpChart()
+        
+        self.collectionView.reloadData()
+        
     }
     
     func setUpChart() {
@@ -69,13 +79,13 @@ extension MyDayViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "historyWorkoutCell", for: indexPath) as! HistoryWorkoutCollectionViewCell
         
-        let workout: Workout
+        var workout: Workout!
         
         if (workouts.count != 0 ) {
             workout = workouts[indexPath.row]
         }
         
-        let exercises = "Benchpress \t\t 4x10 \nSquad \t\t 4x12"
+        let exercises = workout.exercisesSets.count
         
         cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0
@@ -88,11 +98,11 @@ extension MyDayViewController: UICollectionViewDelegate, UICollectionViewDataSou
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         
-        cell.setExercises(exercises: exercises)
-        cell.setDuration(duration: "10")
-        cell.setLiftedKg(liftedKg: "1500")
-        cell.setWorkoutName(workoutName: "Pondelok")
-        cell.setWorkoutDate(workoutDate: "20.4.2019")
+        cell.setExercises(exercises: String(exercises))
+        cell.setDuration(duration: String(workout.duration))
+        cell.setLiftedKg(liftedKg: String(workout.kgLiftedOverall))
+        cell.setWorkoutName(workoutName: workout.name)
+        cell.setWorkoutDate(workoutDate: workout.startDate)
         
         
         return cell

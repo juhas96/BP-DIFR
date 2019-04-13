@@ -23,10 +23,17 @@ class AddExerciseToWorkoutViewModel: UIViewController {
     var exerciseService: ExercisesNetworkService!
     var searchController: UISearchController!
     var exerciseSet: ExercisesSet!
+    var user: AppUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        let profile = ProfileHelper()
+        profile.fetchUsers { (appUser) in
+            if appUser != nil {
+                self.user = appUser
+            }
+        }
         exerciseService = ExercisesNetworkService()
         exerciseService.getAllExercises { (exercises) in
             DispatchQueue.main.async {
@@ -67,6 +74,7 @@ class AddExerciseToWorkoutViewModel: UIViewController {
         exerciseSet.exercise = exercise
         exerciseSet.kg = 0
         exerciseSet.reps = 0
+        exerciseSet.user = self.user
 //        exerciseSet.id = 0
     }
     

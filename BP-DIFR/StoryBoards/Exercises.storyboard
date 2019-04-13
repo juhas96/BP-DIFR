@@ -29,7 +29,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eaN-au-R8U">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eaN-au-R8U">
                                                     <rect key="frame" x="12" y="10" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="93Y-Kx-1Jm"/>
@@ -113,14 +113,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RGg-Qk-W2Y">
-                                <rect key="frame" x="0.0" y="88" width="414" height="210"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RGg-Qk-W2Y">
+                                <rect key="frame" x="0.0" y="98" width="414" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="210" id="1g5-VX-bOj"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVK-6W-A3x">
-                                <rect key="frame" x="158" y="306" width="99" height="21"/>
+                                <rect key="frame" x="158" y="316" width="99" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="MRD-CW-uUN"/>
                                 </constraints>
@@ -128,8 +128,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bz3-MN-UhH">
-                                <rect key="frame" x="10" y="335" width="394" height="517"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bz3-MN-UhH">
+                                <rect key="frame" x="10" y="345" width="394" height="507"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -141,7 +141,7 @@
                             <constraint firstItem="oVK-6W-A3x" firstAttribute="top" secondItem="RGg-Qk-W2Y" secondAttribute="bottom" constant="8" id="Jjs-XF-Ob3"/>
                             <constraint firstItem="xxu-vx-xwH" firstAttribute="trailing" secondItem="Bz3-MN-UhH" secondAttribute="trailing" constant="10" id="S5b-3K-SsG"/>
                             <constraint firstItem="Bz3-MN-UhH" firstAttribute="leading" secondItem="xxu-vx-xwH" secondAttribute="leading" constant="10" id="XgT-hg-pyl"/>
-                            <constraint firstItem="RGg-Qk-W2Y" firstAttribute="top" secondItem="xxu-vx-xwH" secondAttribute="top" id="bgt-wM-j61"/>
+                            <constraint firstItem="RGg-Qk-W2Y" firstAttribute="top" secondItem="xxu-vx-xwH" secondAttribute="top" constant="10" id="bgt-wM-j61"/>
                             <constraint firstItem="xxu-vx-xwH" firstAttribute="bottom" secondItem="Bz3-MN-UhH" secondAttribute="bottom" constant="10" id="cne-AF-52r"/>
                             <constraint firstItem="xxu-vx-xwH" firstAttribute="trailing" secondItem="oVK-6W-A3x" secondAttribute="trailing" constant="157" id="jki-Zr-uCW"/>
                             <constraint firstItem="RGg-Qk-W2Y" firstAttribute="trailing" secondItem="xxu-vx-xwH" secondAttribute="trailing" id="t9O-Na-c6e"/>
@@ -203,7 +203,7 @@
         <scene sceneID="TWA-5J-Zih">
             <objects>
                 <navigationController storyboardIdentifier="ExercisesStoryBoard" automaticallyAdjustsScrollViewInsets="NO" id="VaN-Fk-5AO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Exercises" id="SiE-XD-mzH"/>
+                    <tabBarItem key="tabBarItem" title="Exercises" image="exercises" selectedImage="exercises" id="SiE-XD-mzH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YJG-nN-dVZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -294,4 +294,7 @@
             <point key="canvasLocation" x="4876.811594202899" y="393.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="exercises" width="24.75" height="24.75"/>
+    </resources>
 </document>

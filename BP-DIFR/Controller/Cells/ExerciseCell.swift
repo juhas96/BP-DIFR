@@ -18,7 +18,16 @@ class ExerciseCell: UITableViewCell {
         self.exerciseNameLabel.text = label
     }
     
-    func setImageView(image: UIImage) {
-        self.exerciseImageView.image = image
+    func setImageView(exerciseUrl: String?) {
+        
+        ImageService.getImage(withURL: URL(string: exerciseUrl!)!) { (image) in
+            self.exerciseImageView.image = image
+        }
+        
+
     }
+//    
+//    let exerciseImageView: UIImageView = {
+//        let image
+//    }
 }

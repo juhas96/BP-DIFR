@@ -20,7 +20,7 @@ class RoutineNetworkService {
     
     func getAllRoutines(completion: @escaping ([Routine]?) -> Void) {
         self.endPoint = "routines"
-        guard let routinesURL = URL(string: "http://localhost:4545/routines") else { return }
+        guard let routinesURL = URL(string: "https://difr.herokuapp.com/routines") else { return }
         
         Alamofire.request(routinesURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
@@ -37,7 +37,7 @@ class RoutineNetworkService {
     
     func getRoutinesByUser(userUid: String, completion: @escaping ([Routine]?) -> Void) {
         self.endPoint = "routines"
-        guard let routinesURL = URL(string: "http://localhost:4545/routines/user/\(userUid)") else { return }
+        guard let routinesURL = URL(string: "https://difr.herokuapp.com/routines/user/\(userUid)") else { return }
         
         Alamofire.request(routinesURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
@@ -52,15 +52,15 @@ class RoutineNetworkService {
         }
     }
     
-    func removeRoutine(routineId: Int?) {
-        guard let workoutsURL = URL(string: "http://localhost:4545/exercises/\(String(describing: routineId))") else { return }
+    func removeRoutine(routineId: Int) {
+        guard let workoutsURL = URL(string: "https://difr.herokuapp.com/routines/\(String(describing: routineId))") else { return }
         Alamofire.request(workoutsURL, method: .delete).validate().response { (response) in
             print(response)
         }
     }
     
     func saveRoutine(routine: String) {
-        guard let routinesURL = URL(string: "http://localhost:4545/routines") else { return }
+        guard let routinesURL = URL(string: "https://difr.herokuapp.com/routines") else { return }
         Alamofire.request(routinesURL, method: .post, parameters: [:], encoding: routine).responseJSON { (response) in
             debugPrint(response)
         }

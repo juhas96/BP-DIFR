@@ -39,7 +39,7 @@ class WorkoutsNetworkService {
     
     func getAllWorkouts(completion: @escaping ([Workout]?) -> Void) {
         self.endPoint = "workouts"
-        guard let workoutsURL = URL(string: "http://localhost:4545/workouts") else { return }
+        guard let workoutsURL = URL(string: "https://difr.herokuapp.com/workouts") else { return }
         
         Alamofire.request(workoutsURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
@@ -55,7 +55,7 @@ class WorkoutsNetworkService {
     }
     
     func getWorkoutsByUser(userUid: String, completion: @escaping ([Workout]?) -> Void) {
-        guard let workoutsURL = URL(string: "http://localhost:4545/workouts/user/\(userUid)") else { return }
+        guard let workoutsURL = URL(string: "https://difr.herokuapp.com/workouts/user/\(userUid)") else { return }
         
         Alamofire.request(workoutsURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
@@ -70,14 +70,14 @@ class WorkoutsNetworkService {
     }
     
     func removeWorkout(workoutId: Int?) {
-        guard let workoutsURL = URL(string: "http://localhost:4545/workouts/\(String(describing: workoutId))") else { return }
+        guard let workoutsURL = URL(string: "https://difr.herokuapp.com/workouts/\(String(describing: workoutId))") else { return }
         Alamofire.request(workoutsURL, method: .delete).validate().response { (response) in
             print(response)
         }
     }
     
     func saveWorkout(workout: String) {
-        guard let workoutsURL = URL(string: "http://localhost:4545/workouts") else { return }
+        guard let workoutsURL = URL(string: "https://difr.herokuapp.com/workouts") else { return }
         Alamofire.request(workoutsURL, method: .post, parameters: [:], encoding: workout).responseJSON { (response) in
             debugPrint(response)
         }

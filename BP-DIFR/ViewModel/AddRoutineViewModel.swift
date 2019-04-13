@@ -27,17 +27,14 @@ class AddRoutineViewModel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if Auth.auth().currentUser != nil {
-            self.user = assigneFirUserToUser(user: Auth.auth().currentUser!)
+        let profile = ProfileHelper()
+        profile.fetchUsers { (appUser) in
+            if appUser != nil {
+                self.user = appUser
+            }
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(addExerciseToRoutine(notification:)), name: .addExerciseToWorkout, object: nil)
-    }
-    
-    
-    
-    func assigneFirUserToUser(user: User) -> AppUser {
-        return AppUser(id: 999, username: user.displayName ?? "", email: user.email!, uid: user.uid)
     }
         
     @objc func addExerciseToRoutine(notification: Notification) {

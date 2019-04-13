@@ -259,7 +259,7 @@
         <scene sceneID="r4i-9U-0xD">
             <objects>
                 <navigationController storyboardIdentifier="StartWorkoutOrAddWorkout" automaticallyAdjustsScrollViewInsets="NO" id="d3w-zK-aXr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Start Workout" id="xe2-Bn-eRg"/>
+                    <tabBarItem key="tabBarItem" title="Start Workout" image="barbell" selectedImage="barbell" id="xe2-Bn-eRg"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U2O-BI-p53">
@@ -722,6 +722,7 @@
     </scenes>
     <resources>
         <image name="Checkmarkempty" width="30" height="30"/>
+        <image name="barbell" width="30.5" height="30.5"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bdT-RM-bMF"/>

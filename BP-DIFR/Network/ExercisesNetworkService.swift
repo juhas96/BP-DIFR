@@ -18,7 +18,7 @@ class ExercisesNetworkService {
     
     func getAllExercises(completion: @escaping ([Exercise]?) -> Void) {
         self.endPoint = "exercises"
-        guard let exercisesURL = URL(string: "http://localhost:4545/exercises") else { return }
+        guard let exercisesURL = URL(string: "https://difr.herokuapp.com/exercises") else { return }
         // Vytvorim si zakladne URL na GET pre vsetky cviky v DB
         Alamofire.request(exercisesURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
@@ -34,14 +34,14 @@ class ExercisesNetworkService {
     }
     
     func createExercise(exercise: Parameters) {
-        guard let exercisesURL = URL(string: "http://localhost:4545/exercises") else { return }
+        guard let exercisesURL = URL(string: "https://difr.herokuapp.com/exercises") else { return }
         Alamofire.request(exercisesURL, method: .post, parameters: exercise, encoding: JSONEncoding.default).validate().response { (response) in
             print(response)
         }
     }
     
     func removeExercise(exerciseId: Int?) {
-        guard let exercisesURL = URL(string: "http://localhost:4545/exercises/\(String(describing: exerciseId))") else { return }
+        guard let exercisesURL = URL(string: "https://difr.herokuapp.com/exercises/\(String(describing: exerciseId))") else { return }
         Alamofire.request(exercisesURL, method: .delete).validate().response { (response) in
             print(response)
         }

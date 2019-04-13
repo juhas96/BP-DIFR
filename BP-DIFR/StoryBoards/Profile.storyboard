@@ -76,7 +76,6 @@
                                 <segue destination="77Q-aD-yaC" kind="presentation" id="CSQ-gk-E8J"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="HealthKit" id="sWW-qw-kOJ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="profileImageView" destination="anj-0Q-V9m" id="Jp4-vi-Sn4"/>
@@ -92,7 +91,7 @@
         <scene sceneID="qK1-nH-E4p">
             <objects>
                 <navigationController storyboardIdentifier="ProfileStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="5dh-B0-v6L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="bFh-8I-lbO"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user" selectedImage="user" id="bFh-8I-lbO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KuQ-rM-Lap">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -118,8 +117,7 @@
         <!--Profile & BMI-->
         <scene sceneID="MCQ-OA-6Le">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DGm-07-f1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController title="Profile &amp; BMI" id="eCY-tW-vwJ" customClass="ProfileViewController" customModule="Prancercise_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Profile &amp; BMI" id="eCY-tW-vwJ" customClass="ProfileViewController" customModule="BP_DIFR" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="oAQ-SV-DcT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="606"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,11 +332,13 @@
                         <outlet property="weightLabel" destination="YcL-fm-vAw" id="lkp-XQ-Oh3"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGm-07-f1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4806" y="-1047"/>
         </scene>
     </scenes>
     <resources>
         <image name="Background" width="375" height="812"/>
+        <image name="user" width="24.75" height="24.75"/>
     </resources>
 </document>

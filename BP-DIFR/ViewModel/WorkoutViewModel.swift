@@ -46,6 +46,7 @@ class WorkoutViewModel: UIViewController {
     
     // koniec timera
     var endDate: Date!
+    var startDate: Date!
     
     // Timer - break between sets Timer
     var breakTimer: Timer?
@@ -53,7 +54,7 @@ class WorkoutViewModel: UIViewController {
     var secondsLeft: TimeInterval = 10
     
     var counter = 0.0
-    let user = AppUser(id: 999, username: "gg", email: "g@g.com", uid: "JMIrjxtcldMsbuz1mhfkEU2Gh492")
+    var user: AppUser! = nil
     
     
     var exercisesSetsArray = [ExercisesSet]()
@@ -67,19 +68,24 @@ class WorkoutViewModel: UIViewController {
     
     
     
-    // FINISH
+    // MARK: FINISH
     @available(iOS 12.0, *)
     @IBAction func finishButtonTapped(_ sender: Any) {
         if timer != nil {
             timer?.invalidate()
         }
         
+        self.currentWorkout?.user = self.user
+        self.currentWorkout?.endDate = String(Date().currentTimeMillis())
+        self.currentWorkout?.duration = Int(self.counter)
         if breakTimer != nil {
            breakTimer?.invalidate()
         }
         
         convertExerciseSetsFromDictToArrayAndAssigneToWorkout(exerciseSets: self.groupedSets)
         dbWorkout = convertWorkoutToParameters(workout: self.currentWorkout!)
+        
+        print(dbWorkout)
         
         self.session.end()
         
@@ -130,11 +136,6 @@ class WorkoutViewModel: UIViewController {
     // Label Timera
     @IBOutlet weak var timerLabel: UILabel!
     
-    // Button addExercise
-    @IBAction func addExerciseTapped(_ sender: Any) {
-        
-    }
-    
     // Button cancelWorkout
     @IBAction func cancelWorkoutTapped(_ sender: Any) {
         createAlert(title: "Cancel Workout?", message: "Do you really want cancel your workout?")
@@ -163,7 +164,6 @@ class WorkoutViewModel: UIViewController {
         exerciseSet.kg = 0
         exerciseSet.reps = 0
         exerciseSet.user = self.user
-//        exerciseSet.id = 0
         groupedSets[section].append(exerciseSet)
         print(groupedSets.count)
         print(groupedSets[section].count)
@@ -172,11 +172,21 @@ class WorkoutViewModel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let profile = ProfileHelper()
+        profile.fetchUsers { (appUser) in
+            if appUser != nil {
+                self.user = appUser
+            }
+        }
     
         
         // Ziskam vsetky Sety z Workoutu
         if(self.currentWorkout != nil && self.currentWorkout?.exercisesSets.count != 0) {
             self.exercisesSetsArray = self.currentWorkout!.exercisesSets
+            
+            for i in 0..<self.exercisesSetsArray.count {
+                self.exercisesSetsArray[i].user = self.user
+            }
 
             // Vyfiltrujem ich podla Exercise ktore obsahuju, tym padom dostanem Key : Value kde Key je Exercise a Value je Exercise_Set
             self.groupedDict = Dictionary(grouping: self.exercisesSetsArray, by: { (exerciseSet) -> String? in
@@ -191,10 +201,10 @@ class WorkoutViewModel: UIViewController {
             self.keys.forEach({ (key) in
                 self.groupedSets.append(self.groupedDict[key]!)
             })
-
+            self.currentWorkout?.startDate = String(Date().currentTimeMillis())
             self.tableView.reloadData()
         } else {
-            self.currentWorkout = Workout(id: 0, duration: 0, startDate: "", endDate: "", name: "", notes: "", kgLiftedOverall: 0, user: user, exercisesSets: self.exercisesSetsArray)
+            self.currentWorkout = Workout(id: 0, duration: 0, startDate: String(Date().currentTimeMillis()), endDate: "", name: "", notes: "", kgLiftedOverall: 0, user: self.user, exercisesSets: self.exercisesSetsArray)
         }
         
         
@@ -282,7 +292,6 @@ extension WorkoutViewModel: UITableViewDataSource, UITableViewDelegate , UITextF
     }
     
     // Nastavujem header pre sekciu
-    // TODO: nastavit header podla nazvu cviku
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         let text = self.groupedSets[section][0].exercise?.name
@@ -418,5 +427,11 @@ extension String: ParameterEncoding {
         request.httpBody = data(using: .utf8, allowLossyConversion: false)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return request
+    }
+}
+
+extension Date {
+    func currentTimeMillis() -> Int64! {
+        return Int64(self.timeIntervalSince1970 * 1000)
     }
 }

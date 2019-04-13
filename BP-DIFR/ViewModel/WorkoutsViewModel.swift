@@ -28,45 +28,42 @@ class WorkoutsViewModel: UIViewController {
     
     var user: AppUser!
     
-    
-    func assigneFirUserToUser(user: User) -> AppUser {
-        return AppUser(id: 999, username: user.displayName ?? "", email: user.email!, uid: user.uid)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        if Auth.auth().currentUser != nil {
-            self.user = assigneFirUserToUser(user: Auth.auth().currentUser!)
-            print(user)
-        } else {
-            print("Current user is nil")
+        let profile = ProfileHelper()
+        profile.fetchUsers { (appUser) in
+            if appUser != nil {
+                self.user = appUser
+                self.routineService = RoutineNetworkService()
+                self.routineService.getRoutinesByUser(userUid: self.user.uid, completion: { (routines) in
+                    DispatchQueue.main.async {
+                        if let routines = routines {
+                            self.routinesArray = routines
+                            self.tableView.reloadData()
+                        }
+                    }
+                })
+            }
         }
         
-        
-        routineService = RoutineNetworkService()
-        routineService.getRoutinesByUser(userUid: user.uid, completion: { (routines) in
-            DispatchQueue.main.async {
-                if let routines = routines {
-                    self.routinesArray = routines
-                    self.tableView.reloadData()
-                }
-            }
-        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(user)
-        routineService.getRoutinesByUser(userUid: user.uid, completion: { (routines) in
-            DispatchQueue.main.async {
-                if let routines = routines {
-                    self.routinesArray = routines
-                    self.tableView.reloadData()
+        let profile = ProfileHelper()
+        profile.fetchUsers { (appUser) in
+            self.user = appUser
+            self.routineService = RoutineNetworkService()
+            self.routineService.getRoutinesByUser(userUid: self.user.uid, completion: { (routines) in
+                DispatchQueue.main.async {
+                    if let routines = routines {
+                        self.routinesArray = routines
+                        self.tableView.reloadData()
+                    }
                 }
-            }
-        })
-        self.tableView.reloadData()
+            })
+            self.tableView.reloadData()
+        }
     }
     
     func startWorkout() {
@@ -81,7 +78,6 @@ class WorkoutsViewModel: UIViewController {
     }
     
     func createWorkoutForSegue(routine: Routine) -> Workout {
-        user = AppUser(id: 999, username: "", email: "", uid: "")
         workout = Workout(id: 0, duration: 0, startDate: "", endDate: "", name: routine.name, notes: routine.notes, kgLiftedOverall: 0, user: user, exercisesSets: routine.exercisesSets)
         return workout
     }
@@ -105,7 +101,7 @@ extension WorkoutsViewModel: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let id = routinesArray[indexPath.row].id
+            let id = Int(routinesArray[indexPath.row].id)
             routineService.removeRoutine(routineId: id)
             routinesArray.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .automatic)

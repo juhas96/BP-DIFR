@@ -34,7 +34,7 @@
         <scene sceneID="8Hr-4s-WjB">
             <objects>
                 <viewControllerPlaceholder storyboardName="NewsFeed" referencedIdentifier="NewsFeedStoryboard" id="aow-nf-qTU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GfF-YJ-6cn"/>
+                    <tabBarItem key="tabBarItem" title="Social" id="GfF-YJ-6cn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVX-vO-cNp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,7 +75,7 @@
         <scene sceneID="W13-Rc-ZoZ">
             <objects>
                 <viewControllerPlaceholder storyboardName="StartWorkoutOrAddWorkout" referencedIdentifier="StartWorkoutOrAddWorkout" id="3uO-Y6-w45" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Start Workout" id="I8e-Oi-QJb"/>
+                    <tabBarItem key="tabBarItem" selectedImage="barbell" systemItem="favorites" id="I8e-Oi-QJb"/>
                     <navigationItem key="navigationItem" id="np1-aO-OZ3"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydH-fw-zY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,4 +83,7 @@
             <point key="canvasLocation" x="3083" y="-273"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="barbell" width="30.5" height="30.5"/>
+    </resources>
 </document>
