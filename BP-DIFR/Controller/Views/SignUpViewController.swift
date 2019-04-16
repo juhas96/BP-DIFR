@@ -7,15 +7,19 @@
 //
 
 import UIKit
-//import Parse
+import FirebaseAuth
+import Alamofire
 
 
 class SignUpViewController: UIViewController {
 
+    var userNetworkservice: UsersNetworkService!
     
     @IBAction func registerButtonTapped(_ sender: Any) {
         handleSignUp()
     }
+    
+    var user = Parameters()
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -28,19 +32,29 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addUserToDatabase() {
+        userNetworkservice = UsersNetworkService()
+        user =
+            [
+                "username":             usernameTextField.text!,
+                "email":                emailTextField.text!,
+                "uid":                  ""
+                
+        ]
+        print("TUSOM \(user)")
+        userNetworkservice.createUser(user: user)
     }
-    */
 
     func handleSignUp() {
-     
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                self.alert(message: "Registration Sucessfull", title: "Congratulation registration successfull")
+                self.addUserToDatabase()
+                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
+            }
+        }
         
     }
     

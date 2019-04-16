@@ -34,6 +34,9 @@ class MyDayViewController: UIViewController {
                         if let workouts = workouts {
                             self.workouts = workouts
                             self.collectionView.reloadData()
+                            let calendar = Calendar.current
+                            let weekOfYear = calendar.component(.weekOfYear, from: Date.init(timeIntervalSinceNow: 0))
+                            print("CurrentWeek: \(weekOfYear)")
                         }
                     }
                 }

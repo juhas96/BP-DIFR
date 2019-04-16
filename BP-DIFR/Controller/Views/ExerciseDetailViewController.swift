@@ -30,8 +30,10 @@ class ExerciseDetailViewController: UIViewController {
     func setUI() {
         exerciseDescription.text = exercise?.description
         exerciseName.title = exercise?.name
-        ImageService.getImage(withURL: URL(string: exercise?.imgURL as! String)!) { (image) in
-            self.exerciseImage.image = image
+        if exercise?.imgURL != nil {
+            ImageService.getImage(withURL: URL(string: exercise?.imgURL as! String)!) { (image) in
+                self.exerciseImage.image = image
+            }
         }
     }
     

@@ -17,6 +17,15 @@
 		9C359A6B223D876800807E43 /* ExercisesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C359A6A223D876800807E43 /* ExercisesNetworkService.swift */; };
 		9C375282222DA10500D4548A /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C375281222DA10500D4548A /* MyDay.storyboard */; };
 		9C375284222DA1AD00D4548A /* NewsFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C375283222DA1AD00D4548A /* NewsFeed.storyboard */; };
+		9C3957E92265B87800BFD199 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3957E72265B87700BFD199 /* ChatLogController.swift */; };
+		9C3957EA2265B87800BFD199 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3957E82265B87800BFD199 /* NewMessageController.swift */; };
+		9C3957EC2265B89500BFD199 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3957EB2265B89500BFD199 /* MessagesController.swift */; };
+		9C3957EE2265B8AE00BFD199 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3957ED2265B8AE00BFD199 /* Message.swift */; };
+		9C3957F02265B8B800BFD199 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3957EF2265B8B800BFD199 /* Extensions.swift */; };
+		9C3957F42265B8CF00BFD199 /* ChatInputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3957F12265B8CE00BFD199 /* ChatInputContainerView.swift */; };
+		9C3957F52265B8CF00BFD199 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3957F22265B8CE00BFD199 /* UserCell.swift */; };
+		9C3957F62265B8CF00BFD199 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3957F32265B8CF00BFD199 /* ChatMessageCell.swift */; };
+		9C3957F82265BA4300BFD199 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3957F72265BA4300BFD199 /* User.swift */; };
 		9C40200422465FD10050DF83 /* CreateExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40200322465FD10050DF83 /* CreateExerciseViewModel.swift */; };
 		9C425419222921E80042288A /* AddRoutineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C425418222921E80042288A /* AddRoutineViewModel.swift */; };
 		9C4A6A24222A6A57007CCD8C /* LogInAndSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4A6A23222A6A57007CCD8C /* LogInAndSignUp.storyboard */; };
@@ -101,6 +110,15 @@
 		9C359A6A223D876800807E43 /* ExercisesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesNetworkService.swift; sourceTree = "<group>"; };
 		9C375281222DA10500D4548A /* MyDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyDay.storyboard; sourceTree = "<group>"; };
 		9C375283222DA1AD00D4548A /* NewsFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsFeed.storyboard; sourceTree = "<group>"; };
+		9C3957E72265B87700BFD199 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		9C3957E82265B87800BFD199 /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
+		9C3957EB2265B89500BFD199 /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
+		9C3957ED2265B8AE00BFD199 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		9C3957EF2265B8B800BFD199 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9C3957F12265B8CE00BFD199 /* ChatInputContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInputContainerView.swift; sourceTree = "<group>"; };
+		9C3957F22265B8CE00BFD199 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		9C3957F32265B8CF00BFD199 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		9C3957F72265BA4300BFD199 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C40200322465FD10050DF83 /* CreateExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExerciseViewModel.swift; sourceTree = "<group>"; };
 		9C425418222921E80042288A /* AddRoutineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineViewModel.swift; sourceTree = "<group>"; };
 		9C4A6A23222A6A57007CCD8C /* LogInAndSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndSignUp.storyboard; sourceTree = "<group>"; };
@@ -194,9 +212,11 @@
 		9C413A23221DEB79005A5A7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9C3957ED2265B8AE00BFD199 /* Message.swift */,
 				9C7FE746221F0E8100557FCD /* Workout.swift */,
 				9C7FE748221F0E8A00557FCD /* Exercise.swift */,
 				9C7FE750221F158700557FCD /* WorkoutExercise.swift */,
+				9C3957F72265BA4300BFD199 /* User.swift */,
 				9CCA3AF6221F4E0100DA9B2B /* Image.swift */,
 				9C109D5722233E8B00F71D50 /* ExerciseApiModel.swift */,
 				9CC60755223122F20091C802 /* AppUser.swift */,
@@ -212,6 +232,9 @@
 		9C413A24221DEB7F005A5A7A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9C3957F12265B8CE00BFD199 /* ChatInputContainerView.swift */,
+				9C3957F32265B8CF00BFD199 /* ChatMessageCell.swift */,
+				9C3957F22265B8CE00BFD199 /* UserCell.swift */,
 				9C4D68FC22214E9C00E93122 /* WorkoutsViewModel.swift */,
 				9C109D5522233D6F00F71D50 /* ExercisesViewModel.swift */,
 				9C425418222921E80042288A /* AddRoutineViewModel.swift */,
@@ -341,6 +364,9 @@
 				9C4D690022217E3200E93122 /* LogInViewController.swift */,
 				9C1C80A8224B977200DB1ACB /* FeedViewController.swift */,
 				9CF5B7A1225A19FD004853A7 /* ProgressViewController.swift */,
+				9C3957E72265B87700BFD199 /* ChatLogController.swift */,
+				9C3957EB2265B89500BFD199 /* MessagesController.swift */,
+				9C3957E82265B87800BFD199 /* NewMessageController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -373,6 +399,7 @@
 		9CEA1EBE2260B39200799FEB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9C3957EF2265B8B800BFD199 /* Extensions.swift */,
 				9CEA1EBF2260B39E00799FEB /* ImageService.swift */,
 				9CC8B0672260D87200D7C854 /* ProfileHelper.swift */,
 			);
@@ -527,11 +554,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BP-DIFR/Pods-BP-DIFR-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -539,11 +568,13 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,16 +596,21 @@
 				9C1C80A9224B977200DB1ACB /* FeedViewController.swift in Sources */,
 				9CC8B06A2260D8BC00D7C854 /* UsersNetworkService.swift in Sources */,
 				9C1C80AB224BB98900DB1ACB /* NewsFeedCell.swift in Sources */,
+				9C3957F02265B8B800BFD199 /* Extensions.swift in Sources */,
 				9C95E27D2224843800F25D47 /* Equipment.swift in Sources */,
+				9C3957EA2265B87800BFD199 /* NewMessageController.swift in Sources */,
 				9CEA6F35222EFBB1008CD7E0 /* WorkoutViewModel.swift in Sources */,
 				9CB757E5224585CB00103768 /* WorkoutsNetworkService.swift in Sources */,
 				9C109D5622233D6F00F71D50 /* ExercisesViewModel.swift in Sources */,
 				9C592687225F3D9B00F627A5 /* HealthKitWorkout.swift in Sources */,
+				9C3957EE2265B8AE00BFD199 /* Message.swift in Sources */,
 				9C4D68F722214B8700E93122 /* MyDayViewController.swift in Sources */,
 				9C4CB652221B43F5008C4A8B /* ViewController.swift in Sources */,
+				9C3957F42265B8CF00BFD199 /* ChatInputContainerView.swift in Sources */,
 				9C0564B0222A8DDF00B6DF07 /* ProfileViewModel.swift in Sources */,
 				9C592685225F3A0000F627A5 /* HKBloodType+StringRepresentation.swift in Sources */,
 				9C7FE749221F0E8A00557FCD /* Exercise.swift in Sources */,
+				9C3957F62265B8CF00BFD199 /* ChatMessageCell.swift in Sources */,
 				9CCA3AF5221F4D2300DA9B2B /* ExerciseCell.swift in Sources */,
 				9C592675225F289800F627A5 /* WorkoutDataStore.swift in Sources */,
 				9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */,
@@ -582,11 +618,13 @@
 				9CC8B0682260D87200D7C854 /* ProfileHelper.swift in Sources */,
 				9C8A4318222C7AD5006A6883 /* OneSetInExerciseCell.swift in Sources */,
 				9C40200422465FD10050DF83 /* CreateExerciseViewModel.swift in Sources */,
+				9C3957EC2265B89500BFD199 /* MessagesController.swift in Sources */,
 				9C4D68FD22214E9C00E93122 /* WorkoutsViewModel.swift in Sources */,
 				9C59267E225F342800F627A5 /* ProfileDataStore.swift in Sources */,
 				9C592683225F39E300F627A5 /* HKBiologicalSex+StringRepresentation.swift in Sources */,
 				9C7FE75D221F350C00557FCD /* ExercisesTableViewController.swift in Sources */,
 				9C94B8D822609E34000A33B7 /* WorkoutSession.swift in Sources */,
+				9C3957E92265B87800BFD199 /* ChatLogController.swift in Sources */,
 				9CE3A68A225A84B900D26E01 /* ExercisesSetsNetworkService.swift in Sources */,
 				9C59267B225F31CF00F627A5 /* HealthKitSetupAssistant.swift in Sources */,
 				9CE096302232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift in Sources */,
@@ -598,10 +636,12 @@
 				9C7FE751221F158700557FCD /* WorkoutExercise.swift in Sources */,
 				9C4D68FF22217E0700E93122 /* SignUpViewController.swift in Sources */,
 				9C109D5822233E8B00F71D50 /* ExerciseApiModel.swift in Sources */,
+				9C3957F82265BA4300BFD199 /* User.swift in Sources */,
 				9CF5B7A2225A19FD004853A7 /* ProgressViewController.swift in Sources */,
 				9CBA65A3224E216B00294C71 /* Routine.swift in Sources */,
 				9C359A6B223D876800807E43 /* ExercisesNetworkService.swift in Sources */,
 				9C7FE747221F0E8100557FCD /* Workout.swift in Sources */,
+				9C3957F52265B8CF00BFD199 /* UserCell.swift in Sources */,
 				9C919A02224AEA620063756D /* TimerViewModel.swift in Sources */,
 				9C7FE74E221F140000557FCD /* BodyPart.swift in Sources */,
 				9C4D690122217E3200E93122 /* LogInViewController.swift in Sources */,

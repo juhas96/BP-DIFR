@@ -26,4 +26,11 @@ class UsersNetworkService {
         }
     }
     
+    func createUser(user: Parameters) {
+        guard let userURL = URL(string: "https://difr.herokuapp.com/users") else { return }
+        Alamofire.request(userURL, method: .post, parameters: user, encoding: JSONEncoding.default).validate().response { (response) in
+            print(response)
+        }
+    }
+    
 }

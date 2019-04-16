@@ -37,7 +37,7 @@ class ProfileViewModel: UIViewController {
     func handleSignOut() {
         do {
             try! Auth.auth().signOut()
-            
+            navigationController?.popViewController(animated: true)
         } catch let err {
             print(err.localizedDescription)
         }

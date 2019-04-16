@@ -14,31 +14,16 @@ import FirebaseUI
 class ViewController: UIViewController {
     
     let backgroundImageView = UIImageView();
-
-    @IBAction func logInButtonTapped(_ sender: UIButton) {
-        
-        if Auth.auth().currentUser != nil {
-            print(Auth.auth().currentUser?.email as Any)
-        }
-        
-        let authUI = FUIAuth.defaultAuthUI()
-        
-        guard authUI != nil else {
-            return
-        }
-        
-        authUI?.delegate = self
-//        let providers: [FUIAuthProvider] = [
-//            EmailAuthProvider
-//        ]
-//        authUI?.providers = providers
-        
-        let authViewController = authUI!.authViewController()
-        present(authViewController,animated: true,completion: nil)
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
+        
+        if Auth.auth().currentUser != nil {
+            print(Auth.auth().currentUser)
+        } else {
+            print("current user is nil")
+        }
     }
    
     /**
@@ -61,13 +46,5 @@ class ViewController: UIViewController {
     }
 
 
-}
-
-extension ViewController: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        guard error == nil else { return }
-        
-        performSegue(withIdentifier: "toHomeScreen", sender: self)
-    }
 }
 

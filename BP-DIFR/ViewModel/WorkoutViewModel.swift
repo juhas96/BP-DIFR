@@ -306,6 +306,7 @@ extension WorkoutViewModel: OneSetInExerciseCellDelegate {
     func didTapCheckButton(kg: String, reps: String, index: IndexPath) {
         self.groupedSets[index.section][index.row-1].kg = Int(kg)
         self.groupedSets[index.section][index.row-1].reps = Int(reps)
+        self.groupedSets[index.section][index.row-1].user = self.user
         print(self.groupedSets[index.section][index.row-1])
     }
     

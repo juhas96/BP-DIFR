@@ -35,6 +35,7 @@ class WorkoutsViewModel: UIViewController {
         profile.fetchUsers { (appUser) in
             if appUser != nil {
                 self.user = appUser
+                print(self.user)
                 self.routineService = RoutineNetworkService()
                 self.routineService.getRoutinesByUser(userUid: self.user.uid, completion: { (routines) in
                     DispatchQueue.main.async {

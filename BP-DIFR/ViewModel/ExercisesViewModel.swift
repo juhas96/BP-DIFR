@@ -30,6 +30,16 @@ class ExercisesViewModel: UIViewController {
         super.viewDidLoad()
         setupNavBar()
         
+        if Auth.auth().currentUser != nil {
+            print(Auth.auth().currentUser)
+        } else {
+            print("current user is nil")
+        }
+        
+        let calendar = Calendar.current
+        let weekOfYear = calendar.component(.weekOfYear, from: Date.init(timeIntervalSinceNow: 0))
+        print("CurrentWeek: \(weekOfYear)")
+        
         HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
             guard authorized else {
                 

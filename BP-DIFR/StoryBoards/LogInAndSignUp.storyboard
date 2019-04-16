@@ -46,8 +46,7 @@
                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="logInButtonTapped:" destination="y9H-PT-aNo" eventType="touchUpInside" id="3Kc-Km-SNf"/>
-                                            <segue destination="oUg-TN-pFL" kind="show" id="e2d-IC-s21"/>
+                                            <segue destination="oUg-TN-pFL" kind="presentation" id="eQP-7q-juv"/>
                                         </connections>
                                     </button>
                                 </subviews>

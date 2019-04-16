@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 
 
 class LogInViewController: UIViewController {
@@ -17,7 +17,15 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
-
+        
+        Auth.auth().signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error != nil {
+                print(error)
+            } else {
+                print("Log IN")
+                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
+            }
+        }
     }
     
     override func viewDidLoad() {

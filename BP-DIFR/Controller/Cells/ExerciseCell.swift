@@ -19,9 +19,10 @@ class ExerciseCell: UITableViewCell {
     }
     
     func setImageView(exerciseUrl: String?) {
-        
-        ImageService.getImage(withURL: URL(string: exerciseUrl!)!) { (image) in
-            self.exerciseImageView.image = image
+        if exerciseUrl != nil {
+            ImageService.getImage(withURL: URL(string: exerciseUrl!)!) { (image) in
+                self.exerciseImageView.image = image
+            }
         }
         
 

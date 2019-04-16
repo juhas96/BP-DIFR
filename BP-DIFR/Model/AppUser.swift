@@ -12,13 +12,14 @@ import Foundation
 struct AppUser : Codable {
     
     var id: Int?
-    var username, email, uid: String
+    var username, email, uid, profileImageUrl: String
     
-    init(id: Int, username: String, email: String, uid: String) {
+    init(id: Int, username: String, email: String, uid: String, profileImageUrl: String) {
         self.id = id
         self.username = username
         self.email = email
         self.uid = uid
+        self.profileImageUrl = profileImageUrl
     }
     
 }

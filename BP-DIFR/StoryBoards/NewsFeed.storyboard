@@ -174,7 +174,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MlI-GR-Ey9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Social" id="pFd-zz-abp"/>
+                    <navigationItem key="navigationItem" title="Social" id="pFd-zz-abp">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="BkU-AK-hzz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Hgm-5f-060" id="bzQ-FE-7jt"/>
                     </connections>

@@ -74,7 +74,7 @@ class AddExerciseToWorkoutViewModel: UIViewController {
         exerciseSet.exercise = exercise
         exerciseSet.kg = 0
         exerciseSet.reps = 0
-        exerciseSet.user = self.user
+//        exerciseSet.user = self.user
 //        exerciseSet.id = 0
     }
     
