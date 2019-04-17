@@ -10,10 +10,18 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import FirebaseAuth
+import CoreML
+import Vision
 
 class ExercisesViewModel: UIViewController {
     
+    @IBAction func cameraTapped(_ sender: Any) {
+        present(imagePicker,animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var exercisesTableView: UITableView!
+    
+    let imagePicker = UIImagePickerController()
     
     // Pole vsetkych cvikov
     var exercisesArray = [Exercise]()
@@ -29,6 +37,10 @@ class ExercisesViewModel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
         
         if Auth.auth().currentUser != nil {
             print(Auth.auth().currentUser)
@@ -170,4 +182,44 @@ extension ExercisesViewModel: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
+}
+
+
+// MARK: MLKit - Image Recognition
+extension ExercisesViewModel: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            guard let ciImage = CIImage(image: userPickedImage) else { fatalError("Could not convert to CIImage.")}
+            
+            detect(image: ciImage)
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func detect(image: CIImage) {
+        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { fatalError("Loading CoreML Model Failed.") }
+        
+        let request = VNCoreMLRequest(model: model) { (request, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                guard let results = request.results as? [VNClassificationObservation] else { fatalError("Model failed to process image.") }
+                
+                if let firstResult = results.first {
+                    self.navigationItem.title = firstResult.identifier
+                }
+            }
+        }
+        
+        let handler = VNImageRequestHandler(ciImage: image)
+        
+        do {
+            try handler.perform([request])
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
 }

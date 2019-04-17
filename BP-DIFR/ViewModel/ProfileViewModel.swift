@@ -62,7 +62,7 @@ class ProfileViewModel: UIViewController {
     
     
     func assigneFirUserToUser(user: User) -> AppUser {
-        return AppUser(id: 999, username: user.displayName ?? "", email: user.email!, uid: user.uid)
+        return AppUser(id: 999, username: user.displayName ?? "", email: user.email!, uid: user.uid, profileImageUrl: "")
     }
 }
 

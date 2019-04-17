@@ -7,6 +7,7 @@ target 'BP-DIFR' do
 
   # Pods for BP-DIFR
 
+ pod 'Firebase/Storage'
  pod 'Firebase/Database'
  pod 'ChameleonFramework'
  pod 'SwiftCharts', '~> 0.6.5'

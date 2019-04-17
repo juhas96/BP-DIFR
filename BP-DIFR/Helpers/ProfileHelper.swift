@@ -32,7 +32,7 @@ class ProfileHelper {
         if Auth.auth().currentUser != nil {
             if(users.count != 0){
                 let appUser: [AppUser] = users.filter {$0.uid == Auth.auth().currentUser?.uid as! String}
-                return AppUser(id: appUser[0].id!, username: appUser[0].username ?? "", email: appUser[0].email ?? "", uid: appUser[0].uid)
+                return AppUser(id: appUser[0].id!, username: appUser[0].username ?? "", email: appUser[0].email ?? "", uid: appUser[0].uid, profileImageUrl: "")
             }
         } else {
             print("Current user is nil")
@@ -40,6 +40,6 @@ class ProfileHelper {
         
         
         
-        return AppUser(id: 999, username: "", email: "", uid: "")
+        return AppUser(id: 999, username: "", email: "", uid: "", profileImageUrl: "")
     }
 }

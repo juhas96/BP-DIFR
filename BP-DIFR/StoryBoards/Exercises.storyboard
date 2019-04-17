@@ -76,9 +76,9 @@
                         <viewLayoutGuide key="safeArea" id="NCN-DY-cvl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Exercises" id="iFa-Uo-Lan">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="t0z-ty-PGb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="t0z-ty-PGb">
                             <connections>
-                                <action selector="refreshTapped:" destination="8m2-3Q-EbK" id="Bj5-ac-wAT"/>
+                                <action selector="cameraTapped:" destination="8m2-3Q-EbK" id="d2b-5z-ndA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Exercise" id="je5-U1-Qez">
