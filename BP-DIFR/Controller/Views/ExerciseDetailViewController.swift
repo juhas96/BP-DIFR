@@ -23,7 +23,6 @@ class ExerciseDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         exerciseDescription.sizeToFit()
-        [exerciseDescription .sizeToFit()]
         setUI()
     }
     

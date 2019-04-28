@@ -14,7 +14,5 @@ target 'BP-DIFR' do
  pod 'Firebase/Core'
  pod 'Firebase/Auth'
  pod 'FirebaseUI/Auth'
- pod 'SwiftyJSON', '~>4.0'
- pod 'Charts'
  pod 'Alamofire'
 end

@@ -24,12 +24,12 @@ class MyDayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let profile = ProfileHelper()
-        profile.fetchUsers { (appUser) in
-            if appUser != nil {
-                self.user = appUser
+//        let profile = ProfileHelper()
+//        profile.fetchUsers { (appUser) in
+//            if appUser != nil {
+//                self.user = appUser
                 self.workoutService = WorkoutsNetworkService()
-                self.workoutService.getWorkoutsByUser(userUid: self.user.uid) { (workouts) in
+                self.workoutService.getWorkoutsByUser(userUid: AppUser.shared.uid!) { (workouts) in
                     DispatchQueue.main.async {
                         if let workouts = workouts {
                             self.workouts = workouts
@@ -41,8 +41,8 @@ class MyDayViewController: UIViewController {
                     }
                 }
                 self.setUpChart()
-            }
-        }
+//            }
+//        }
         
         self.collectionView.reloadData()
         

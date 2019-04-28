@@ -28,12 +28,6 @@ class AddExerciseToWorkoutViewModel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
-        let profile = ProfileHelper()
-        profile.fetchUsers { (appUser) in
-            if appUser != nil {
-                self.user = appUser
-            }
-        }
         exerciseService = ExercisesNetworkService()
         exerciseService.getAllExercises { (exercises) in
             DispatchQueue.main.async {

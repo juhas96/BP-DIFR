@@ -13,7 +13,6 @@ class UsersNetworkService {
     
     func getAllUsers(completion: @escaping ([AppUser]?) -> Void) {
         guard let url = URL(string: "https://difr.herokuapp.com/users") else { return }
-        
         Alamofire.request(url, method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
             do {
@@ -32,5 +31,4 @@ class UsersNetworkService {
             print(response)
         }
     }
-    
 }

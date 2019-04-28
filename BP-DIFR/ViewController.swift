@@ -18,12 +18,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
-        
-        if Auth.auth().currentUser != nil {
-            print(Auth.auth().currentUser)
-        } else {
-            print("current user is nil")
-        }
     }
    
     /**

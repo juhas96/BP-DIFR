@@ -37,7 +37,6 @@ class WorkoutDataStore {
         let healthStore = HKHealthStore()
         let workoutConfiguration = HKWorkoutConfiguration()
         workoutConfiguration.activityType = .other
-        if #available(iOS 12.0, *) {
             let builder = HKWorkoutBuilder(healthStore: healthStore,
                                            configuration: workoutConfiguration,
                                            device: .local())
@@ -69,11 +68,6 @@ class WorkoutDataStore {
                     }
                 }
             }
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        
     }
     
     private class func samples(for workout: GymWorkout) -> [HKSample] {

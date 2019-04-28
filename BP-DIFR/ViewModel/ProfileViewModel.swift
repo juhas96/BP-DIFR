@@ -30,6 +30,8 @@ class ProfileViewModel: UIViewController {
     
     var user: AppUser!
     
+    private let profileHelper = ProfileHelper()
+    
     @IBAction func logOutTapped(_ sender: Any) {
         handleSignOut()
     }
@@ -38,8 +40,6 @@ class ProfileViewModel: UIViewController {
         do {
             try! Auth.auth().signOut()
             navigationController?.popViewController(animated: true)
-        } catch let err {
-            print(err.localizedDescription)
         }
     }
     
@@ -47,8 +47,7 @@ class ProfileViewModel: UIViewController {
         super.viewDidLoad()
 
         if Auth.auth().currentUser != nil {
-            self.user = assigneFirUserToUser(user: Auth.auth().currentUser!)
-            self.userNameLabel.text = user.username
+            self.userNameLabel.text = AppUser.shared.username
             print(user)
         } else {
             print("Current user is nil")
@@ -57,12 +56,6 @@ class ProfileViewModel: UIViewController {
         // nastavenie okruhleho dizajnu na image
         profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
         profileImageView.clipsToBounds = true
-
-    }
-    
-    
-    func assigneFirUserToUser(user: User) -> AppUser {
-        return AppUser(id: 999, username: user.displayName ?? "", email: user.email!, uid: user.uid, profileImageUrl: "")
     }
 }
 

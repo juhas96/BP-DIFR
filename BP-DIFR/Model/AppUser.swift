@@ -10,16 +10,8 @@ import Foundation
 
 
 struct AppUser : Codable {
-    
+    static var shared = AppUser()
     var id: Int?
-    var username, email, uid, profileImageUrl: String
-    
-    init(id: Int, username: String, email: String, uid: String, profileImageUrl: String) {
-        self.id = id
-        self.username = username
-        self.email = email
-        self.uid = uid
-        self.profileImageUrl = profileImageUrl
-    }
-    
+    var username, email, uid: String?
+    private init () {}
 }

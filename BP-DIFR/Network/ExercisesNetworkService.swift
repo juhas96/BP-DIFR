@@ -8,18 +8,11 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class ExercisesNetworkService {
-    let baseUrl: URL? = URL(string: "http://localhost:4545/")
-    private var endPoint: String! = ""
-    var exerciseArray = JSON()
-    var exercisesArray = [Exercise]()
     
     func getAllExercises(completion: @escaping ([Exercise]?) -> Void) {
-        self.endPoint = "exercises"
         guard let exercisesURL = URL(string: "https://difr.herokuapp.com/exercises") else { return }
-        // Vytvorim si zakladne URL na GET pre vsetky cviky v DB
         Alamofire.request(exercisesURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
             do {
@@ -48,5 +41,5 @@ class ExercisesNetworkService {
     }
 }
 
-    
+
 

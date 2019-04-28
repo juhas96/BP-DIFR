@@ -75,7 +75,7 @@ class WorkoutViewModel: UIViewController {
             timer?.invalidate()
         }
         
-        self.currentWorkout?.user = self.user
+        self.currentWorkout?.user = AppUser.shared
         self.currentWorkout?.endDate = String(Date().currentTimeMillis())
         self.currentWorkout?.duration = Int(self.counter)
         if breakTimer != nil {
@@ -163,7 +163,7 @@ class WorkoutViewModel: UIViewController {
         exerciseSet.exercise = groupedSets[section][0].exercise
         exerciseSet.kg = 0
         exerciseSet.reps = 0
-        exerciseSet.user = self.user
+        exerciseSet.user = AppUser.shared
         groupedSets[section].append(exerciseSet)
         print(groupedSets.count)
         print(groupedSets[section].count)
@@ -172,12 +172,12 @@ class WorkoutViewModel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let profile = ProfileHelper()
-        profile.fetchUsers { (appUser) in
-            if appUser != nil {
-                self.user = appUser
-            }
-        }
+//        let profile = ProfileHelper()
+//        profile.fetchUsers { (appUser) in
+//            if appUser != nil {
+//                self.user = appUser
+//            }
+//        }
     
         
         // Ziskam vsetky Sety z Workoutu
@@ -185,7 +185,7 @@ class WorkoutViewModel: UIViewController {
             self.exercisesSetsArray = self.currentWorkout!.exercisesSets
             
             for i in 0..<self.exercisesSetsArray.count {
-                self.exercisesSetsArray[i].user = self.user
+                self.exercisesSetsArray[i].user = AppUser.shared
             }
 
             // Vyfiltrujem ich podla Exercise ktore obsahuju, tym padom dostanem Key : Value kde Key je Exercise a Value je Exercise_Set
@@ -204,7 +204,7 @@ class WorkoutViewModel: UIViewController {
             self.currentWorkout?.startDate = String(Date().currentTimeMillis())
             self.tableView.reloadData()
         } else {
-            self.currentWorkout = Workout(id: 0, duration: 0, startDate: String(Date().currentTimeMillis()), endDate: "", name: "", notes: "", kgLiftedOverall: 0, user: self.user, exercisesSets: self.exercisesSetsArray)
+            self.currentWorkout = Workout(id: 0, duration: 0, startDate: String(Date().currentTimeMillis()), endDate: "", name: "", notes: "", kgLiftedOverall: 0, user: AppUser.shared, exercisesSets: self.exercisesSetsArray)
         }
         
         
@@ -231,7 +231,6 @@ class WorkoutViewModel: UIViewController {
         tableView.beginUpdates()
         tableView.insertRows(at: indexPath, with: .automatic)
         tableView.endUpdates()
-        
         tableView.reloadData()
         view.endEditing(true)
     }
@@ -306,7 +305,7 @@ extension WorkoutViewModel: OneSetInExerciseCellDelegate {
     func didTapCheckButton(kg: String, reps: String, index: IndexPath) {
         self.groupedSets[index.section][index.row-1].kg = Int(kg)
         self.groupedSets[index.section][index.row-1].reps = Int(reps)
-        self.groupedSets[index.section][index.row-1].user = self.user
+        self.groupedSets[index.section][index.row-1].user = AppUser.shared
         print(self.groupedSets[index.section][index.row-1])
     }
     

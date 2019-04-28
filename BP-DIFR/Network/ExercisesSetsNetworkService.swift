@@ -10,9 +10,7 @@ import Foundation
 import Alamofire
 
 class ExercisesSetsNetworkService {
-//    var exercisesSetsArray = [ExercisesSet]()
     
-    // Vrati vsetky exerciseSets podla usera a cviku
     func getAllExerciseSetsByUser(userUid: String, exerciseId: Int, completion: @escaping ([ExercisesSet]?) -> Void) {
         guard let exercisesURL = URL(string: "https://difr.herokuapp.com/exercise_sets/byuser/\(userUid)&\(exerciseId)") else { return }
         Alamofire.request(exercisesURL,method: .get).validate().responseJSON { (response) in

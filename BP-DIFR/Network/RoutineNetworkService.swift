@@ -8,20 +8,11 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class RoutineNetworkService {
     
-    let baseUrl: URL? = URL(string: "http://localhost:4545/")
-    private var endPoint: String! = ""
-    
-    var routineArray = JSON()
-    var routinesArray = [Routine]()
-    
     func getAllRoutines(completion: @escaping ([Routine]?) -> Void) {
-        self.endPoint = "routines"
         guard let routinesURL = URL(string: "https://difr.herokuapp.com/routines") else { return }
-        
         Alamofire.request(routinesURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
             do {
@@ -31,14 +22,11 @@ class RoutineNetworkService {
                 print(error.localizedDescription)
                 completion(nil)
             }
-            
         }
     }
     
     func getRoutinesByUser(userUid: String, completion: @escaping ([Routine]?) -> Void) {
-        self.endPoint = "routines"
         guard let routinesURL = URL(string: "https://difr.herokuapp.com/routines/user/\(userUid)") else { return }
-        
         Alamofire.request(routinesURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
             do {
@@ -48,7 +36,6 @@ class RoutineNetworkService {
                 print(error)
                 completion(nil)
             }
-            
         }
     }
     

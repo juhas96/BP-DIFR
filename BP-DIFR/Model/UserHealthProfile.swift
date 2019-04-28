@@ -24,7 +24,6 @@ class UserHealthProfile {
             else {
                 return nil
         }
-        
         return (weightInKilograms/(heightInMeters*heightInMeters))
     }
 }

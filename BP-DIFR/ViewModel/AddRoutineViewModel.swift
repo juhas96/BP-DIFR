@@ -26,14 +26,6 @@ class AddRoutineViewModel: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let profile = ProfileHelper()
-        profile.fetchUsers { (appUser) in
-            if appUser != nil {
-                self.user = appUser
-            }
-        }
-        
         NotificationCenter.default.addObserver(self, selector: #selector(addExerciseToRoutine(notification:)), name: .addExerciseToWorkout, object: nil)
     }
         
@@ -56,7 +48,7 @@ class AddRoutineViewModel: UIViewController {
     
     func createRoutine() {
         if(routineName.text != nil) {
-            self.routine  = Routine(id: 0, name: routineName.text!, notes: routineNotes.text, user: self.user, exercisesSets: exerciseSets)
+            self.routine  = Routine(id: 0, name: routineName.text!, notes: routineNotes.text, user: AppUser.shared, exercisesSets: exerciseSets)
             self.routineDb = convertRoutineToParameters(routine: self.routine)
             DispatchQueue.main.async {
                 self.addRoutineToDatabase()

@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+//import SwiftyJSON
 import FirebaseAuth
 import CoreML
 import Vision
@@ -38,15 +38,14 @@ class ExercisesViewModel: UIViewController {
         super.viewDidLoad()
         setupNavBar()
         
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = true
-        
-        if Auth.auth().currentUser != nil {
-            print(Auth.auth().currentUser)
-        } else {
-            print("current user is nil")
+        let profileHelper = ProfileHelper()
+        profileHelper.fetchUsers { (user) in
+            print(user)
         }
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
         
         let calendar = Calendar.current
         let weekOfYear = calendar.component(.weekOfYear, from: Date.init(timeIntervalSinceNow: 0))
@@ -203,7 +202,7 @@ extension ExercisesViewModel: UIImagePickerControllerDelegate, UINavigationContr
         
         let request = VNCoreMLRequest(model: model) { (request, error) in
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "Error")
             } else {
                 guard let results = request.results as? [VNClassificationObservation] else { fatalError("Model failed to process image.") }
                 
@@ -221,5 +220,4 @@ extension ExercisesViewModel: UIImagePickerControllerDelegate, UINavigationContr
             print(error.localizedDescription)
         }
     }
-    
 }

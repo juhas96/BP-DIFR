@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Alamofire
-
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
 
@@ -32,13 +32,13 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func addUserToDatabase() {
+    func addUserToDatabase(uid: String) {
         userNetworkservice = UsersNetworkService()
         user =
             [
                 "username":             usernameTextField.text!,
                 "email":                emailTextField.text!,
-                "uid":                  ""
+                "uid":                  uid
                 
         ]
         print("TUSOM \(user)")
@@ -46,16 +46,48 @@ class SignUpViewController: UIViewController {
     }
 
     func handleSignUp() {
+        // Ak je jedno policko prazdne signUp neprebehne
+        guard let email = emailTextField.text, let password = emailTextField.text, let username = usernameTextField.text else {
+            print("Form is not valid")
+            return
+        }
+        
+        // Vytvorim usera
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil {
                 print(error!)
-            } else {
-                self.alert(message: "Registration Sucessfull", title: "Congratulation registration successfull")
-                self.addUserToDatabase()
-                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
+                return
             }
+            
+            guard let uid = user?.user.uid else {
+                return
+            }
+            
+            let values = ["name": username, "email": email]
+            self.registerUserIntoDatabaseWithUID(uid, values: values as [String : AnyObject])
+            
+            self.alert(message: "Registration Sucessfull", title: "Congratulation registration successfull")
+                self.addUserToDatabase(uid: uid)
+                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
         }
         
+    }
+    
+    fileprivate func registerUserIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
+        let ref = Database.database().reference()
+        let usersReference = ref.child("users").child(uid)
+        
+        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            
+            if err != nil {
+                print(err!)
+                return
+            }
+//
+//            let user = ChatUser(dictionary: values)
+//
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     // message pre usera

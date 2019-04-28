@@ -31,15 +31,18 @@ class ProfileHelper {
     func findUserInDatabase(users: [AppUser]) -> AppUser {
         if Auth.auth().currentUser != nil {
             if(users.count != 0){
-                let appUser: [AppUser] = users.filter {$0.uid == Auth.auth().currentUser?.uid as! String}
-                return AppUser(id: appUser[0].id!, username: appUser[0].username ?? "", email: appUser[0].email ?? "", uid: appUser[0].uid, profileImageUrl: "")
+                let appUser: [AppUser] = users.filter {$0.uid == Auth.auth().currentUser?.uid}
+                
+                AppUser.shared.id = appUser[0].id!
+                AppUser.shared.username = appUser[0].username ?? ""
+                AppUser.shared.email = appUser[0].email ?? ""
+                AppUser.shared.uid = appUser[0].uid
+                
+                return AppUser.shared
             }
         } else {
             print("Current user is nil")
         }
-        
-        
-        
-        return AppUser(id: 999, username: "", email: "", uid: "", profileImageUrl: "")
+        return AppUser.shared
     }
 }

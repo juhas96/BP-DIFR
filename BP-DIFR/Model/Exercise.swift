@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-
 /**
  Model pre cvik ktorý sa ukladá do DB
  */

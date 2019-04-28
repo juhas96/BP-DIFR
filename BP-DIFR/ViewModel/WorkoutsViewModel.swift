@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseUI
 import Alamofire
-import SwiftyJSON
+//import SwiftyJSON
 import Firebase
 
 class WorkoutsViewModel: UIViewController {    
@@ -30,41 +30,28 @@ class WorkoutsViewModel: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let profile = ProfileHelper()
-        profile.fetchUsers { (appUser) in
-            if appUser != nil {
-                self.user = appUser
-                print(self.user)
-                self.routineService = RoutineNetworkService()
-                self.routineService.getRoutinesByUser(userUid: self.user.uid, completion: { (routines) in
-                    DispatchQueue.main.async {
-                        if let routines = routines {
-                            self.routinesArray = routines
-                            self.tableView.reloadData()
-                        }
-                    }
-                })
+        self.routineService = RoutineNetworkService()
+        self.routineService.getRoutinesByUser(userUid: AppUser.shared.uid!, completion: { (routines) in
+            DispatchQueue.main.async {
+                if let routines = routines {
+                    self.routinesArray = routines
+                    self.tableView.reloadData()
+                }
             }
-        }
-        
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let profile = ProfileHelper()
-        profile.fetchUsers { (appUser) in
-            self.user = appUser
-            self.routineService = RoutineNetworkService()
-            self.routineService.getRoutinesByUser(userUid: self.user.uid, completion: { (routines) in
-                DispatchQueue.main.async {
-                    if let routines = routines {
-                        self.routinesArray = routines
-                        self.tableView.reloadData()
-                    }
+        self.routineService = RoutineNetworkService()
+        self.routineService.getRoutinesByUser(userUid: AppUser.shared.uid!, completion: { (routines) in
+            DispatchQueue.main.async {
+                if let routines = routines {
+                    self.routinesArray = routines
+                    self.tableView.reloadData()
                 }
-            })
-            self.tableView.reloadData()
-        }
+            }
+        })
+        self.tableView.reloadData()
     }
     
     func startWorkout() {
@@ -79,7 +66,7 @@ class WorkoutsViewModel: UIViewController {
     }
     
     func createWorkoutForSegue(routine: Routine) -> Workout {
-        workout = Workout(id: 0, duration: 0, startDate: "", endDate: "", name: routine.name, notes: routine.notes, kgLiftedOverall: 0, user: user, exercisesSets: routine.exercisesSets)
+        workout = Workout(id: 0, duration: 0, startDate: "", endDate: "", name: routine.name, notes: routine.notes, kgLiftedOverall: 0, user: AppUser.shared, exercisesSets: routine.exercisesSets)
         return workout
     }
 }
@@ -90,12 +77,10 @@ class WorkoutsViewModel: UIViewController {
 // MARK: TableView
 extension WorkoutsViewModel: UITableViewDelegate, UITableViewDataSource {
 
-
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return routinesArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

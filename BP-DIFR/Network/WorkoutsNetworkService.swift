@@ -8,39 +8,11 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
-
-
-extension JSON {
-    public var date: Date! {
-        get {
-            if let str = self.string {
-                return JSON.jsonDateFormatter.date(from: str)
-            }
-            return nil
-        }
-    }
-    
-    private static let jsonDateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
-        return dateFormatter
-    }()
-}
 
 class WorkoutsNetworkService {
     
-    let baseUrl: URL? = URL(string: "http://localhost:4545/")
-    private var endPoint: String! = ""
-    
-    var workoutArray = JSON()
-    var workoutsArray = [Workout]()
-    
     func getAllWorkouts(completion: @escaping ([Workout]?) -> Void) {
-        self.endPoint = "workouts"
         guard let workoutsURL = URL(string: "https://difr.herokuapp.com/workouts") else { return }
-        
         Alamofire.request(workoutsURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
             do {
@@ -50,13 +22,11 @@ class WorkoutsNetworkService {
                 print(error.localizedDescription)
                 completion(nil)
             }
-        
         }
     }
     
     func getWorkoutsByUser(userUid: String, completion: @escaping ([Workout]?) -> Void) {
         guard let workoutsURL = URL(string: "https://difr.herokuapp.com/workouts/user/\(userUid)") else { return }
-        
         Alamofire.request(workoutsURL,method: .get).validate().responseJSON { (response) in
             guard let data = response.data else { return }
             do {
