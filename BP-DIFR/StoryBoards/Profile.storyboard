@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="anj-0Q-V9m">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userSilouethe" translatesAutoresizingMaskIntoConstraints="NO" id="anj-0Q-V9m">
                                 <rect key="frame" x="20" y="118" width="94" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="pYS-gF-TDC"/>
@@ -50,12 +50,19 @@
                                     <segue destination="eCY-tW-vwJ" kind="embed" id="z3A-aH-nA6"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQ7-pt-ei4">
+                                <rect key="frame" x="134" y="124" width="260" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="anj-0Q-V9m" firstAttribute="top" secondItem="mwx-uM-O0Y" secondAttribute="top" constant="30" id="2m6-Ez-iVZ"/>
                             <constraint firstItem="chh-pd-bge" firstAttribute="bottom" secondItem="mwx-uM-O0Y" secondAttribute="bottom" id="5fu-3m-63i"/>
                             <constraint firstItem="chh-pd-bge" firstAttribute="top" secondItem="Lq0-Ni-Mes" secondAttribute="bottom" constant="8" id="5yP-Me-6wf"/>
+                            <constraint firstItem="mwx-uM-O0Y" firstAttribute="trailing" secondItem="BQ7-pt-ei4" secondAttribute="trailing" constant="20" id="684-gF-Bvb"/>
                             <constraint firstItem="chh-pd-bge" firstAttribute="leading" secondItem="mwx-uM-O0Y" secondAttribute="leading" id="HOn-gu-ecN"/>
                             <constraint firstItem="anj-0Q-V9m" firstAttribute="leading" secondItem="mwx-uM-O0Y" secondAttribute="leading" constant="20" id="IbD-7b-QwJ"/>
                             <constraint firstItem="mwx-uM-O0Y" firstAttribute="trailing" secondItem="KcT-Qq-BIV" secondAttribute="trailing" constant="20" id="JJu-wj-uEG"/>
@@ -63,6 +70,8 @@
                             <constraint firstItem="KcT-Qq-BIV" firstAttribute="top" secondItem="mwx-uM-O0Y" secondAttribute="top" constant="65" id="SdO-s0-trh"/>
                             <constraint firstItem="mwx-uM-O0Y" firstAttribute="trailing" secondItem="Lq0-Ni-Mes" secondAttribute="trailing" constant="300" id="Y9r-wT-8Nu"/>
                             <constraint firstItem="Lq0-Ni-Mes" firstAttribute="leading" secondItem="mwx-uM-O0Y" secondAttribute="leading" constant="20" id="dJ7-Wk-Dpw"/>
+                            <constraint firstItem="BQ7-pt-ei4" firstAttribute="top" secondItem="mwx-uM-O0Y" secondAttribute="top" constant="36" id="frQ-qa-zQv"/>
+                            <constraint firstItem="BQ7-pt-ei4" firstAttribute="leading" secondItem="anj-0Q-V9m" secondAttribute="trailing" constant="20" id="oBv-5c-KsK"/>
                             <constraint firstItem="Lq0-Ni-Mes" firstAttribute="top" secondItem="anj-0Q-V9m" secondAttribute="bottom" constant="10" id="rEI-D5-mn1"/>
                             <constraint firstItem="KcT-Qq-BIV" firstAttribute="leading" secondItem="anj-0Q-V9m" secondAttribute="trailing" constant="20" id="w9W-Hb-Fh2"/>
                             <constraint firstItem="mwx-uM-O0Y" firstAttribute="trailing" secondItem="anj-0Q-V9m" secondAttribute="trailing" constant="300" id="yId-vq-GIW"/>
@@ -338,7 +347,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="375" height="812"/>
         <image name="user" width="24.75" height="24.75"/>
+        <image name="userSilouethe" width="75" height="75"/>
     </resources>
 </document>

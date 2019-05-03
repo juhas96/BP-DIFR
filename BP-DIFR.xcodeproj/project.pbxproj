@@ -13,6 +13,7 @@
 		9C1C80A9224B977200DB1ACB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1C80A8224B977200DB1ACB /* FeedViewController.swift */; };
 		9C1C80AB224BB98900DB1ACB /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1C80AA224BB98900DB1ACB /* NewsFeedCell.swift */; };
 		9C1D5D94221FFC8B00EEC081 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */; };
+		9C2473D7227C30CA00CD19ED /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2473D6227C30CA00CD19ED /* Feed.swift */; };
 		9C359A6B223D876800807E43 /* ExercisesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C359A6A223D876800807E43 /* ExercisesNetworkService.swift */; };
 		9C375282222DA10500D4548A /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C375281222DA10500D4548A /* MyDay.storyboard */; };
 		9C375284222DA1AD00D4548A /* NewsFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C375283222DA1AD00D4548A /* NewsFeed.storyboard */; };
@@ -94,6 +95,7 @@
 		9C1C80A8224B977200DB1ACB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		9C1C80AA224BB98900DB1ACB /* NewsFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCell.swift; sourceTree = "<group>"; };
 		9C1D5D93221FFC8B00EEC081 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9C2473D6227C30CA00CD19ED /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		9C359A6A223D876800807E43 /* ExercisesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesNetworkService.swift; sourceTree = "<group>"; };
 		9C375281222DA10500D4548A /* MyDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyDay.storyboard; sourceTree = "<group>"; };
 		9C375283222DA1AD00D4548A /* NewsFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsFeed.storyboard; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				9C59267F225F38BA00F627A5 /* UserHealthProfile.swift */,
 				9C592686225F3D9B00F627A5 /* HealthKitWorkout.swift */,
 				9C94B8D722609E34000A33B7 /* WorkoutSession.swift */,
+				9C2473D6227C30CA00CD19ED /* Feed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				9C94B8D822609E34000A33B7 /* WorkoutSession.swift in Sources */,
 				9CE3A68A225A84B900D26E01 /* ExercisesSetsNetworkService.swift in Sources */,
 				9C59267B225F31CF00F627A5 /* HealthKitSetupAssistant.swift in Sources */,
+				9C2473D7227C30CA00CD19ED /* Feed.swift in Sources */,
 				9CE096302232B57A00148B46 /* AddExerciseToWorkoutViewModel.swift in Sources */,
 				9C4CB650221B43F5008C4A8B /* AppDelegate.swift in Sources */,
 				9C4D68F52221428400E93122 /* WorkoutCell.swift in Sources */,

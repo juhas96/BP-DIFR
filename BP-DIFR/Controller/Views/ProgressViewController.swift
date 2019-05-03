@@ -33,7 +33,7 @@ class ProgressViewController: UIViewController {
     }
     
     func setUpChart() {
-        let chartConfig = BarsChartConfig(valsAxisConfig: ChartAxisConfig(from: 0, to: 50, by: 5))
+        let chartConfig = BarsChartConfig(valsAxisConfig: ChartAxisConfig(from: 0, to: 120, by: 5))
         let frame = CGRect(x: 0, y: 270, width: self.view.frame.width, height: 450)
         let chart = BarsChart(frame: frame,
                               chartConfig: chartConfig,

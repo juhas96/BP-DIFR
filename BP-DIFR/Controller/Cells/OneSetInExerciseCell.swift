@@ -29,6 +29,10 @@ class OneSetInExerciseCell: UITableViewCell {
         self.exerciseSet = exerciseSet
     }
     
+    func setPrevious(previous: String) {
+        self.previous.text = previous
+    }
+    
     let checkboxUnchecked = #imageLiteral(resourceName: "Checkmarkempty")
     let checkboxChecked = #imageLiteral(resourceName: "Checkmark")
     var buttonIsChecked = false
@@ -43,9 +47,6 @@ class OneSetInExerciseCell: UITableViewCell {
             checkButtonOutlet.setImage(checkboxUnchecked, for: .normal)
             buttonIsChecked = false
         }
-        
-        
-        
     }
     
     

@@ -300,7 +300,6 @@
                                 </constraints>
                                 <state key="normal" title="Add Exercises"/>
                                 <connections>
-                                    <action selector="addExerciseTapped:" destination="oec-eF-q1B" eventType="touchUpInside" id="0aO-v6-aFM"/>
                                     <segue destination="L4R-ou-huS" kind="show" id="Wr7-SH-euM"/>
                                 </connections>
                             </button>
@@ -451,7 +450,6 @@
                                                 <constraint firstItem="Eba-3W-Jw3" firstAttribute="leading" secondItem="Yzi-n5-VFs" secondAttribute="leading" id="o0K-RL-Vfb"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="checkButtonOutlet" destination="bTB-Ej-F9g" id="dc9-uS-y6m"/>
                                             <outlet property="kg" destination="QS8-mn-jNT" id="DJT-eO-8GJ"/>
@@ -585,15 +583,24 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a break!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeS-Uw-pWF">
+                                <rect key="frame" x="20" y="174" width="374" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ymw-Ju-Sq4" firstAttribute="leading" secondItem="o7l-NI-7nq" secondAttribute="leading" constant="10" id="Ab9-K0-ieW"/>
+                            <constraint firstItem="o7l-NI-7nq" firstAttribute="trailing" secondItem="EeS-Uw-pWF" secondAttribute="trailing" constant="20" id="Cg9-P6-tVi"/>
                             <constraint firstItem="o7l-NI-7nq" firstAttribute="bottom" secondItem="ymw-Ju-Sq4" secondAttribute="bottom" constant="10" id="JmA-hj-BCe"/>
                             <constraint firstItem="ymw-Ju-Sq4" firstAttribute="top" secondItem="o7l-NI-7nq" secondAttribute="top" constant="10" id="cWL-Qt-8V1"/>
                             <constraint firstItem="o7l-NI-7nq" firstAttribute="bottom" secondItem="CNs-F1-K3L" secondAttribute="bottom" constant="233" id="et2-Ea-4fJ"/>
                             <constraint firstItem="CNs-F1-K3L" firstAttribute="top" secondItem="o7l-NI-7nq" secondAttribute="top" constant="465" id="hS7-UX-kYU"/>
+                            <constraint firstItem="EeS-Uw-pWF" firstAttribute="top" secondItem="o7l-NI-7nq" secondAttribute="top" constant="130" id="onS-u4-Uoa"/>
                             <constraint firstItem="o7l-NI-7nq" firstAttribute="trailing" secondItem="ymw-Ju-Sq4" secondAttribute="trailing" constant="10" id="qE3-zI-nks"/>
+                            <constraint firstItem="EeS-Uw-pWF" firstAttribute="leading" secondItem="o7l-NI-7nq" secondAttribute="leading" constant="20" id="svh-Of-ku4"/>
                             <constraint firstItem="CNs-F1-K3L" firstAttribute="leading" secondItem="o7l-NI-7nq" secondAttribute="leading" constant="20" id="ui9-gJ-Ddl"/>
                             <constraint firstItem="o7l-NI-7nq" firstAttribute="trailing" secondItem="CNs-F1-K3L" secondAttribute="trailing" constant="20" id="w2j-1U-OVs"/>
                         </constraints>
@@ -725,6 +732,6 @@
         <image name="barbell" width="30.5" height="30.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bdT-RM-bMF"/>
+        <segue reference="Wr7-SH-euM"/>
     </inferredMetricsTieBreakers>
 </document>

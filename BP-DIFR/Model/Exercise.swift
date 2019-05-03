@@ -12,20 +12,21 @@ import Foundation
  */
 struct Exercise: Codable, Hashable{
     let id: Int?
-    let description, name: String?
+    let description, name, type: String?
     let category: Int?
     let imgURL: String?
     
     enum CodingKeys: String, CodingKey {
-        case id, description, name, category
+        case id, description, name, category, type
         case imgURL = "img_url"
     }
     
-    init(id: Int, description: String, name: String, category: Int, imgURL: String) {
+    init(id: Int, description: String, name: String, category: Int, imgURL: String, type: String) {
         self.id = id
         self.description = description
         self.name = name
         self.category = category
         self.imgURL = imgURL
+        self.type = type
     }
 }

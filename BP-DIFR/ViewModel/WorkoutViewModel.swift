@@ -32,6 +32,7 @@ class WorkoutViewModel: UIViewController {
     }
     
     var workoutNetworkService: WorkoutsNetworkService!
+    var exerciseSetNetworkService: ExercisesSetsNetworkService!
     
     var currentWorkout: Workout?
     var dbWorkout = String()
@@ -83,8 +84,12 @@ class WorkoutViewModel: UIViewController {
         }
         
         convertExerciseSetsFromDictToArrayAndAssigneToWorkout(exerciseSets: self.groupedSets)
+        self.currentWorkout?.exercisesSets.forEach({ (exerciseSet) in
+            self.currentWorkout?.kgLiftedOverall += exerciseSet.kg ?? 0
+        })
         dbWorkout = convertWorkoutToParameters(workout: self.currentWorkout!)
         
+        print("SOM ZDVIHOL: \(self.currentWorkout?.kgLiftedOverall)")
         print(dbWorkout)
         
         self.session.end()
@@ -172,13 +177,7 @@ class WorkoutViewModel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let profile = ProfileHelper()
-//        profile.fetchUsers { (appUser) in
-//            if appUser != nil {
-//                self.user = appUser
-//            }
-//        }
-    
+        exerciseSetNetworkService = ExercisesSetsNetworkService()
         
         // Ziskam vsetky Sety z Workoutu
         if(self.currentWorkout != nil && self.currentWorkout?.exercisesSets.count != 0) {
@@ -283,6 +282,17 @@ extension WorkoutViewModel: UITableViewDataSource, UITableViewDelegate , UITextF
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "oneSetCell") as? OneSetInExerciseCell else { return UITableViewCell() }
             cell.setNumber.text = String(indexPath.row)
             let exerciseSet = groupedSets[indexPath.section][indexPath.row-1]
+//            var exerciseSetsForThisExercise = [ExercisesSet]()
+            exerciseSetNetworkService.getAllExerciseSetsByUser(userUid: AppUser.shared.uid!, exerciseId: (exerciseSet.exercise?.id!)!) { (result) in
+                DispatchQueue.main.async {
+                    if let exerciseSets = result {
+                        if exerciseSets.count != 0 {
+                            cell.setPrevious(previous: "\(exerciseSets[0].kg ?? 0)x\(exerciseSets[0].reps ?? 0)")
+                        }
+                    }
+                }
+            }
+//            cell.setPrevious(previous: String(exer)
             cell.indexPath = indexPath
             cell.setExerciseSet(exerciseSet: exerciseSet)
             cell.delegate = self
@@ -295,6 +305,7 @@ extension WorkoutViewModel: UITableViewDataSource, UITableViewDelegate , UITextF
         let label = UILabel()
         let text = self.groupedSets[section][0].exercise?.name
         label.text = text
+        label.textColor = UIColor.white
         label.backgroundColor = UIColor.blue
         return label
     }
@@ -392,7 +403,7 @@ extension WorkoutViewModel {
     }
     
     func createBreakTimer() {
-        secondsLeft = 10
+        secondsLeft = 30
         updateBreakTimerLabel()
         if breakTimer == nil {
             // zapnem timer s intervalom 1 sekunda

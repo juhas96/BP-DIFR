@@ -60,12 +60,30 @@
                                     <constraint firstItem="1fH-IA-76e" firstAttribute="top" secondItem="tLi-Jg-p6c" secondAttribute="top" id="xxv-NC-aIv"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your workout progress tracker" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbe-7R-mbq">
+                                <rect key="frame" x="20" y="444" width="374" height="95.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy-to-use workout planner and tracker with automated rest and recovery control" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1b-5v-jgi">
+                                <rect key="frame" x="20" y="569.5" width="374" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="tbe-7R-mbq" firstAttribute="top" secondItem="G9I-V4-9rH" secondAttribute="top" constant="400" id="BLv-V0-gdg"/>
                             <constraint firstItem="tLi-Jg-p6c" firstAttribute="leading" secondItem="G9I-V4-9rH" secondAttribute="leading" constant="20" id="CpI-DB-W6I"/>
+                            <constraint firstItem="G9I-V4-9rH" firstAttribute="trailing" secondItem="tbe-7R-mbq" secondAttribute="trailing" constant="20" id="Fzf-hP-IBS"/>
                             <constraint firstItem="tLi-Jg-p6c" firstAttribute="bottom" secondItem="G9I-V4-9rH" secondAttribute="bottom" id="Jhk-N1-dn8"/>
+                            <constraint firstItem="tbe-7R-mbq" firstAttribute="leading" secondItem="G9I-V4-9rH" secondAttribute="leading" constant="20" id="MA8-Ar-lW4"/>
+                            <constraint firstItem="G9I-V4-9rH" firstAttribute="trailing" secondItem="w1b-5v-jgi" secondAttribute="trailing" constant="20" id="MTQ-gf-e01"/>
                             <constraint firstItem="G9I-V4-9rH" firstAttribute="trailing" secondItem="tLi-Jg-p6c" secondAttribute="trailing" constant="20" id="WE2-rT-s0i"/>
+                            <constraint firstItem="w1b-5v-jgi" firstAttribute="top" secondItem="tbe-7R-mbq" secondAttribute="bottom" constant="30" id="eMl-B8-ipU"/>
+                            <constraint firstItem="w1b-5v-jgi" firstAttribute="leading" secondItem="G9I-V4-9rH" secondAttribute="leading" constant="20" id="trL-AH-VrD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G9I-V4-9rH"/>
                     </view>

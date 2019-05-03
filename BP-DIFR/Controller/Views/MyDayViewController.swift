@@ -101,14 +101,47 @@ extension MyDayViewController: UICollectionViewDelegate, UICollectionViewDataSou
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         
-        cell.setExercises(exercises: String(exercises))
+        cell.setExercises(exercises: String("Exercises: \n\(createExerciseStringFromWorkout(workout: workout))"))
         cell.setDuration(duration: String(workout.duration))
-        cell.setLiftedKg(liftedKg: String(workout.kgLiftedOverall))
+        cell.setLiftedKg(liftedKg: String("Lifted kg: \(workout.kgLiftedOverall)"))
         cell.setWorkoutName(workoutName: workout.name)
         cell.setWorkoutDate(workoutDate: workout.startDate)
         
-        
         return cell
+    }
+}
+
+extension MyDayViewController {
+    func createExerciseStringFromWorkout(workout: Workout) -> String {
+        
+        var exercises = [Exercise]()
+        var exercisesSets = [ExercisesSet]()
+        
+        // vytiahnem si vsetky Exercise Sety z Workoutu
+        exercisesSets = workout.exercisesSets
+        for exerciseSet in exercisesSets {
+            exercises.append(exerciseSet.exercise!)
+        }
+        
+        // vyfiltrujem na unikatne
+        exercises = Array(Set<Exercise>(exercises))
+        
+        var exerciseNames = [String]()
+        
+        // Vytiahnem vsetky Exercise name
+        for exercise in exercises {
+            exerciseNames.append(exercise.name!)
+        }
+        
+        var exerciseString = String()
+        
+        // Vytvorim jednoduchy string na zobrazenie cvikov v treningu
+        for exerciseName in exerciseNames {
+            exerciseString.append(contentsOf: exerciseName)
+            exerciseString.append(", ")
+        }
+        
+        return exerciseString
     }
 }
 

@@ -39,6 +39,21 @@ class ExercisesNetworkService {
             print(response)
         }
     }
+    
+    func getExercisesByType(exerciseType: String? ,completion: @escaping ([Exercise]?) -> Void) {
+        guard let exercisesURL = URL(string: "https://difr.herokuapp.com/exercises/\(String(describing: exerciseType))") else { return }
+        Alamofire.request(exercisesURL, method: .get).validate().responseJSON { (response) in
+            guard let data = response.data else { return }
+            do {
+                let decoder = JSONDecoder()
+                let req = try decoder.decode([Exercise].self, from: data)
+                completion(req)
+            } catch let error {
+                print(error)
+                completion(nil)
+            }
+        }
+    }
 }
 
 

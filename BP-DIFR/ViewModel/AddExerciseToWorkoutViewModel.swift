@@ -54,7 +54,7 @@ class AddExerciseToWorkoutViewModel: UIViewController {
             searchController = UISearchController(searchResultsController: nil)
             searchController.searchResultsUpdater = self
             searchController.obscuresBackgroundDuringPresentation = false
-            searchController.searchBar.placeholder = "Hľadať cviky"
+            searchController.searchBar.placeholder = "Search exercises"
             navigationItem.searchController = searchController
             definesPresentationContext = true
         } else {

@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-//import SwiftyJSON
 import FirebaseAuth
 import CoreML
 import Vision
@@ -25,6 +24,8 @@ class ExercisesViewModel: UIViewController {
     
     // Pole vsetkych cvikov
     var exercisesArray = [Exercise]()
+    
+    var exerciseTypeFindByMl = String()
     
     // service
     var exerciseService: ExercisesNetworkService!
@@ -90,7 +91,7 @@ class ExercisesViewModel: UIViewController {
             searchController = UISearchController(searchResultsController: nil)
             searchController.searchResultsUpdater = self
             searchController.obscuresBackgroundDuringPresentation = false
-            searchController.searchBar.placeholder = "Hľadať cviky"
+            searchController.searchBar.placeholder = "Search Exercises"
             navigationItem.searchController = searchController
             definesPresentationContext = true
         } else {
@@ -106,13 +107,23 @@ class ExercisesViewModel: UIViewController {
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         exerciseSearchArray = exercisesArray.filter({(exercise : Exercise) -> Bool in
-            return exercise.name!.lowercased().contains(searchText.lowercased())
+            return (exercise.name!.lowercased().contains(searchText.lowercased())) || (exercise.type!.lowercased().contains(searchText.lowercased()))
         })
         exercisesTableView.reloadData()
     }
     
+    func filterContentForSearch(_ searchText: String, scope: String = "All") {
+        exerciseSearchArray = exercisesArray.filter({(exercise : Exercise) -> Bool in
+            print(exercise.type!.lowercased().contains(searchText.lowercased()))
+            return exercise.type!.lowercased().contains(searchText.lowercased())
+        })
+        searchController.searchBar.text = searchText
+        
+        exercisesTableView.reloadData()
+    }
+    
     func isFiltering() -> Bool {
-        return searchController.isActive && !searchBarIsEmpty()
+        return !searchBarIsEmpty()
     }
     
     @IBAction func refreshTapped(_ sender: Any) {
@@ -207,7 +218,11 @@ extension ExercisesViewModel: UIImagePickerControllerDelegate, UINavigationContr
                 guard let results = request.results as? [VNClassificationObservation] else { fatalError("Model failed to process image.") }
                 
                 if let firstResult = results.first {
-                    self.navigationItem.title = firstResult.identifier
+                    self.exerciseTypeFindByMl = firstResult.identifier
+                    print("TOTO SOM NASIEL: \(self.exerciseTypeFindByMl)")
+                    self.searchController.searchBar.text = self.exerciseTypeFindByMl
+                    self.updateSearchResults(for: self.searchController)
+                    self.filterContentForSearch(self.exerciseTypeFindByMl)
                 }
             }
         }
